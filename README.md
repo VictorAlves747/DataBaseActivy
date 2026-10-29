@@ -92,19 +92,25 @@ A escolha também possibilita desenvolver um modelo que poderá futuramente ser 
 
 A pesquisa de campo foi realizada presencialmente nas instalações da organização.
 
-As fotografias descritas abaixo serão adicionadas em uma próxima atualização como evidências da organização e da pesquisa de campo.
+As fotografias abaixo foram fornecidas pelo grupo como evidências das instalações visitadas durante a pesquisa de campo.
 
 ### Foto 1 — Ambiente interno da organização
 
 A primeira fotografia apresenta uma área interna da organização, com salas individuais separadas por divisórias de vidro e estrutura destinada à realização das atividades profissionais.
 
-*Foto 1 — envio pendente.*
+![Ambiente interno da organização, com divisórias de vidro](foto-ambiente-interno.jpeg)
 
 ### Foto 2 — Identificação visual da organização
 
 A segunda fotografia apresenta a identificação visual **“Bradesco Empresas e Negócios”** presente nas instalações visitadas.
 
-*Foto 2 — envio pendente.*
+![Identificação visual Bradesco Empresas e Negócios](foto-identificacao.jpeg)
+
+### Foto 3 — Fachada do local visitado
+
+A terceira fotografia apresenta a fachada e a entrada do local visitado, com a identificação visual Bradesco.
+
+![Fachada e entrada do local visitado](foto-fachada.jpeg)
 
 ### Dados da organização
 
