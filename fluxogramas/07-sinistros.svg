@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1390" viewBox="0 0 1500 1390"><rect width="1500" height="1390" fill="#f5f7fb"/>
+<rect x="0" y="0" width="1500" height="150" rx="0" fill="#133d5c" stroke="#133d5c" stroke-width="3"/>
+<text x="60" y="48" font-family="Arial,sans-serif" font-size="36" fill="white" text-anchor="start" dominant-baseline="central">2.7 | Sinistros</text>
+<text x="60" y="108" font-family="Arial,sans-serif" font-size="22" fill="#dcebf4" text-anchor="start" dominant-baseline="central">Corretora de Seguros — Bradesco | Fluxo de referência para o sistema proposto</text>
+<rect x="175.0" y="185.0" width="570.0" height="100.0" rx="45" fill="#e4f2f1" stroke="#427286" stroke-width="3"/>
+<text x="460" y="235.0" font-family="Arial,sans-serif" font-size="25" fill="#20374c" text-anchor="middle" dominant-baseline="central">Cliente comunica uma ocorrência</text>
+<rect x="175.0" y="375.0" width="570.0" height="100.0" rx="10" fill="white" stroke="#427286" stroke-width="3"/>
+<text x="460" y="409.0" font-family="Arial,sans-serif" font-size="25" fill="#20374c" text-anchor="middle" dominant-baseline="central">Identificar a apólice</text>
+<text x="460" y="441.0" font-family="Arial,sans-serif" font-size="25" fill="#20374c" text-anchor="middle" dominant-baseline="central">relacionada ao cliente</text>
+<rect x="175.0" y="565.0" width="570.0" height="100.0" rx="10" fill="white" stroke="#427286" stroke-width="3"/>
+<text x="460" y="599.0" font-family="Arial,sans-serif" font-size="25" fill="#20374c" text-anchor="middle" dominant-baseline="central">Registrar data, descrição e número</text>
+<text x="460" y="631.0" font-family="Arial,sans-serif" font-size="25" fill="#20374c" text-anchor="middle" dominant-baseline="central">do sinistro, quando fornecido</text>
+<rect x="175.0" y="755.0" width="570.0" height="100.0" rx="10" fill="white" stroke="#427286" stroke-width="3"/>
+<text x="460" y="789.0" font-family="Arial,sans-serif" font-size="25" fill="#20374c" text-anchor="middle" dominant-baseline="central">Encaminhar à funcionária responsável</text>
+<text x="460" y="821.0" font-family="Arial,sans-serif" font-size="25" fill="#20374c" text-anchor="middle" dominant-baseline="central">pelo acompanhamento</text>
+<rect x="175.0" y="945.0" width="570.0" height="100.0" rx="10" fill="white" stroke="#427286" stroke-width="3"/>
+<text x="460" y="979.0" font-family="Arial,sans-serif" font-size="25" fill="#20374c" text-anchor="middle" dominant-baseline="central">Acompanhar o caso</text>
+<text x="460" y="1011.0" font-family="Arial,sans-serif" font-size="25" fill="#20374c" text-anchor="middle" dominant-baseline="central">e atualizar a situação</text>
+<rect x="175.0" y="1135.0" width="570.0" height="100.0" rx="45" fill="#e4f2f1" stroke="#427286" stroke-width="3"/>
+<text x="460" y="1185.0" font-family="Arial,sans-serif" font-size="25" fill="#20374c" text-anchor="middle" dominant-baseline="central">Manter o histórico do sinistro</text>
+<polyline points="460,285.0 460,375.0" fill="none" stroke="#57758c" stroke-width="4"/>
+<polygon points="460,375.0 454.5481432076789,362.1051460839596 465.4518567923211,362.1051460839596" fill="#57758c" stroke="#57758c" stroke-width="3"/>
+<polyline points="460,475.0 460,565.0" fill="none" stroke="#57758c" stroke-width="4"/>
+<polygon points="460,565.0 454.5481432076789,552.1051460839597 465.4518567923211,552.1051460839597" fill="#57758c" stroke="#57758c" stroke-width="3"/>
+<polyline points="460,665.0 460,755.0" fill="none" stroke="#57758c" stroke-width="4"/>
+<polygon points="460,755.0 454.5481432076789,742.1051460839597 465.4518567923211,742.1051460839597" fill="#57758c" stroke="#57758c" stroke-width="3"/>
+<polyline points="460,855.0 460,945.0" fill="none" stroke="#57758c" stroke-width="4"/>
+<polygon points="460,945.0 454.5481432076789,932.1051460839597 465.4518567923211,932.1051460839597" fill="#57758c" stroke="#57758c" stroke-width="3"/>
+<polyline points="460,1045.0 460,1135.0" fill="none" stroke="#57758c" stroke-width="4"/>
+<polygon points="460,1135.0 454.5481432076789,1122.1051460839597 465.4518567923211,1122.1051460839597" fill="#57758c" stroke="#57758c" stroke-width="3"/>
+<text x="60" y="1345" font-family="Arial,sans-serif" font-size="20" fill="#20374c" text-anchor="start" dominant-baseline="central">Retângulo: atividade   •   Losango: decisão   •   Forma arredondada: início ou resultado</text></svg>

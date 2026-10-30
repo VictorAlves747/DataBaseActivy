@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1160" viewBox="0 0 1500 1160"><rect width="1500" height="1160" fill="#f5f7fb"/>
+<rect x="0" y="0" width="1500" height="150" rx="0" fill="#133d5c" stroke="#133d5c" stroke-width="3"/>
+<text x="60" y="48" font-family="Arial,sans-serif" font-size="36" fill="white" text-anchor="start" dominant-baseline="central">Visão geral | Integração dos processos</text>
+<text x="60" y="108" font-family="Arial,sans-serif" font-size="22" fill="#dcebf4" text-anchor="start" dominant-baseline="central">As setas indicam encaminhamentos e vínculos entre processos, não cardinalidades.</text>
+<rect x="400.0" y="185.0" width="700.0" height="100.0" rx="10" fill="white" stroke="#427286" stroke-width="3"/>
+<text x="750" y="235.0" font-family="Arial,sans-serif" font-size="25" fill="#20374c" text-anchor="middle" dominant-baseline="central">Cadastro do cliente</text>
+<rect x="400.0" y="370.0" width="700.0" height="100.0" rx="10" fill="white" stroke="#427286" stroke-width="3"/>
+<text x="750" y="420.0" font-family="Arial,sans-serif" font-size="25" fill="#20374c" text-anchor="middle" dominant-baseline="central">Cotação → Propostas → Apólice</text>
+<rect x="100.0" y="640.0" width="400.0" height="100.0" rx="10" fill="white" stroke="#427286" stroke-width="3"/>
+<text x="300" y="690.0" font-family="Arial,sans-serif" font-size="25" fill="#20374c" text-anchor="middle" dominant-baseline="central">Parcelas e pagamentos</text>
+<rect x="550.0" y="640.0" width="400.0" height="100.0" rx="10" fill="white" stroke="#427286" stroke-width="3"/>
+<text x="750" y="690.0" font-family="Arial,sans-serif" font-size="25" fill="#20374c" text-anchor="middle" dominant-baseline="central">Sinistros</text>
+<rect x="1000.0" y="640.0" width="400.0" height="100.0" rx="10" fill="white" stroke="#427286" stroke-width="3"/>
+<text x="1200" y="690.0" font-family="Arial,sans-serif" font-size="25" fill="#20374c" text-anchor="middle" dominant-baseline="central">Renovações concluídas</text>
+<rect x="400.0" y="880.0" width="700.0" height="100.0" rx="10" fill="white" stroke="#427286" stroke-width="3"/>
+<text x="750" y="930.0" font-family="Arial,sans-serif" font-size="25" fill="#20374c" text-anchor="middle" dominant-baseline="central">Histórico do cliente</text>
+<polyline points="750,285.0 750,370.0" fill="none" stroke="#57758c" stroke-width="4"/>
+<polygon points="750,370.0 744.5481432076789,357.1051460839596 755.4518567923211,357.1051460839596" fill="#57758c" stroke="#57758c" stroke-width="3"/>
+<polyline points="750,470.0 750,640.0" fill="none" stroke="#57758c" stroke-width="4"/>
+<polygon points="750,640.0 744.5481432076789,627.1051460839597 755.4518567923211,627.1051460839597" fill="#57758c" stroke="#57758c" stroke-width="3"/>
+<polyline points="750,470 750,545 300,545 300,640" fill="none" stroke="#57758c" stroke-width="4"/>
+<polygon points="300,640 294.5481432076789,627.1051460839597 305.4518567923211,627.1051460839597" fill="#57758c" stroke="#57758c" stroke-width="3"/>
+<polyline points="750,545 1200,545 1200,640" fill="none" stroke="#57758c" stroke-width="4"/>
+<polygon points="1200,640 1194.548143207679,627.1051460839597 1205.451856792321,627.1051460839597" fill="#57758c" stroke="#57758c" stroke-width="3"/>
+<polyline points="300,740 300,820 750,820 750,880" fill="none" stroke="#57758c" stroke-width="4"/>
+<polygon points="750,880 744.5481432076789,867.1051460839597 755.4518567923211,867.1051460839597" fill="#57758c" stroke="#57758c" stroke-width="3"/>
+<polyline points="750,740 750,820 750,820 750,880" fill="none" stroke="#57758c" stroke-width="4"/>
+<polygon points="750,880 744.5481432076789,867.1051460839597 755.4518567923211,867.1051460839597" fill="#57758c" stroke="#57758c" stroke-width="3"/>
+<polyline points="1200,740 1200,820 750,820 750,880" fill="none" stroke="#57758c" stroke-width="4"/>
+<polygon points="750,880 744.5481432076789,867.1051460839597 755.4518567923211,867.1051460839597" fill="#57758c" stroke="#57758c" stroke-width="3"/>
+<text x="750" y="1060" font-family="Arial,sans-serif" font-size="24" fill="#20374c" text-anchor="middle" dominant-baseline="central">Atendimentos e visitas registram contatos com o cliente ao longo da operação.</text>
+<text x="60" y="1115" font-family="Arial,sans-serif" font-size="20" fill="#20374c" text-anchor="start" dominant-baseline="central">Retângulo: atividade   •   Losango: decisão   •   Forma arredondada: início ou resultado</text></svg>
