@@ -165,7 +165,7 @@ Atualmente, o acompanhamento dessas cotações é realizado por meio de Excel e 
 
 ## 2.3 Proposta
 
-Após a realização da cotação, caso o cliente tenha interesse em prosseguir, é elaborada uma proposta.
+Após a realização da cotação, caso o cliente tenha interesse em prosseguir, podem ser elaboradas várias propostas para apresentar diferentes opções ao cliente.
 
 A proposta representa a etapa entre a cotação e a efetiva contratação do seguro.
 
@@ -244,7 +244,9 @@ Quando uma apólice se aproxima do vencimento, a corretora entra em contato com 
 
 ### Fluxo
 
-**Apólice → Verificação do vencimento → Contato com cliente → Renovação ou encerramento**
+**Apólice → Verificação do vencimento → Contato com cliente → Renovação concluída → Registro da renovação**
+
+Se o contato não resultar em renovação, não é criado registro na entidade Renovação.
 
 ---
 
@@ -273,7 +275,7 @@ Quando uma apólice se aproxima do vencimento, a corretora entra em contato com 
 | RF17                      | O sistema deve permitir registrar sinistros.                                                |
 | RF18                      | O sistema deve permitir acompanhar o status dos sinistros.                                  |
 | RF19                      | O sistema deve identificar apólices próximas do vencimento.                                 |
-| RF20                      | O sistema deve permitir registrar renovações.                                               |
+| RF20                      | O sistema deve permitir registrar somente renovações concluídas.                                               |
 | RF21                      | O sistema deve manter o histórico do cliente.                                               |
 | RF22                      | O sistema deve permitir pesquisar informações por cliente, apólice, seguradora ou situação. |
 
@@ -311,18 +313,18 @@ As regras abaixo combinam informações do levantamento e restrições propostas
 | RN05        | Uma cotação deve estar associada a uma seguradora.                                            |
 | RN06        | A Bradesco Seguros é priorizada nas cotações, conforme informação fornecida pela organização. |
 | RN07        | Outras seguradoras podem ser consultadas quando necessário.                                   |
-| RN08        | Neste modelo, cada proposta tem uma cotação de origem; nem toda cotação gera proposta.                                      |
+| RN08        | Cada proposta tem uma cotação de origem; uma cotação pode gerar várias propostas ou nenhuma.                                      |
 | RN09        | Nem toda cotação necessariamente resulta em uma proposta.                                     |
 | RN10        | Uma apólice deve possuir número e período de vigência.                                        |
 | RN11        | A data inicial da vigência deve ser anterior à data final.                                    |
-| RN12        | Uma apólice pode possuir várias parcelas.                                                     |
+| RN12        | Uma apólice pode ser cadastrada antes das parcelas e posteriormente possuir várias parcelas.                                                     |
 | RN13        | Uma parcela deve estar vinculada a uma apólice.                                               |
-| RN14        | Um pagamento deve estar relacionado a uma parcela.                                            |
-| RN15        | Um sinistro deve estar relacionado a uma apólice.                                             |
+| RN14        | Cada pagamento pertence a uma parcela; cada parcela recebe no máximo um pagamento, sem pagamentos parciais.                                            |
+| RN15        | Cada sinistro pertence a uma apólice; uma apólice pode ter vários sinistros durante sua vigência.                                             |
 | RN16        | Os sinistros possuem acompanhamento específico dentro da organização.                         |
 | RN17        | Os atendimentos devem estar relacionados aos clientes.                                        |
 | RN18        | As apólices devem ser acompanhadas quanto ao vencimento.                                      |
-| RN19        | Uma apólice pode entrar em processo de renovação.                                             |
+| RN19        | Somente renovações concluídas devem ser registradas; tentativas sem renovação não são armazenadas.                                             |
 | RN20        | As informações dos clientes devem ser protegidas contra acesso não autorizado.                |
 
 ---
@@ -333,7 +335,7 @@ As regras abaixo combinam informações do levantamento e restrições propostas
 |---|---|---|
 | RO01 | Preferência pela Bradesco Seguros, informada na entrevista. | Seguradora possui o indicador prioridade; outras companhias continuam cadastráveis (RN06/RN07). |
 | RO02 | Controles distribuídos entre planilhas, papel e quadro de visitas. | Cliente centraliza os vínculos; Atendimento registra data, tipo e descrição para conservar o histórico (RF16/RF21). O calendário completo de visitas está fora do escopo do modelo. |
-| RO03 | Vigência e renovação exigem acompanhamento. | Apólice possui início/fim de vigência; Renovação registra contato e resultado. Esses dados permitem consultar os vencimentos (RF19/RF20). |
+| RO03 | Vigência e renovação exigem acompanhamento. | Apólice possui início/fim de vigência; Renovação registra a conclusão e a apólice relacionada. Esses dados permitem consultar os vencimentos (RF19/RF20). |
 | RO04 | Sinistros são acompanhados por uma funcionária específica. | Sinistro é uma entidade própria, vinculada à apólice, com data, descrição e status. |
 | RO05 | Confidencialidade e controle de acesso previstos nos requisitos do projeto. | CPF não deve ser repetido em entidades dependentes. Autenticação, perfis e backup são requisitos de implementação futura (RNF02/RNF03/RNF06/RNF10). |
 | RO06 | Cadastro informado contém CPF, nome e nascimento. | O escopo atual representa pessoa física. O cadastro de pessoas jurídicas não está contemplado nesta proposta. |
@@ -392,7 +394,7 @@ As entidades, atributos e referências estão padronizados entre README, HTML e 
 | `data_proposta` | Data da proposta | Obrigatória |
 | `status` | Situação da proposta | Obrigatório. Domínio proposto: Em análise; aceita; recusada; cancelada. |
 | `valor_proposta` | Valor da proposta | Não negativo |
-| `id_cotacao` (REF) | Cotação de origem | Obrigatório; referencia exatamente uma ocorrência existente da entidade relacionada. Único nesta entidade no modelo proposto. |
+| `id_cotacao` (REF) | Cotação de origem | Obrigatório; referencia uma cotação existente. Pode se repetir entre propostas, pois uma cotação pode gerar várias propostas. |
 
 ## Apólice
 
@@ -452,9 +454,7 @@ As entidades, atributos e referências estão padronizados entre README, HTML e 
 | Atributo / referência | Descrição | Regra de negócio associada |
 |---|---|---|
 | `id_renovacao` (ID) | Identificador | Único e obrigatório; identificador interno proposto. |
-| `data_contato` | Data do contato com cliente | Registrada quando houver contato |
-| `data_renovacao` | Data da renovação | Obrigatória quando concluída |
-| `status` | Situação da renovação | Obrigatório. Domínio proposto: Pendente; em contato; concluída; não renovada. |
+| `data_renovacao` | Data da renovação | Obrigatória; registra a data da renovação concluída |
 | `id_apolice` (REF) | Apólice renovada | Obrigatório; referencia exatamente uma ocorrência existente da entidade relacionada. |
 
 ---
@@ -475,7 +475,7 @@ As entidades, atributos e referências estão padronizados entre README, HTML e 
 | Pagamento | Registra a ocorrência de pagamento; sua ausência permite representar uma parcela ainda não paga. |
 | Atendimento | Conserva o histórico de contatos/visitas relacionado ao cliente. |
 | Sinistro | Permite acompanhamento específico de ocorrências vinculadas a uma apólice. |
-| Renovação | Registra o acompanhamento da renovação de uma apólice de origem, inclusive tentativas não concluídas. |
+| Renovação | Registra somente a renovação concluída de uma apólice de origem. |
 
 ## 6.2 Atributos e classificações
 
@@ -483,7 +483,7 @@ Os atributos de cada entidade estão enumerados na seção 5 e no HTML. Todos s�
 
 - **Identificadores:** `id_*` próprio de cada entidade, único e obrigatório. O CPF é um identificador de negócio alternativo para Cliente (RN02).
 - **Descritivos:** nome, descrição, número de apólice/sinistro, tipo de atendimento e forma de pagamento.
-- **Temporais:** nascimento, datas de cotação/proposta, vigência, vencimento, pagamento, atendimento, sinistro e renovação/contato.
+- **Temporais:** nascimento, datas de cotação/proposta, vigência, vencimento, pagamento, atendimento, sinistro e renovação.
 - **Quantitativos:** valores cotado/proposto, valor da parcela, valor pago e número da parcela.
 - **Categóricos:** status e prioridade. Os domínios sugeridos são decisões técnicas, não respostas atribuídas à entrevistada.
 - **Referências (REF):** os 10 campos de ligação `id_*` em outras entidades expressam os 10 relacionamentos abaixo. Cotação contém três referências; as demais entidades dependentes contêm uma. Eles antecipam o mapeamento dos vínculos sem definir tipos SQL, índices ou armazenamento físico.
@@ -500,23 +500,23 @@ Na tabela, **Destinos por origem** informa quantas ocorrências do destino uma o
 | Cliente | realiza | Cotação | 0..N | 1 | Cada cotação pertence a um cliente; um cliente pode ainda não ter cotações. |
 | Seguradora | recebe | Cotação | 0..N | 1 | Cada cotação consulta uma seguradora; o cadastro pode existir antes de uma consulta. |
 | TipoSeguro | classifica | Cotação | 0..N | 1 | Cada cotação corresponde a uma modalidade; um tipo pode ainda não ter cotações. |
-| Cotação | origina | Proposta | 0..1 | 1 | uma cotação origina no máximo uma proposta; cada proposta tem uma cotação. |
+| Cotação | origina | Proposta | 0..N | 1 | Uma cotação pode originar várias propostas; cada proposta tem uma cotação de origem. |
 | Proposta | origina | Apólice | 0..1 | 1 | uma proposta origina no máximo uma apólice; cada apólice tem uma proposta. |
 | Apólice | possui | Parcela | 0..N | 1 | uma apólice pode ser cadastrada antes das parcelas; cada parcela tem uma apólice. |
 | Parcela | recebe | Pagamento | 0..1 | 1 | uma parcela recebe no máximo um pagamento; cada pagamento pertence a uma parcela. |
 | Cliente | possui | Atendimento | 0..N | 1 | Cada atendimento pertence a um cliente; o cliente pode ainda não ter atendimentos registrados. |
 | Apólice | possui | Sinistro | 0..N | 1 | uma apólice pode não ter sinistros ou ter vários; cada sinistro pertence a uma apólice. |
-| Apólice | possui | Renovação | 0..N | 1 | cada registro representa uma tentativa/processo de renovação de uma apólice de origem. |
+| Apólice | possui | Renovação | 0..N | 1 | Cada registro representa uma renovação concluída de uma apólice de origem. |
 
 ## 6.4 Restrições e políticas aplicadas
 
-RN02 impede duplicidade de CPF; RN11 exige início da vigência anterior ao fim; RN13/RN14/RN15/RN17 exigem vínculos válidos. A combinação apólice + número da parcela identifica a parcela dentro do contrato. As propostas de unicidade dos vínculos em Proposta, Apólice e Pagamento expressam os relacionamentos de cardinalidade máxima unitária.
+RN02 impede duplicidade de CPF; RN11 exige início da vigência anterior ao fim; RN13/RN14/RN15/RN17 exigem vínculos válidos. A combinação apólice + número da parcela identifica a parcela dentro do contrato. Os vínculos em Apólice e Pagamento são únicos para respeitar o máximo de uma apólice por proposta e um pagamento por parcela. Em Proposta, id_cotacao pode se repetir, permitindo diferentes propostas para a mesma cotação.
 
 Uma cotação de outra companhia ou modalidade constitui outro registro. Seguradora e TipoSeguro se relacionam por intermédio de Cotação: o levantamento não sustenta limitar uma seguradora a um único tipo de seguro.
 
 No modelo proposto, pagamento representa a liquidação da parcela: não há linha de pagamento vazia para representar pendência. A atualização da parcela para paga deve acompanhar o registro do pagamento. Estornos, juros, descontos e pagamentos parciais estão fora do escopo desta proposta.
 
-No modelo proposto, Renovação documenta o processo referente à apólice de origem. Uma contratação renovada segue Cotação → Proposta → Apólice, preservando o contrato antigo. Um vínculo explícito entre a apólice antiga e a nova não está neste escopo.
+Renovação registra exclusivamente a conclusão da renovação vinculada à apólice de origem. Tentativas de contato sem renovação não geram registros nessa entidade. O modelo não estabelece um vínculo entre apólices sucessivas.
 
 ---
 
@@ -528,7 +528,7 @@ No modelo proposto, Renovação documenta o processo referente à apólice de or
 
 O diagrama usa entidades em caixas, atributos internos, relacionamentos nomeados e cardinalidades nas extremidades. ID identifica a entidade; REF identifica os vínculos descritos na seção 6. A quantidade junto a uma caixa indica quantas ocorrências **daquela entidade** podem se relacionar a uma ocorrência da entidade na outra ponta (convenção de multiplicidade UML). Não se usa aqui a posição das cardinalidades de participação da notação Chen.
 
-O DER contém 11 entidades, 45 atributos próprios e 10 referências, em correspondência com o dicionário de dados. TipoSeguro está relacionado a Cotação, identificando a modalidade de cada cotação.
+O DER contém 11 entidades, 43 atributos próprios e 10 referências, em correspondência com o dicionário de dados. TipoSeguro está relacionado a Cotação, identificando a modalidade de cada cotação.
 
 ---
 
@@ -536,7 +536,7 @@ O DER contém 11 entidades, 45 atributos próprios e 10 referências, em corresp
 
 ## 8.1 Separação das etapas comerciais
 
-Cotação, Proposta e Apólice possuem datas, situações e finalidades diferentes. Reuni-las em uma única entidade exigiria preencher dados contratuais mesmo quando o cliente não prossegue. O modelo preserva cotações sem proposta e propostas sem apólice. A proposta adota no máximo uma proposta por cotação e uma apólice por proposta.
+Cotação, Proposta e Apólice possuem datas, situações e finalidades diferentes. Reuni-las em uma única entidade exigiria preencher dados contratuais mesmo quando o cliente não prossegue. O modelo preserva cotações sem proposta e propostas sem apólice. Conforme as respostas da entrevista complementar trazidas pelo grupo, uma cotação pode originar várias propostas, enquanto cada proposta pode gerar no máximo uma apólice.
 
 ## 8.2 Identificação e escolha dos atributos
 
@@ -552,9 +552,9 @@ O cliente da apólice é recuperado pela proposta e cotação de origem. Repetir
 
 ## 8.4 Parcelas, pagamentos e renovação
 
-Parcela representa a obrigação; Pagamento representa a ocorrência financeira. Separá-los permite manter vencimentos pendentes sem inventar pagamentos. A proposta considera um pagamento por parcela e não contempla liquidações parciais.
+Parcela representa a obrigação; Pagamento representa a ocorrência financeira. Separá-los permite manter vencimentos pendentes sem inventar pagamentos. A entrevista confirmou que cada parcela recebe um único pagamento, sem liquidações parciais.
 
-Renovação conserva contato, data de conclusão e status do processo da apólice de origem. Não se altera a vigência do contrato antigo para apagar o passado. O modelo registra o processo de renovação relacionado à apólice de origem.
+Renovação conserva a data de conclusão e a referência à apólice de origem. Como somente renovações concluídas são registradas, não são necessários atributos para data de tentativa ou status de andamento. Isso evita armazenar estados que não fazem parte do processo informado.
 
 ## 8.5 Escalabilidade e limites
 
@@ -639,7 +639,7 @@ Por esse motivo, a pesquisa de campo foi utilizada como principal referência pa
 
 ## Justificativa da escolha final
 
-A revisão utiliza o levantamento e o dicionário enviados pelo grupo como base comum. Essa escolha evita tratar os campos extras da primeira imagem como fatos confirmados. As cardinalidades máximas propostas originalmente foram preservadas, com mínimos e significados explicitados.
+A revisão utiliza o levantamento e o dicionário enviados pelo grupo como base comum. Essa escolha evita tratar os campos extras da primeira imagem como fatos confirmados. As respostas da entrevista complementar fundamentam a relação de uma cotação para várias propostas, o pagamento único por parcela e o registro exclusivo de renovações concluídas.
 
 ## Uso de IA na revisão e organização do repositório
 
@@ -649,7 +649,7 @@ A revisão utiliza o levantamento e o dicionário enviados pelo grupo como base 
 | Motivação | Adequar a documentação aos itens exigidos e resolver divergências entre a imagem, o dicionário e o texto. |
 | Prompts utilizados | As instruções sobre adequação ao roteiro, revisão de consistência e publicação estão reunidas na subseção “Síntese dos prompts utilizados na conversa”. Essa síntese organiza pedidos enviados em várias mensagens, sem apresentá-los como um único prompt literal. |
 | Resposta recebida | Auditoria das nove seções; apontamento de campos e vínculos divergentes; documentação revisada; DER padronizado; perguntas objetivas para validação de campo. |
-| Fontes consultadas e verificadas | Roteiro 00-c_Esqueleto_Entrega_1.md.pdf, README e HTML enviados, imagem inicial do DER e três fotos. Os dois repositórios de referência foram consultados apenas para organização. A revisão comparou o texto dos requisitos com os artefatos; não houve nova entrevista nem confirmação externa dos dados da organização. |
+| Fontes consultadas e verificadas | Roteiro 00-c_Esqueleto_Entrega_1.md.pdf, README e HTML enviados, imagem inicial do DER e três fotos. Os dois repositórios de referência foram consultados apenas para organização. A revisão comparou o texto dos requisitos com os artefatos; posteriormente, o grupo forneceu seis respostas obtidas em entrevista complementar com a responsável, utilizadas para atualizar as regras de propostas, apólices, parcelas, pagamentos, sinistros e renovações. |
 | Trechos corrigidos | Cabeçalhos de tabelas e inclusão de Victor; substituição das fotos pendentes; remoção dos atributos extras do DER; TipoSeguro ligado a Cotação; padronização de nomes; explicitação das multiplicidades. A avaliação inicial tratou fluxogramas como pendência, mas o roteiro os declara opcionais, e isso foi corrigido. |
 | Justificativa da escolha final | Usar as informações fornecidas como fonte comum, separar fatos e hipóteses e evitar acrescentar processos não levantados. |
 | Reflexão crítica | Coerência entre arquivos não prova aderência à operação real. Os domínios sugeridos e as hipóteses de cardinalidade podem precisar mudar. A IA não confirma a razão social, as regras de pagamento nem a participação dos integrantes. |
