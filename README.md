@@ -585,15 +585,21 @@ A ferramenta foi utilizada para:
 
 A IA foi utilizada como ferramenta de apoio para transformar as informações coletadas durante a pesquisa de campo em uma estrutura organizada de documentação e modelagem de banco de dados.
 
-## Prompt utilizado
+## Síntese dos prompts utilizados na conversa
 
-O grupo forneceu à ferramenta informações coletadas diretamente da corretora, incluindo:
+As solicitações foram enviadas em diferentes mensagens, acompanhadas dos materiais do projeto. O texto abaixo reúne essas instruções em uma formulação organizada; não corresponde à transcrição literal de um único prompt original.
 
-> "CORRETORA DE SEGURO - QUE ATUA NO BRADESCO. Quais informações vocês cadastram de um cliente? CPF, Nome, Data de nascimento..."
-
-Também foram fornecidas informações sobre os tipos de seguros, apólices, seguradoras, cotações, pagamentos, atendimentos, sinistros, renovações, quantidade de funcionários, clientes e faturamento.
-
-Posteriormente, foi solicitado que essas informações fossem organizadas de acordo com os requisitos da atividade acadêmica.
+> **Contexto:** estamos desenvolvendo um projeto acadêmico de modelagem de banco de dados para uma corretora de seguros que atua junto ao Bradesco. O grupo realizou uma pesquisa de campo e reuniu informações sobre a organização, seus clientes e os processos de cotação, proposta, contratação, pagamento, atendimento, sinistro e renovação.
+>
+> **Materiais fornecidos:** utilize a documentação enviada pelo grupo, o dicionário de dados em HTML, a imagem do DER, as fotografias da visita e o roteiro de entrega do professor. Considere os dois repositórios indicados como referências de estrutura e organização, preenchendo o trabalho com as informações da corretora pesquisada.
+>
+> **Objetivo:** organize e revise o README e os arquivos do projeto de acordo com o roteiro da Entrega 1. Confira a caracterização da organização, os processos de negócio, os requisitos, as regras de negócio, o dicionário de dados, a modelagem conceitual, o DER, a justificativa técnica e o registro do uso de inteligência artificial.
+>
+> **Revisão:** verifique a consistência entre os nomes das entidades, os atributos, os relacionamentos e as cardinalidades apresentados no README, no dicionário HTML e no DER. Corrija o que for possível com os materiais fornecidos e informe ao grupo, pela conversa, quais informações adicionais são necessárias, sem inserir recados de revisão no README destinado à entrega.
+>
+> **Identificação e apresentação:** mantenha os quatro integrantes e seus respectivos RGMs, incluindo Victor Alves Rodrigues Braulino, RGM 48216305. Incorpore as fotografias como evidências da pesquisa de campo e apresente o conteúdo com linguagem clara, organização acadêmica e formatação adequada ao GitHub.
+>
+> **Publicação:** após a autorização do grupo, publique os arquivos no repositório VictorAlves747/DataBaseActivy e atualize-os conforme as correções solicitadas.
 
 ## Resposta recebida
 
@@ -641,7 +647,7 @@ A revisão utiliza o levantamento e o dicionário enviados pelo grupo como base 
 |---|---|
 | Ferramenta e etapa | ChatGPT/Codex — organização e publicação dos materiais fornecidos, comparação com o roteiro do professor, revisão de consistência, redesenho do DER e atualização do HTML/README. |
 | Motivação | Adequar a documentação aos itens exigidos e resolver divergências entre a imagem, o dicionário e o texto. |
-| Prompts utilizados | “este aqui e oq o professor pediu, ve se esta conforme”; “agora oque voce puder fazer com oq eu te dei, corrige e tente deixar conforme o q esta faltando”. |
+| Prompts utilizados | As instruções sobre adequação ao roteiro, revisão de consistência e publicação estão reunidas na subseção “Síntese dos prompts utilizados na conversa”. Essa síntese organiza pedidos enviados em várias mensagens, sem apresentá-los como um único prompt literal. |
 | Resposta recebida | Auditoria das nove seções; apontamento de campos e vínculos divergentes; documentação revisada; DER padronizado; perguntas objetivas para validação de campo. |
 | Fontes consultadas e verificadas | Roteiro 00-c_Esqueleto_Entrega_1.md.pdf, README e HTML enviados, imagem inicial do DER e três fotos. Os dois repositórios de referência foram consultados apenas para organização. A revisão comparou o texto dos requisitos com os artefatos; não houve nova entrevista nem confirmação externa dos dados da organização. |
 | Trechos corrigidos | Cabeçalhos de tabelas e inclusão de Victor; substituição das fotos pendentes; remoção dos atributos extras do DER; TipoSeguro ligado a Cotação; padronização de nomes; explicitação das multiplicidades. A avaliação inicial tratou fluxogramas como pendência, mas o roteiro os declara opcionais, e isso foi corrigido. |
