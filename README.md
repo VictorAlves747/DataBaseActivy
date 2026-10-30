@@ -4,7 +4,7 @@
 
 > **Entrega 1 — Modelo Conceitual (DER)**
 
-[Dicionário de dados em HTML](dicionario_de_dados.html) · [Diagrama Entidade-Relacionamento](DER-corretora.jpeg)
+[Dicionário de dados em HTML](dicionario-dados/dicionario_de_dados.html) · [Diagrama Entidade-Relacionamento](der/DER-corretora.jpeg)
 
 ## Metadados
 
@@ -98,19 +98,19 @@ As fotografias abaixo foram fornecidas pelo grupo como evidências das instalaç
 
 A primeira fotografia apresenta uma área interna da organização, com salas individuais separadas por divisórias de vidro e estrutura destinada à realização das atividades profissionais.
 
-![Ambiente interno da organização, com divisórias de vidro](foto-ambiente-interno.jpeg)
+![Ambiente interno da organização, com divisórias de vidro](evidencias/foto-ambiente-interno.jpeg)
 
 ### Foto 2 — Identificação visual da organização
 
 A segunda fotografia apresenta a identificação visual **“Bradesco Empresas e Negócios”** presente nas instalações visitadas.
 
-![Identificação visual Bradesco Empresas e Negócios](foto-identificacao.jpeg)
+![Identificação visual Bradesco Empresas e Negócios](evidencias/foto-identificacao.jpeg)
 
 ### Foto 3 — Fachada do local visitado
 
 A terceira fotografia apresenta a fachada e a entrada do local visitado, com a identificação visual Bradesco.
 
-![Fachada e entrada do local visitado](foto-fachada.jpeg)
+![Fachada e entrada do local visitado](evidencias/foto-fachada.jpeg)
 
 ### Dados da organização
 
@@ -133,6 +133,10 @@ A terceira fotografia apresenta a fachada e a entrada do local visitado, com a i
 
 Com base na entrevista e na observação realizada durante a visita, foram identificados os seguintes processos.
 
+Os fluxogramas representam os processos mapeados e seu registro no sistema proposto.
+
+![Visão geral da integração dos processos](fluxogramas/00-visao-geral.png)
+
 ## 2.1 Cadastro de clientes
 
 O cadastro é realizado quando um cliente entra em contato com a corretora.
@@ -144,6 +148,9 @@ As principais informações levantadas são:
 - Data de nascimento.
 
 Essas informações são utilizadas para identificar o cliente e relacioná-lo aos demais processos da corretora.
+
+
+![Fluxograma — Cadastro de clientes](fluxogramas/01-cadastro.png)
 
 ---
 
@@ -161,6 +168,9 @@ Atualmente, o acompanhamento dessas cotações é realizado por meio de Excel e 
 
 **Cliente → Levantamento das necessidades → Cotação → Análise das opções → Escolha da opção**
 
+
+![Fluxograma — Cotação](fluxogramas/02-cotacao.png)
+
 ---
 
 ## 2.3 Proposta
@@ -174,6 +184,9 @@ A proposta representa a etapa entre a cotação e a efetiva contratação do seg
 **Cotação → Cliente analisa → Aceita prosseguir → Proposta**
 
 Caso o cliente não prossiga, a cotação permanece registrada sem necessariamente resultar em uma apólice.
+
+
+![Fluxograma — Propostas](fluxogramas/03-proposta.png)
 
 ---
 
@@ -192,6 +205,9 @@ A vigência representa o período durante o qual o seguro permanece válido.
 
 **Proposta → Contratação → Apólice → Controle da vigência**
 
+
+![Fluxograma — Contratação e apólice](fluxogramas/04-apolice.png)
+
 ---
 
 ## 2.5 Controle de parcelas e pagamentos
@@ -203,6 +219,9 @@ O sistema proposto deverá permitir relacionar cada parcela à sua respectiva ap
 ### Fluxo
 
 **Apólice → Parcelas → Vencimento → Pagamento → Atualização do status**
+
+
+![Fluxograma — Parcelas e pagamentos](fluxogramas/05-pagamentos.png)
 
 ---
 
@@ -218,6 +237,9 @@ Além disso, um quadro de vidro é utilizado para organizar as visitas previstas
 
 **Cliente → Atendimento/Visita → Levantamento de informações → Registro → Atualização do acompanhamento**
 
+
+![Fluxograma — Atendimento e visitas](fluxogramas/06-atendimento.png)
+
 ---
 
 ## 2.7 Sinistros
@@ -231,6 +253,9 @@ O modelo proposto deverá permitir relacionar cada sinistro ao cliente e à apó
 ### Fluxo
 
 **Cliente → Comunicação do sinistro → Registro → Acompanhamento → Atualização da situação**
+
+
+![Fluxograma — Sinistros](fluxogramas/07-sinistros.png)
 
 ---
 
@@ -247,6 +272,9 @@ Quando uma apólice se aproxima do vencimento, a corretora entra em contato com 
 **Apólice → Verificação do vencimento → Contato com cliente → Renovação concluída → Registro da renovação**
 
 Se o contato não resultar em renovação, não é criado registro na entidade Renovação.
+
+
+![Fluxograma — Renovação](fluxogramas/08-renovacao.png)
 
 ---
 
@@ -345,7 +373,7 @@ As regras abaixo combinam informações do levantamento e restrições propostas
 
 # 5. Dicionário de Dados Conceitual (Preliminar)
 
-O arquivo [dicionario_de_dados.html](dicionario_de_dados.html) contém as mesmas definições abaixo no formato HTML solicitado. Para visualizar a formatação, baixe-o e abra no navegador.
+O arquivo [dicionario_de_dados.html](dicionario-dados/dicionario_de_dados.html) contém as mesmas definições abaixo no formato HTML solicitado. Para visualizar a formatação, baixe-o e abra no navegador.
 
 As entidades, atributos e referências estão padronizados entre README, HTML e DER. Os domínios e as cardinalidades apresentados constituem decisões de modelagem propostas. ID indica identificador; REF indica referência de relacionamento, não um atributo descritivo adicional. Não se trata de um esquema físico ou de uma implementação SQL.
 
@@ -522,9 +550,9 @@ Renovação registra exclusivamente a conclusão da renovação vinculada à ap�
 
 # 7. Diagrama Entidade-Relacionamento (DER)
 
-![DER revisado — Corretora de Seguros](DER-corretora.jpeg)
+![DER revisado — Corretora de Seguros](der/DER-corretora.jpeg)
 
-[Abrir imagem em tamanho original](DER-corretora.jpeg).
+[Abrir imagem em tamanho original](der/DER-corretora.jpeg).
 
 O diagrama usa entidades em caixas, atributos internos, relacionamentos nomeados e cardinalidades nas extremidades. ID identifica a entidade; REF identifica os vínculos descritos na seção 6. A quantidade junto a uma caixa indica quantas ocorrências **daquela entidade** podem se relacionar a uma ocorrência da entidade na outra ponta (convenção de multiplicidade UML). Não se usa aqui a posição das cardinalidades de participação da notação Chen.
 
@@ -566,90 +594,42 @@ Novas seguradoras, modalidades e ocorrências podem ser cadastradas sem criar um
 
 ## Ferramenta utilizada
 
-**ChatGPT — OpenAI**
+**ChatGPT/Codex — OpenAI**
 
-## Etapas em que foi utilizado
+## Etapas e finalidade do uso
 
-A ferramenta foi utilizada para:
+O grupo realizou a visita, coletou as informações, registrou as fotografias e obteve os esclarecimentos com a responsável pela operação. A IA foi utilizada como apoio à organização da documentação, à elaboração e revisão de requisitos e regras, à estruturação do dicionário de dados e à revisão dos relacionamentos e cardinalidades. Também auxiliou na redação, na produção dos fluxogramas e no redesenho do DER a partir dos materiais fornecidos.
 
-- organização das informações da entrevista;
-- estruturação do README;
-- identificação preliminar de entidades;
-- elaboração dos requisitos;
-- organização das regras de negócio;
-- elaboração do dicionário de dados;
-- revisão da redação;
-- organização da proposta de modelagem.
+O objetivo foi organizar os resultados da pesquisa e verificar a consistência entre a documentação e os diagramas.
 
-## Motivação
+## Síntese dos prompts utilizados
 
-A IA foi utilizada como ferramenta de apoio para transformar as informações coletadas durante a pesquisa de campo em uma estrutura organizada de documentação e modelagem de banco de dados.
+As solicitações foram feitas em diferentes mensagens. A síntese abaixo reúne os principais pedidos, sem constituir a transcrição literal de um único prompt.
 
-## Síntese dos prompts utilizados na conversa
+> Com base nas informações da entrevista com a operação de seguros vinculada ao Bradesco, organize a documentação conforme o roteiro da Entrega 1. Utilize o levantamento, o dicionário de dados, o DER e as fotografias fornecidos pelo grupo. Revise os processos, requisitos, regras de negócio, entidades, atributos e relacionamentos, verificando a consistência entre os materiais. Incorpore as respostas complementares da entrevistada e represente os processos em fluxogramas. Identifique as informações que precisam de esclarecimento, sem tratá-las como fatos confirmados.
 
-As solicitações foram enviadas em diferentes mensagens, acompanhadas dos materiais do projeto. O texto abaixo reúne essas instruções em uma formulação organizada; não corresponde à transcrição literal de um único prompt original.
+## Respostas recebidas e utilização
 
-> **Contexto:** estamos desenvolvendo um projeto acadêmico de modelagem de banco de dados para uma corretora de seguros que atua junto ao Bradesco. O grupo realizou uma pesquisa de campo e reuniu informações sobre a organização, seus clientes e os processos de cotação, proposta, contratação, pagamento, atendimento, sinistro e renovação.
->
-> **Materiais fornecidos:** utilize a documentação enviada pelo grupo, o dicionário de dados em HTML, a imagem do DER, as fotografias da visita e o roteiro de entrega do professor. Considere os dois repositórios indicados como referências de estrutura e organização, preenchendo o trabalho com as informações da corretora pesquisada.
->
-> **Objetivo:** organize e revise o README e os arquivos do projeto de acordo com o roteiro da Entrega 1. Confira a caracterização da organização, os processos de negócio, os requisitos, as regras de negócio, o dicionário de dados, a modelagem conceitual, o DER, a justificativa técnica e o registro do uso de inteligência artificial.
->
-> **Revisão:** verifique a consistência entre os nomes das entidades, os atributos, os relacionamentos e as cardinalidades apresentados no README, no dicionário HTML e no DER. Corrija o que for possível com os materiais fornecidos e informe ao grupo, pela conversa, quais informações adicionais são necessárias, sem inserir recados de revisão no README destinado à entrega.
->
-> **Identificação e apresentação:** mantenha os quatro integrantes e seus respectivos RGMs, incluindo Victor Alves Rodrigues Braulino, RGM 48216305. Incorpore as fotografias como evidências da pesquisa de campo e apresente o conteúdo com linguagem clara, organização acadêmica e formatação adequada ao GitHub.
->
-> **Publicação:** após a autorização do grupo, publique os arquivos no repositório VictorAlves747/DataBaseActivy e atualize-os conforme as correções solicitadas.
-
-## Resposta recebida
-
-A IA organizou as informações em:
-
-- caracterização da organização;
-- processos de negócio;
-- requisitos funcionais;
-- requisitos não funcionais;
-- regras de negócio;
-- entidades;
-- atributos;
-- relacionamentos;
-- cardinalidades;
-- dicionário de dados;
-- justificativa técnica.
+Foram obtidas sugestões de organização das nove seções, requisitos, regras de negócio, tabelas do dicionário, relacionamentos e justificativas técnicas. A ferramenta também produziu versões dos diagramas e apontou divergências entre a imagem inicial do DER e o dicionário. Esses resultados foram confrontados com os dados fornecidos na pesquisa.
 
 ## Fontes consultadas e verificadas
 
-As informações específicas sobre a corretora foram obtidas por meio da **pesquisa de campo e entrevista realizada pelo grupo**.
+- Pesquisa de campo, fotografias e respostas da entrevista realizadas pelo grupo.
+- Respostas complementares sobre propostas, apólices, parcelas, pagamentos, sinistros e renovações.
+- Roteiro de entrega fornecido pelo professor.
+- Documentação, dicionário HTML e DER inicialmente reunidos pelo grupo.
+- Repositórios de outros projetos, utilizados como referência de organização.
 
-As sugestões da IA foram comparadas com as informações fornecidas pela organização para evitar a inclusão de processos inexistentes.
+## Correções realizadas e sugestões rejeitadas
 
-## Trechos corrigidos ou rejeitados
+Foram retirados do DER atributos adicionais que não estavam sustentados pelo levantamento e pelo dicionário. A modalidade de seguro foi vinculada à cotação, e os nomes dos atributos foram padronizados entre os arquivos.
 
-Informações que não foram fornecidas pela organização não foram consideradas como fatos.
-
-Alguns atributos sugeridos para o modelo, como identificadores internos e campos de status, representam decisões técnicas necessárias para estruturar o banco de dados adotadas nesta proposta conceitual.
-
-## Reflexão crítica
-
-A IA foi utilizada apenas como ferramenta de apoio. O grupo reconhece que a ferramenta pode sugerir processos ou estruturas que não correspondam exatamente à realidade da organização.
-
-Por esse motivo, a pesquisa de campo foi utilizada como principal referência para a definição dos processos, requisitos e regras de negócio.
-
----
+A entrevista complementar corrigiu a limitação inicial de uma proposta por cotação: uma cotação pode gerar várias propostas. Também confirmou um pagamento por parcela, sem divisão em pagamentos parciais, e o registro exclusivo de renovações concluídas. Por esse motivo, Renovação não contém campos de tentativa de contato ou de andamento.
 
 ## Justificativa da escolha final
 
-A revisão utiliza o levantamento e o dicionário enviados pelo grupo como base comum. Essa escolha evita tratar os campos extras da primeira imagem como fatos confirmados. As respostas da entrevista complementar fundamentam a relação de uma cotação para várias propostas, o pagamento único por parcela e o registro exclusivo de renovações concluídas.
+O modelo utiliza as informações da organização como referência para os processos e regras. As decisões técnicas, como identificadores internos e separação das entidades, buscam preservar o histórico e evitar duplicidade de dados. As respostas da entrevistada prevaleceram sobre as sugestões iniciais da ferramenta.
 
-## Uso de IA na revisão e organização do repositório
+## Reflexão crítica
 
-| Item | Registro desta etapa |
-|---|---|
-| Ferramenta e etapa | ChatGPT/Codex — organização e publicação dos materiais fornecidos, comparação com o roteiro do professor, revisão de consistência, redesenho do DER e atualização do HTML/README. |
-| Motivação | Adequar a documentação aos itens exigidos e resolver divergências entre a imagem, o dicionário e o texto. |
-| Prompts utilizados | As instruções sobre adequação ao roteiro, revisão de consistência e publicação estão reunidas na subseção “Síntese dos prompts utilizados na conversa”. Essa síntese organiza pedidos enviados em várias mensagens, sem apresentá-los como um único prompt literal. |
-| Resposta recebida | Auditoria das nove seções; apontamento de campos e vínculos divergentes; documentação revisada; DER padronizado; perguntas objetivas para validação de campo. |
-| Fontes consultadas e verificadas | Roteiro 00-c_Esqueleto_Entrega_1.md.pdf, README e HTML enviados, imagem inicial do DER e três fotos. Os dois repositórios de referência foram consultados apenas para organização. A revisão comparou o texto dos requisitos com os artefatos; posteriormente, o grupo forneceu seis respostas obtidas em entrevista complementar com a responsável, utilizadas para atualizar as regras de propostas, apólices, parcelas, pagamentos, sinistros e renovações. |
-| Trechos corrigidos | Cabeçalhos de tabelas e inclusão de Victor; substituição das fotos pendentes; remoção dos atributos extras do DER; TipoSeguro ligado a Cotação; padronização de nomes; explicitação das multiplicidades. A avaliação inicial tratou fluxogramas como pendência, mas o roteiro os declara opcionais, e isso foi corrigido. |
-| Justificativa da escolha final | Usar as informações fornecidas como fonte comum, separar fatos e hipóteses e evitar acrescentar processos não levantados. |
-| Reflexão crítica | Coerência entre arquivos não prova aderência à operação real. Os domínios sugeridos e as hipóteses de cardinalidade podem precisar mudar. A IA não confirma a razão social, as regras de pagamento nem a participação dos integrantes. |
+A IA contribuiu para a organização e a revisão, mas suas sugestões podem incluir atributos ou relações que não correspondem à operação pesquisada. A coerência entre documentos não substitui a pesquisa de campo. Por isso, o trabalho distingue informações levantadas de decisões técnicas propostas e utiliza a entrevista como base para as regras do negócio.
