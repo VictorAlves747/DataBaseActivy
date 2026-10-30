@@ -21,7 +21,7 @@
 
 ## 1.1 Nome e natureza da organização
 
-O objeto deste projeto é a operação de **corretagem de seguros que atua junto ao Bradesco**, conforme relato do grupo. As fotografias identificam o local visitado como **Bradesco Empresas e Negócios**. O modelo abrange a operação de seguros descrita na entrevista, e não o banco Bradesco como um todo.
+O objeto deste projeto é a operação de **corretagem de seguros que atua junto ao Bradesco**, conforme relato do grupo. A visita e a entrevista foram realizadas no **Banco Bradesco — Agência 1363**, situado na **Av. Dr. Chucri Zaidan, 80 — Itaim Bibi, São Paulo — SP, CEP 04583-110, Brasil**. As fotografias identificam o local visitado como **Bradesco Empresas e Negócios**. O modelo abrange a operação de seguros descrita na entrevista, e não o banco Bradesco como um todo.
 
 A organização atua no segmento de seguros, oferecendo diferentes modalidades de produtos para seus clientes. Entre os tipos de seguros trabalhados estão:
 
@@ -116,11 +116,11 @@ A terceira fotografia apresenta a fachada e a entrada do local visitado, com a i
 
 | Informação | Dado |
 | ---------------------------- | ------------------------- |
-| Nome informado               | Bradesco                  |
+| Local da visita e da entrevista | Banco Bradesco — Agência 1363 |
 | Segmento                     | Corretora de seguros      |
 | Início das atividades        | 2016                      |
 | Quantidade de funcionários   | 6                         |
-| Endereço                     | Rua Rego Barros, 570      |
+| Endereço                     | Av. Dr. Chucri Zaidan, 80 — Itaim Bibi, São Paulo — SP, CEP 04583-110, Brasil |
 | E-mail informado             | alicelimna@gmail.com     |
 | Responsável entrevistada     | Patrícia dos Santos Souza |
 | Cargo                        | Sócia                     |
