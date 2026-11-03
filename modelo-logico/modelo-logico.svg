@@ -1,0 +1,196 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="3200" height="2500" viewBox="0 0 3200 2500"><rect width="100%" height="100%" fill="#f6f8fb"/>
+<rect x="0" y="0" width="3200" height="155" fill="#133d5c" stroke="#133d5c" stroke-width="3"/>
+<text x="70" y="60" font-family="Arial,sans-serif" font-size="46" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="white" text-decoration="none">MODELO LÓGICO RELACIONAL</text>
+<text x="70" y="115" font-family="Arial,sans-serif" font-size="28" font-weight="normal" text-anchor="start" dominant-baseline="central" fill="#dbeaf5" text-decoration="none">Operação de seguros | Bradesco | 11 tabelas | MySQL</text>
+<polyline points="720,390 1000,390 1000,980 1290,980" fill="none" stroke="#617d92" stroke-width="4"/>
+<rect x="748" y="327" width="78.0" height="46" fill="#f6f8fb" stroke="#f6f8fb" stroke-width="3"/>
+<text x="755" y="350" font-family="Arial,sans-serif" font-size="27" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">(1, 1)</text>
+<rect x="1153" y="922" width="80.0" height="46" fill="#f6f8fb" stroke="#f6f8fb" stroke-width="3"/>
+<text x="1160" y="945" font-family="Arial,sans-serif" font-size="27" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">(0, n)</text>
+<polyline points="410,518 410,900" fill="none" stroke="#617d92" stroke-width="4"/>
+<rect x="433" y="535" width="78.0" height="46" fill="#f6f8fb" stroke="#f6f8fb" stroke-width="3"/>
+<text x="440" y="558" font-family="Arial,sans-serif" font-size="27" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">(1, 1)</text>
+<rect x="433" y="827" width="80.0" height="46" fill="#f6f8fb" stroke="#f6f8fb" stroke-width="3"/>
+<text x="440" y="850" font-family="Arial,sans-serif" font-size="27" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">(0, n)</text>
+<polyline points="1600,436 1600,850" fill="none" stroke="#617d92" stroke-width="4"/>
+<rect x="1623" y="453" width="78.0" height="46" fill="#f6f8fb" stroke="#f6f8fb" stroke-width="3"/>
+<text x="1630" y="476" font-family="Arial,sans-serif" font-size="27" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">(1, 1)</text>
+<rect x="1623" y="787" width="80.0" height="46" fill="#f6f8fb" stroke="#f6f8fb" stroke-width="3"/>
+<text x="1630" y="810" font-family="Arial,sans-serif" font-size="27" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">(0, n)</text>
+<polyline points="2790,476 2790,1020 1910,1020" fill="none" stroke="#617d92" stroke-width="4"/>
+<rect x="2813" y="493" width="78.0" height="46" fill="#f6f8fb" stroke="#f6f8fb" stroke-width="3"/>
+<text x="2820" y="516" font-family="Arial,sans-serif" font-size="27" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">(1, 1)</text>
+<rect x="1938" y="952" width="80.0" height="46" fill="#f6f8fb" stroke="#f6f8fb" stroke-width="3"/>
+<text x="1945" y="975" font-family="Arial,sans-serif" font-size="27" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">(0, n)</text>
+<polyline points="1600,1224 1600,1410" fill="none" stroke="#617d92" stroke-width="4"/>
+<rect x="1623" y="1233" width="78.0" height="46" fill="#f6f8fb" stroke="#f6f8fb" stroke-width="3"/>
+<text x="1630" y="1256" font-family="Arial,sans-serif" font-size="27" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">(1, 1)</text>
+<rect x="1623" y="1352" width="80.0" height="46" fill="#f6f8fb" stroke="#f6f8fb" stroke-width="3"/>
+<text x="1630" y="1375" font-family="Arial,sans-serif" font-size="27" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">(0, n)</text>
+<polyline points="1600,1700 1600,1990" fill="none" stroke="#617d92" stroke-width="4"/>
+<rect x="1623" y="1712" width="78.0" height="46" fill="#f6f8fb" stroke="#f6f8fb" stroke-width="3"/>
+<text x="1630" y="1735" font-family="Arial,sans-serif" font-size="27" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">(1, 1)</text>
+<rect x="1623" y="1917" width="78.0" height="46" fill="#f6f8fb" stroke="#f6f8fb" stroke-width="3"/>
+<text x="1630" y="1940" font-family="Arial,sans-serif" font-size="27" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">(0, 1)</text>
+<polyline points="1910,2125 2480,2125" fill="none" stroke="#617d92" stroke-width="4"/>
+<rect x="1933" y="2057" width="78.0" height="46" fill="#f6f8fb" stroke="#f6f8fb" stroke-width="3"/>
+<text x="1940" y="2080" font-family="Arial,sans-serif" font-size="27" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">(1, 1)</text>
+<rect x="2333" y="2057" width="80.0" height="46" fill="#f6f8fb" stroke="#f6f8fb" stroke-width="3"/>
+<text x="2340" y="2080" font-family="Arial,sans-serif" font-size="27" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">(0, n)</text>
+<polyline points="2790,1990 2790,1700" fill="none" stroke="#617d92" stroke-width="4"/>
+<rect x="2813" y="1917" width="78.0" height="46" fill="#f6f8fb" stroke="#f6f8fb" stroke-width="3"/>
+<text x="2820" y="1940" font-family="Arial,sans-serif" font-size="27" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">(1, 1)</text>
+<rect x="2813" y="1712" width="78.0" height="46" fill="#f6f8fb" stroke="#f6f8fb" stroke-width="3"/>
+<text x="2820" y="1735" font-family="Arial,sans-serif" font-size="27" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">(0, 1)</text>
+<polyline points="1290,2140 720,2140" fill="none" stroke="#617d92" stroke-width="4"/>
+<rect x="1143" y="2072" width="78.0" height="46" fill="#f6f8fb" stroke="#f6f8fb" stroke-width="3"/>
+<text x="1150" y="2095" font-family="Arial,sans-serif" font-size="27" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">(1, 1)</text>
+<rect x="743" y="2072" width="80.0" height="46" fill="#f6f8fb" stroke="#f6f8fb" stroke-width="3"/>
+<text x="750" y="2095" font-family="Arial,sans-serif" font-size="27" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">(0, n)</text>
+<polyline points="1290,2040 1000,2040 1000,1510 720,1510" fill="none" stroke="#617d92" stroke-width="4"/>
+<rect x="1143" y="1972" width="78.0" height="46" fill="#f6f8fb" stroke="#f6f8fb" stroke-width="3"/>
+<text x="1150" y="1995" font-family="Arial,sans-serif" font-size="27" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">(1, 1)</text>
+<rect x="743" y="1442" width="80.0" height="46" fill="#f6f8fb" stroke="#f6f8fb" stroke-width="3"/>
+<text x="750" y="1465" font-family="Arial,sans-serif" font-size="27" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">(0, n)</text>
+<rect x="100" y="270" width="620" height="248" fill="white" stroke="#657f94" stroke-width="3"/>
+<rect x="100" y="270" width="620" height="62" fill="#184d77" stroke="#657f94" stroke-width="3"/>
+<text x="125" y="301" font-family="Arial,sans-serif" font-size="30" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="white" text-decoration="none">CLIENTE</text>
+<text x="120" y="359" font-family="Arial,sans-serif" font-size="25" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">id_cliente</text>
+<text x="702" y="359" font-family="Arial,sans-serif" font-size="23" font-weight="normal" text-anchor="end" dominant-baseline="central" fill="#24354b" text-decoration="none">INT PK</text>
+<text x="120" y="401" font-family="Arial,sans-serif" font-size="25" font-weight="normal" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">cpf</text>
+<text x="702" y="401" font-family="Arial,sans-serif" font-size="23" font-weight="normal" text-anchor="end" dominant-baseline="central" fill="#24354b" text-decoration="none">CHAR(11)</text>
+<text x="120" y="443" font-family="Arial,sans-serif" font-size="25" font-weight="normal" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">nome</text>
+<text x="702" y="443" font-family="Arial,sans-serif" font-size="23" font-weight="normal" text-anchor="end" dominant-baseline="central" fill="#24354b" text-decoration="none">VARCHAR(120)</text>
+<text x="120" y="485" font-family="Arial,sans-serif" font-size="25" font-weight="normal" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">data_nascimento</text>
+<text x="702" y="485" font-family="Arial,sans-serif" font-size="23" font-weight="normal" text-anchor="end" dominant-baseline="central" fill="#24354b" text-decoration="none">DATE</text>
+<rect x="1290" y="230" width="620" height="206" fill="white" stroke="#657f94" stroke-width="3"/>
+<rect x="1290" y="230" width="620" height="62" fill="#184d77" stroke="#657f94" stroke-width="3"/>
+<text x="1315" y="261" font-family="Arial,sans-serif" font-size="30" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="white" text-decoration="none">SEGURADORA</text>
+<text x="1310" y="319" font-family="Arial,sans-serif" font-size="25" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">id_seguradora</text>
+<text x="1892" y="319" font-family="Arial,sans-serif" font-size="23" font-weight="normal" text-anchor="end" dominant-baseline="central" fill="#24354b" text-decoration="none">INT PK</text>
+<text x="1310" y="361" font-family="Arial,sans-serif" font-size="25" font-weight="normal" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">nome</text>
+<text x="1892" y="361" font-family="Arial,sans-serif" font-size="23" font-weight="normal" text-anchor="end" dominant-baseline="central" fill="#24354b" text-decoration="none">VARCHAR(120)</text>
+<text x="1310" y="403" font-family="Arial,sans-serif" font-size="25" font-weight="normal" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">prioridade</text>
+<text x="1892" y="403" font-family="Arial,sans-serif" font-size="23" font-weight="normal" text-anchor="end" dominant-baseline="central" fill="#24354b" text-decoration="none">TINYINT</text>
+<rect x="2480" y="270" width="620" height="206" fill="white" stroke="#657f94" stroke-width="3"/>
+<rect x="2480" y="270" width="620" height="62" fill="#184d77" stroke="#657f94" stroke-width="3"/>
+<text x="2505" y="301" font-family="Arial,sans-serif" font-size="30" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="white" text-decoration="none">TIPO_SEGURO</text>
+<text x="2500" y="359" font-family="Arial,sans-serif" font-size="25" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">id_tipo_seguro</text>
+<text x="3082" y="359" font-family="Arial,sans-serif" font-size="23" font-weight="normal" text-anchor="end" dominant-baseline="central" fill="#24354b" text-decoration="none">INT PK</text>
+<text x="2500" y="401" font-family="Arial,sans-serif" font-size="25" font-weight="normal" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">nome</text>
+<text x="3082" y="401" font-family="Arial,sans-serif" font-size="23" font-weight="normal" text-anchor="end" dominant-baseline="central" fill="#24354b" text-decoration="none">VARCHAR(120)</text>
+<text x="2500" y="443" font-family="Arial,sans-serif" font-size="25" font-weight="normal" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">descricao</text>
+<text x="3082" y="443" font-family="Arial,sans-serif" font-size="23" font-weight="normal" text-anchor="end" dominant-baseline="central" fill="#24354b" text-decoration="none">VARCHAR(1000)</text>
+<rect x="1290" y="850" width="620" height="374" fill="white" stroke="#657f94" stroke-width="3"/>
+<rect x="1290" y="850" width="620" height="62" fill="#184d77" stroke="#657f94" stroke-width="3"/>
+<text x="1315" y="881" font-family="Arial,sans-serif" font-size="30" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="white" text-decoration="none">COTACAO</text>
+<text x="1310" y="939" font-family="Arial,sans-serif" font-size="25" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">id_cotacao</text>
+<text x="1892" y="939" font-family="Arial,sans-serif" font-size="23" font-weight="normal" text-anchor="end" dominant-baseline="central" fill="#24354b" text-decoration="none">INT PK</text>
+<text x="1310" y="981" font-family="Arial,sans-serif" font-size="25" font-weight="normal" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">data_cotacao</text>
+<text x="1892" y="981" font-family="Arial,sans-serif" font-size="23" font-weight="normal" text-anchor="end" dominant-baseline="central" fill="#24354b" text-decoration="none">DATE</text>
+<text x="1310" y="1023" font-family="Arial,sans-serif" font-size="25" font-weight="normal" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">valor_cotado</text>
+<text x="1892" y="1023" font-family="Arial,sans-serif" font-size="23" font-weight="normal" text-anchor="end" dominant-baseline="central" fill="#24354b" text-decoration="none">DECIMAL(12,2)</text>
+<text x="1310" y="1065" font-family="Arial,sans-serif" font-size="25" font-weight="normal" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">status</text>
+<text x="1892" y="1065" font-family="Arial,sans-serif" font-size="23" font-weight="normal" text-anchor="end" dominant-baseline="central" fill="#24354b" text-decoration="none">VARCHAR(30)</text>
+<text x="1310" y="1107" font-family="Arial,sans-serif" font-size="25" font-weight="normal" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">id_cliente</text>
+<text x="1892" y="1107" font-family="Arial,sans-serif" font-size="23" font-weight="normal" text-anchor="end" dominant-baseline="central" fill="#24354b" text-decoration="none">INT FK</text>
+<text x="1310" y="1149" font-family="Arial,sans-serif" font-size="25" font-weight="normal" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">id_seguradora</text>
+<text x="1892" y="1149" font-family="Arial,sans-serif" font-size="23" font-weight="normal" text-anchor="end" dominant-baseline="central" fill="#24354b" text-decoration="none">INT FK</text>
+<text x="1310" y="1191" font-family="Arial,sans-serif" font-size="25" font-weight="normal" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">id_tipo_seguro</text>
+<text x="1892" y="1191" font-family="Arial,sans-serif" font-size="23" font-weight="normal" text-anchor="end" dominant-baseline="central" fill="#24354b" text-decoration="none">INT FK</text>
+<rect x="1290" y="1410" width="620" height="290" fill="white" stroke="#657f94" stroke-width="3"/>
+<rect x="1290" y="1410" width="620" height="62" fill="#184d77" stroke="#657f94" stroke-width="3"/>
+<text x="1315" y="1441" font-family="Arial,sans-serif" font-size="30" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="white" text-decoration="none">PROPOSTA</text>
+<text x="1310" y="1499" font-family="Arial,sans-serif" font-size="25" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">id_proposta</text>
+<text x="1892" y="1499" font-family="Arial,sans-serif" font-size="23" font-weight="normal" text-anchor="end" dominant-baseline="central" fill="#24354b" text-decoration="none">INT PK</text>
+<text x="1310" y="1541" font-family="Arial,sans-serif" font-size="25" font-weight="normal" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">data_proposta</text>
+<text x="1892" y="1541" font-family="Arial,sans-serif" font-size="23" font-weight="normal" text-anchor="end" dominant-baseline="central" fill="#24354b" text-decoration="none">DATE</text>
+<text x="1310" y="1583" font-family="Arial,sans-serif" font-size="25" font-weight="normal" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">status</text>
+<text x="1892" y="1583" font-family="Arial,sans-serif" font-size="23" font-weight="normal" text-anchor="end" dominant-baseline="central" fill="#24354b" text-decoration="none">VARCHAR(30)</text>
+<text x="1310" y="1625" font-family="Arial,sans-serif" font-size="25" font-weight="normal" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">valor_proposta</text>
+<text x="1892" y="1625" font-family="Arial,sans-serif" font-size="23" font-weight="normal" text-anchor="end" dominant-baseline="central" fill="#24354b" text-decoration="none">DECIMAL(12,2)</text>
+<text x="1310" y="1667" font-family="Arial,sans-serif" font-size="25" font-weight="normal" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">id_cotacao</text>
+<text x="1892" y="1667" font-family="Arial,sans-serif" font-size="23" font-weight="normal" text-anchor="end" dominant-baseline="central" fill="#24354b" text-decoration="none">INT FK</text>
+<rect x="1290" y="1990" width="620" height="332" fill="white" stroke="#657f94" stroke-width="3"/>
+<rect x="1290" y="1990" width="620" height="62" fill="#184d77" stroke="#657f94" stroke-width="3"/>
+<text x="1315" y="2021" font-family="Arial,sans-serif" font-size="30" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="white" text-decoration="none">APOLICE</text>
+<text x="1310" y="2079" font-family="Arial,sans-serif" font-size="25" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">id_apolice</text>
+<text x="1892" y="2079" font-family="Arial,sans-serif" font-size="23" font-weight="normal" text-anchor="end" dominant-baseline="central" fill="#24354b" text-decoration="none">INT PK</text>
+<text x="1310" y="2121" font-family="Arial,sans-serif" font-size="25" font-weight="normal" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">numero_apolice</text>
+<text x="1892" y="2121" font-family="Arial,sans-serif" font-size="23" font-weight="normal" text-anchor="end" dominant-baseline="central" fill="#24354b" text-decoration="none">VARCHAR(60)</text>
+<text x="1310" y="2163" font-family="Arial,sans-serif" font-size="25" font-weight="normal" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">inicio_vigencia</text>
+<text x="1892" y="2163" font-family="Arial,sans-serif" font-size="23" font-weight="normal" text-anchor="end" dominant-baseline="central" fill="#24354b" text-decoration="none">DATE</text>
+<text x="1310" y="2205" font-family="Arial,sans-serif" font-size="25" font-weight="normal" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">fim_vigencia</text>
+<text x="1892" y="2205" font-family="Arial,sans-serif" font-size="23" font-weight="normal" text-anchor="end" dominant-baseline="central" fill="#24354b" text-decoration="none">DATE</text>
+<text x="1310" y="2247" font-family="Arial,sans-serif" font-size="25" font-weight="normal" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">status</text>
+<text x="1892" y="2247" font-family="Arial,sans-serif" font-size="23" font-weight="normal" text-anchor="end" dominant-baseline="central" fill="#24354b" text-decoration="none">VARCHAR(30)</text>
+<text x="1310" y="2289" font-family="Arial,sans-serif" font-size="25" font-weight="normal" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">id_proposta</text>
+<text x="1892" y="2289" font-family="Arial,sans-serif" font-size="23" font-weight="normal" text-anchor="end" dominant-baseline="central" fill="#24354b" text-decoration="none">INT FK</text>
+<rect x="2480" y="1990" width="620" height="332" fill="white" stroke="#657f94" stroke-width="3"/>
+<rect x="2480" y="1990" width="620" height="62" fill="#184d77" stroke="#657f94" stroke-width="3"/>
+<text x="2505" y="2021" font-family="Arial,sans-serif" font-size="30" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="white" text-decoration="none">PARCELA</text>
+<text x="2500" y="2079" font-family="Arial,sans-serif" font-size="25" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">id_parcela</text>
+<text x="3082" y="2079" font-family="Arial,sans-serif" font-size="23" font-weight="normal" text-anchor="end" dominant-baseline="central" fill="#24354b" text-decoration="none">INT PK</text>
+<text x="2500" y="2121" font-family="Arial,sans-serif" font-size="25" font-weight="normal" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">numero_parcela</text>
+<text x="3082" y="2121" font-family="Arial,sans-serif" font-size="23" font-weight="normal" text-anchor="end" dominant-baseline="central" fill="#24354b" text-decoration="none">SMALLINT</text>
+<text x="2500" y="2163" font-family="Arial,sans-serif" font-size="25" font-weight="normal" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">valor</text>
+<text x="3082" y="2163" font-family="Arial,sans-serif" font-size="23" font-weight="normal" text-anchor="end" dominant-baseline="central" fill="#24354b" text-decoration="none">DECIMAL(12,2)</text>
+<text x="2500" y="2205" font-family="Arial,sans-serif" font-size="25" font-weight="normal" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">data_vencimento</text>
+<text x="3082" y="2205" font-family="Arial,sans-serif" font-size="23" font-weight="normal" text-anchor="end" dominant-baseline="central" fill="#24354b" text-decoration="none">DATE</text>
+<text x="2500" y="2247" font-family="Arial,sans-serif" font-size="25" font-weight="normal" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">status</text>
+<text x="3082" y="2247" font-family="Arial,sans-serif" font-size="23" font-weight="normal" text-anchor="end" dominant-baseline="central" fill="#24354b" text-decoration="none">VARCHAR(30)</text>
+<text x="2500" y="2289" font-family="Arial,sans-serif" font-size="25" font-weight="normal" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">id_apolice</text>
+<text x="3082" y="2289" font-family="Arial,sans-serif" font-size="23" font-weight="normal" text-anchor="end" dominant-baseline="central" fill="#24354b" text-decoration="none">INT FK</text>
+<rect x="2480" y="1410" width="620" height="290" fill="white" stroke="#657f94" stroke-width="3"/>
+<rect x="2480" y="1410" width="620" height="62" fill="#184d77" stroke="#657f94" stroke-width="3"/>
+<text x="2505" y="1441" font-family="Arial,sans-serif" font-size="30" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="white" text-decoration="none">PAGAMENTO</text>
+<text x="2500" y="1499" font-family="Arial,sans-serif" font-size="25" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">id_pagamento</text>
+<text x="3082" y="1499" font-family="Arial,sans-serif" font-size="23" font-weight="normal" text-anchor="end" dominant-baseline="central" fill="#24354b" text-decoration="none">INT PK</text>
+<text x="2500" y="1541" font-family="Arial,sans-serif" font-size="25" font-weight="normal" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">data_pagamento</text>
+<text x="3082" y="1541" font-family="Arial,sans-serif" font-size="23" font-weight="normal" text-anchor="end" dominant-baseline="central" fill="#24354b" text-decoration="none">DATE</text>
+<text x="2500" y="1583" font-family="Arial,sans-serif" font-size="25" font-weight="normal" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">valor_pago</text>
+<text x="3082" y="1583" font-family="Arial,sans-serif" font-size="23" font-weight="normal" text-anchor="end" dominant-baseline="central" fill="#24354b" text-decoration="none">DECIMAL(12,2)</text>
+<text x="2500" y="1625" font-family="Arial,sans-serif" font-size="25" font-weight="normal" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">forma_pagamento</text>
+<text x="3082" y="1625" font-family="Arial,sans-serif" font-size="23" font-weight="normal" text-anchor="end" dominant-baseline="central" fill="#24354b" text-decoration="none">VARCHAR(30)</text>
+<text x="2500" y="1667" font-family="Arial,sans-serif" font-size="25" font-weight="normal" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">id_parcela</text>
+<text x="3082" y="1667" font-family="Arial,sans-serif" font-size="23" font-weight="normal" text-anchor="end" dominant-baseline="central" fill="#24354b" text-decoration="none">INT FK</text>
+<rect x="100" y="900" width="620" height="290" fill="white" stroke="#657f94" stroke-width="3"/>
+<rect x="100" y="900" width="620" height="62" fill="#184d77" stroke="#657f94" stroke-width="3"/>
+<text x="125" y="931" font-family="Arial,sans-serif" font-size="30" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="white" text-decoration="none">ATENDIMENTO</text>
+<text x="120" y="989" font-family="Arial,sans-serif" font-size="25" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">id_atendimento</text>
+<text x="702" y="989" font-family="Arial,sans-serif" font-size="23" font-weight="normal" text-anchor="end" dominant-baseline="central" fill="#24354b" text-decoration="none">INT PK</text>
+<text x="120" y="1031" font-family="Arial,sans-serif" font-size="25" font-weight="normal" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">data_atendimento</text>
+<text x="702" y="1031" font-family="Arial,sans-serif" font-size="23" font-weight="normal" text-anchor="end" dominant-baseline="central" fill="#24354b" text-decoration="none">DATE</text>
+<text x="120" y="1073" font-family="Arial,sans-serif" font-size="25" font-weight="normal" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">tipo_atendimento</text>
+<text x="702" y="1073" font-family="Arial,sans-serif" font-size="23" font-weight="normal" text-anchor="end" dominant-baseline="central" fill="#24354b" text-decoration="none">VARCHAR(30)</text>
+<text x="120" y="1115" font-family="Arial,sans-serif" font-size="25" font-weight="normal" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">descricao</text>
+<text x="702" y="1115" font-family="Arial,sans-serif" font-size="23" font-weight="normal" text-anchor="end" dominant-baseline="central" fill="#24354b" text-decoration="none">VARCHAR(1000)</text>
+<text x="120" y="1157" font-family="Arial,sans-serif" font-size="25" font-weight="normal" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">id_cliente</text>
+<text x="702" y="1157" font-family="Arial,sans-serif" font-size="23" font-weight="normal" text-anchor="end" dominant-baseline="central" fill="#24354b" text-decoration="none">INT FK</text>
+<rect x="100" y="1990" width="620" height="332" fill="white" stroke="#657f94" stroke-width="3"/>
+<rect x="100" y="1990" width="620" height="62" fill="#184d77" stroke="#657f94" stroke-width="3"/>
+<text x="125" y="2021" font-family="Arial,sans-serif" font-size="30" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="white" text-decoration="none">SINISTRO</text>
+<text x="120" y="2079" font-family="Arial,sans-serif" font-size="25" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">id_sinistro</text>
+<text x="702" y="2079" font-family="Arial,sans-serif" font-size="23" font-weight="normal" text-anchor="end" dominant-baseline="central" fill="#24354b" text-decoration="none">INT PK</text>
+<text x="120" y="2121" font-family="Arial,sans-serif" font-size="25" font-weight="normal" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">numero_sinistro</text>
+<text x="702" y="2121" font-family="Arial,sans-serif" font-size="23" font-weight="normal" text-anchor="end" dominant-baseline="central" fill="#24354b" text-decoration="none">VARCHAR(60)</text>
+<text x="120" y="2163" font-family="Arial,sans-serif" font-size="25" font-weight="normal" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">data_sinistro</text>
+<text x="702" y="2163" font-family="Arial,sans-serif" font-size="23" font-weight="normal" text-anchor="end" dominant-baseline="central" fill="#24354b" text-decoration="none">DATE</text>
+<text x="120" y="2205" font-family="Arial,sans-serif" font-size="25" font-weight="normal" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">descricao</text>
+<text x="702" y="2205" font-family="Arial,sans-serif" font-size="23" font-weight="normal" text-anchor="end" dominant-baseline="central" fill="#24354b" text-decoration="none">VARCHAR(1000)</text>
+<text x="120" y="2247" font-family="Arial,sans-serif" font-size="25" font-weight="normal" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">status</text>
+<text x="702" y="2247" font-family="Arial,sans-serif" font-size="23" font-weight="normal" text-anchor="end" dominant-baseline="central" fill="#24354b" text-decoration="none">VARCHAR(30)</text>
+<text x="120" y="2289" font-family="Arial,sans-serif" font-size="25" font-weight="normal" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">id_apolice</text>
+<text x="702" y="2289" font-family="Arial,sans-serif" font-size="23" font-weight="normal" text-anchor="end" dominant-baseline="central" fill="#24354b" text-decoration="none">INT FK</text>
+<rect x="100" y="1410" width="620" height="206" fill="white" stroke="#657f94" stroke-width="3"/>
+<rect x="100" y="1410" width="620" height="62" fill="#184d77" stroke="#657f94" stroke-width="3"/>
+<text x="125" y="1441" font-family="Arial,sans-serif" font-size="30" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="white" text-decoration="none">RENOVACAO</text>
+<text x="120" y="1499" font-family="Arial,sans-serif" font-size="25" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">id_renovacao</text>
+<text x="702" y="1499" font-family="Arial,sans-serif" font-size="23" font-weight="normal" text-anchor="end" dominant-baseline="central" fill="#24354b" text-decoration="none">INT PK</text>
+<text x="120" y="1541" font-family="Arial,sans-serif" font-size="25" font-weight="normal" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">data_renovacao</text>
+<text x="702" y="1541" font-family="Arial,sans-serif" font-size="23" font-weight="normal" text-anchor="end" dominant-baseline="central" fill="#24354b" text-decoration="none">DATE</text>
+<text x="120" y="1583" font-family="Arial,sans-serif" font-size="25" font-weight="normal" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">id_apolice</text>
+<text x="702" y="1583" font-family="Arial,sans-serif" font-size="23" font-weight="normal" text-anchor="end" dominant-baseline="central" fill="#24354b" text-decoration="none">INT FK</text>
+<text x="70" y="2390" font-family="Arial,sans-serif" font-size="27" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">PK: chave primária | FK: chave estrangeira | Tipos inteiros sem sinal detalhados no dicionário.</text>
+<text x="70" y="2440" font-family="Arial,sans-serif" font-size="25" font-weight="normal" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">Multiplicidade junto à tabela: quantas linhas dela correspondem a uma linha da tabela da outra ponta.</text>
+</svg>
