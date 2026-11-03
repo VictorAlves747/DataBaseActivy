@@ -8,9 +8,9 @@ A visita foi realizada no Banco Bradesco — Agência 1363, Av. Dr. Chucri Zaida
 
 As três fotografias mostram a fachada, as salas com divisórias de vidro e a identificação “Bradesco Empresas e Negócios”. Elas documentam o ambiente visitado. As imagens, por si sós, não comprovam a execução dos processos nem quem participou da entrevista.
 
-- [Fachada](../evidencias/foto-fachada.jpg)
-- [Ambiente interno](../evidencias/foto-ambiente-interno.jpg)
-- [Identificação](../evidencias/foto-identificacao.jpg)
+- [Fachada](../evidencias/foto-fachada.jpeg)
+- [Ambiente interno](../evidencias/foto-ambiente-interno.jpeg)
+- [Identificação](../evidencias/foto-identificacao.jpeg)
 
 ## Informações relatadas na pesquisa
 
