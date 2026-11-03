@@ -1,635 +1,388 @@
-# PROJETO DE MODELAGEM DE BANCO DE DADOS
+# Entrega 2 — Modelo Lógico, Implementação SQL e Apresentação Final
 
-## Corretora de Seguros — Bradesco
+## Gestão da operação de seguros — Bradesco
 
-> **Entrega 1 — Modelo Conceitual (DER)**
+[DER conceitual](der/der-conceitual.png) · [Modelo lógico](modelo-logico/modelo-logico.png) · [Dicionário HTML](dicionario-dados/dicionario_de_dados.html) · [Levantamento](levantamento/levantamento.md) · [SQL completo](docs/script.sql)
 
-[Dicionário de dados em HTML](dicionario-dados/dicionario_de_dados.html) · [Diagrama Entidade-Relacionamento](der/DER-corretora.jpeg)
+## Integrantes
 
-## Metadados
+| Integrante | RGM | Usuário GitHub |
+|---|---|---|
+| Mateus Martins Gonçalves | 47812222 | conteudo pendente |
+| Raul Borges Sim | 48247634 | conteudo pendente |
+| João Gustavo Bento de Souza | 42283671 | conteudo pendente |
+| Victor Alves Rodrigues Braulino | 48216305 | [VictorAlves747](https://github.com/VictorAlves747) |
 
-| Integrante | RGM |
-| --------------------------- | -------- |
-| Mateus Martins Gonçalves    | 47812222 |
-| Raul Borges Sim             | 48247634 |
-| João Gustavo Bento de Souza | 42283671 |
-| Victor Alves Rodrigues Braulino | 48216305 |
+# 1. Relatório Técnico Final
 
----
+## 1.1 Revisão do Modelo Conceitual
 
-# 1. Caracterização da Organização
+### Caracterização da organização
 
-## 1.1 Nome e natureza da organização
-
-O objeto deste projeto é a operação de **corretagem de seguros que atua junto ao Bradesco**, conforme relato do grupo. A visita e a entrevista foram realizadas no **Banco Bradesco — Agência 1363**, situado na **Av. Dr. Chucri Zaidan, 80 — Itaim Bibi, São Paulo — SP, CEP 04583-110, Brasil**. As fotografias identificam o local visitado como **Bradesco Empresas e Negócios**. O modelo abrange a operação de seguros descrita na entrevista, e não o banco Bradesco como um todo.
-
-A organização atua no segmento de seguros, oferecendo diferentes modalidades de produtos para seus clientes. Entre os tipos de seguros trabalhados estão:
-
-- Seguro Auto;
-- Seguro Residencial;
-- Seguro Empresarial;
-- Seguro de Vida;
-- Seguro Saúde;
-- Seguro Dental;
-- Outros tipos de seguros disponibilizados pelas companhias parceiras.
-
-A corretora possui fins lucrativos e está em funcionamento desde **2016**.
-
-## 1.2 Contexto e porte
-
-Atualmente, a organização conta com aproximadamente **6 funcionários**.
-
-De acordo com as informações obtidas durante a pesquisa de campo, a corretora atende aproximadamente **50 a 100 clientes por mês** e comercializa cerca de **50 a 60 seguros mensalmente**, considerando todos os produtos oferecidos.
-
-O faturamento médio mensal informado é de aproximadamente **R$ 60.000,00**.
-
-A operação envolve diversas atividades, incluindo cadastro de clientes, atendimento, elaboração de cotações, acompanhamento de propostas, contratação de seguros, controle de apólices, acompanhamento de parcelas e pagamentos, atendimento de sinistros e renovação de apólices.
-
-## 1.3 Problemas e necessidades identificados
-
-Durante a pesquisa de campo, foi observado que grande parte das informações operacionais é controlada por meio de **Excel e Google Planilhas**.
-
-As cotações e propostas são acompanhadas por planilhas, assim como os pagamentos e parcelas dos seguros.
-
-O acompanhamento dos atendimentos também utiliza planilhas. Em determinadas situações, durante uma visita ao cliente, as informações são inicialmente anotadas em **folhas de papel** e posteriormente utilizadas para atualizar os controles.
-
-A organização também utiliza um **quadro de vidro** para organizar as visitas que serão realizadas durante a semana.
-
-Outro processo específico é o acompanhamento de sinistros, que é realizado por uma funcionária especializada nessa atividade, responsável pelas listagens e pelo acompanhamento dos casos.
-
-As renovações são acompanhadas por Excel e Google Planilhas. A corretora também recebe um link da sucursal, no qual são registrados os seguros fechados, auxiliando na identificação das apólices próximas ao vencimento.
-
-### Principais problemas identificados
-
-- Informações distribuídas entre Excel e Google Planilhas;
-- Dependência de controles manuais;
-- Utilização de papel durante determinados atendimentos e visitas;
-- Necessidade de atualizar informações manualmente após as visitas;
-- Controle visual de visitas por meio de quadro de vidro;
-- Dificuldade de centralizar o histórico dos clientes;
-- Controle manual de parcelas e pagamentos;
-- Necessidade de acompanhar constantemente os vencimentos das apólices;
-- Controle das renovações realizado por diferentes ferramentas;
-- Informações de sinistros concentradas em um controle específico.
-
-Diante desse cenário, o projeto propõe a modelagem de um banco de dados capaz de **centralizar e organizar as principais informações da corretora**.
-
----
-
-## 1.4 Justificativa da escolha
-
-A corretora foi escolhida por ser uma organização real na qual o grupo teve acesso para realizar pesquisa de campo e levantar informações diretamente relacionadas aos processos de negócio.
-
-A organização apresenta características adequadas para um projeto de banco de dados, pois trabalha diariamente com grande quantidade de informações relacionadas a clientes, seguros, seguradoras, cotações, propostas, apólices, pagamentos, atendimentos, sinistros e renovações.
-
-Além disso, a utilização de Excel, Google Planilhas e registros manuais demonstra uma oportunidade de melhoria por meio da centralização das informações em um banco de dados.
-
-A escolha também possibilita desenvolver um modelo que poderá futuramente ser utilizado como base para um sistema informatizado de gerenciamento da corretora.
-
----
-
-## 1.5 Evidências da organização e da pesquisa de campo
-
-A pesquisa de campo foi realizada presencialmente nas instalações da organização.
-
-As fotografias abaixo foram fornecidas pelo grupo como evidências das instalações visitadas durante a pesquisa de campo.
-
-### Foto 1 — Ambiente interno da organização
-
-A primeira fotografia apresenta uma área interna da organização, com salas individuais separadas por divisórias de vidro e estrutura destinada à realização das atividades profissionais.
-
-![Ambiente interno da organização, com divisórias de vidro](evidencias/foto-ambiente-interno.jpeg)
-
-### Foto 2 — Identificação visual da organização
-
-A segunda fotografia apresenta a identificação visual **“Bradesco Empresas e Negócios”** presente nas instalações visitadas.
-
-![Identificação visual Bradesco Empresas e Negócios](evidencias/foto-identificacao.jpeg)
-
-### Foto 3 — Fachada do local visitado
-
-A terceira fotografia apresenta a fachada e a entrada do local visitado, com a identificação visual Bradesco.
-
-![Fachada e entrada do local visitado](evidencias/foto-fachada.jpeg)
-
-### Dados da organização
-
-| Informação | Dado |
-| ---------------------------- | ------------------------- |
-| Local da visita e da entrevista | Banco Bradesco — Agência 1363 |
-| Segmento                     | Corretora de seguros      |
-| Início das atividades        | 2016                      |
-| Quantidade de funcionários   | 6                         |
-| Endereço                     | Av. Dr. Chucri Zaidan, 80 — Itaim Bibi, São Paulo — SP, CEP 04583-110, Brasil |
-| E-mail informado             | alicelimna@gmail.com     |
-| Responsável entrevistada     | Patrícia dos Santos Souza |
-| Cargo                        | Sócia                     |
-| Google Maps/Site/Rede social | Não informado             |
-
-
----
-
-# 2. Processos de Negócio
-
-Com base na entrevista e na observação realizada durante a visita, foram identificados os seguintes processos.
-
-Os fluxogramas representam os processos mapeados e seu registro no sistema proposto.
-
-![Visão geral da integração dos processos](fluxogramas/00-visao-geral.png)
-
-## 2.1 Cadastro de clientes
-
-O cadastro é realizado quando um cliente entra em contato com a corretora.
-
-As principais informações levantadas são:
-
-- CPF;
-- Nome;
-- Data de nascimento.
-
-Essas informações são utilizadas para identificar o cliente e relacioná-lo aos demais processos da corretora.
-
-
-![Fluxograma — Cadastro de clientes](fluxogramas/01-cadastro.png)
-
----
-
-## 2.2 Cotação
-
-Após o levantamento das necessidades do cliente, a corretora realiza uma ou mais cotações.
-
-A organização trabalha com diversos tipos de seguros e consulta diferentes seguradoras.
-
-A **Bradesco Seguros é priorizada** nas cotações. Quando não é encontrada uma condição adequada, a corretora realiza cotações com outras companhias.
-
-Atualmente, o acompanhamento dessas cotações é realizado por meio de Excel e Google Planilhas.
-
-### Fluxo
-
-**Cliente → Levantamento das necessidades → Cotação → Análise das opções → Escolha da opção**
-
-
-![Fluxograma — Cotação](fluxogramas/02-cotacao.png)
-
----
-
-## 2.3 Proposta
-
-Após a realização da cotação, caso o cliente tenha interesse em prosseguir, podem ser elaboradas várias propostas para apresentar diferentes opções ao cliente.
-
-A proposta representa a etapa entre a cotação e a efetiva contratação do seguro.
-
-### Fluxo
-
-**Cotação → Cliente analisa → Aceita prosseguir → Proposta**
-
-Caso o cliente não prossiga, a cotação permanece registrada sem necessariamente resultar em uma apólice.
-
-
-![Fluxograma — Propostas](fluxogramas/03-proposta.png)
-
----
-
-## 2.4 Contratação e apólice
-
-Quando a contratação é efetivada, é gerada uma apólice.
-
-As principais informações de apólice identificadas na pesquisa são:
-
-- Número da apólice;
-- Vigência.
-
-A vigência representa o período durante o qual o seguro permanece válido.
-
-### Fluxo
-
-**Proposta → Contratação → Apólice → Controle da vigência**
-
-
-![Fluxograma — Contratação e apólice](fluxogramas/04-apolice.png)
-
----
-
-## 2.5 Controle de parcelas e pagamentos
-
-A corretora acompanha os pagamentos e parcelas por meio de Excel e Google Planilhas.
-
-O sistema proposto deverá permitir relacionar cada parcela à sua respectiva apólice e registrar a situação do pagamento.
-
-### Fluxo
-
-**Apólice → Parcelas → Vencimento → Pagamento → Atualização do status**
-
-
-![Fluxograma — Parcelas e pagamentos](fluxogramas/05-pagamentos.png)
-
----
-
-## 2.6 Atendimento ao cliente
-
-Os atendimentos são registrados nas planilhas de acompanhamento.
-
-Durante visitas, os dados podem ser inicialmente registrados em papel e posteriormente transferidos para os controles digitais.
-
-Além disso, um quadro de vidro é utilizado para organizar as visitas previstas para a semana.
-
-### Fluxo
-
-**Cliente → Atendimento/Visita → Levantamento de informações → Registro → Atualização do acompanhamento**
-
-
-![Fluxograma — Atendimento e visitas](fluxogramas/06-atendimento.png)
-
----
-
-## 2.7 Sinistros
-
-O processo de sinistros possui tratamento específico dentro da organização.
-
-Uma funcionária é responsável pelo acompanhamento dos sinistros e pelas listagens relacionadas a eles.
-
-O modelo proposto deverá permitir relacionar cada sinistro ao cliente e à apólice correspondente.
-
-### Fluxo
-
-**Cliente → Comunicação do sinistro → Registro → Acompanhamento → Atualização da situação**
-
-
-![Fluxograma — Sinistros](fluxogramas/07-sinistros.png)
-
----
-
-## 2.8 Renovação
-
-As renovações são acompanhadas por Excel e Google Planilhas.
-
-A corretora também utiliza informações disponibilizadas pela sucursal para identificar seguros que estão próximos do vencimento.
-
-Quando uma apólice se aproxima do vencimento, a corretora entra em contato com o cliente para tratar da renovação.
-
-### Fluxo
-
-**Apólice → Verificação do vencimento → Contato com cliente → Renovação concluída → Registro da renovação**
-
-Se o contato não resultar em renovação, não é criado registro na entidade Renovação.
-
-
-![Fluxograma — Renovação](fluxogramas/08-renovacao.png)
-
----
-
-# 3. Requisitos do Sistema
-
-## 3.1 Requisitos Funcionais
-
-| Código | Requisito funcional |
-| ------------------------- | ------------------------------------------------------------------------------------------- |
-| RF01                      | O sistema deve permitir cadastrar clientes.                                                 |
-| RF02                      | O sistema deve permitir consultar clientes.                                                 |
-| RF03                      | O sistema deve permitir atualizar dados dos clientes.                                       |
-| RF04                      | O sistema deve permitir cadastrar tipos de seguros.                                         |
-| RF05                      | O sistema deve permitir cadastrar seguradoras.                                              |
-| RF06                      | O sistema deve permitir registrar cotações.                                                 |
-| RF07                      | O sistema deve permitir relacionar uma cotação a um cliente.                                |
-| RF08                      | O sistema deve permitir relacionar uma cotação a uma seguradora.                            |
-| RF09                      | O sistema deve permitir registrar propostas.                                                |
-| RF10                      | O sistema deve permitir acompanhar o status das propostas.                                  |
-| RF11                      | O sistema deve permitir registrar apólices.                                                 |
-| RF12                      | O sistema deve permitir registrar número e vigência da apólice.                             |
-| RF13                      | O sistema deve permitir cadastrar parcelas.                                                 |
-| RF14                      | O sistema deve permitir registrar pagamentos.                                               |
-| RF15                      | O sistema deve permitir consultar parcelas pendentes e pagas.                               |
-| RF16                      | O sistema deve permitir registrar atendimentos.                                             |
-| RF17                      | O sistema deve permitir registrar sinistros.                                                |
-| RF18                      | O sistema deve permitir acompanhar o status dos sinistros.                                  |
-| RF19                      | O sistema deve identificar apólices próximas do vencimento.                                 |
-| RF20                      | O sistema deve permitir registrar somente renovações concluídas.                                               |
-| RF21                      | O sistema deve manter o histórico do cliente.                                               |
-| RF22                      | O sistema deve permitir pesquisar informações por cliente, apólice, seguradora ou situação. |
-
----
-
-## 3.2 Requisitos Não Funcionais
-
-| Código | Requisito não funcional |
-| ----------------------------- | ---------------------------------------------------------------------------- |
-| RNF01                         | O sistema deve possuir interface simples e intuitiva.                        |
-| RNF02                         | O acesso às informações deve ser protegido por autenticação.                 |
-| RNF03                         | O sistema deve restringir o acesso aos dados conforme o perfil do usuário.   |
-| RNF04                         | O sistema deve apresentar bom desempenho nas consultas.                      |
-| RNF05                         | O banco deve preservar a integridade dos dados.                              |
-| RNF06                         | O sistema deve permitir realização de backups periódicos.                    |
-| RNF07                         | O sistema deve evitar duplicidade de clientes.                               |
-| RNF08                         | O sistema deve permitir a inclusão de novos tipos de seguros.                |
-| RNF09                         | O sistema deve permitir a inclusão de novas seguradoras.                     |
-| RNF10                         | O sistema deve preservar a confidencialidade dos dados pessoais armazenados. |
-
----
-
-# 4. Regras de Negócio
-
-## 4.1 Regras operacionais e de integridade
-
-As regras abaixo combinam informações do levantamento e restrições propostas para o sistema. As cardinalidades constituem decisões da proposta de modelagem.
+O projeto mantém a organização pesquisada na Entrega 1. O levantamento descreve a operação de seguros vinculada ao Bradesco, com visita ao **Banco Bradesco — Agência 1363**, na **Av. Dr. Chucri Zaidan, 80 — Itaim Bibi, São Paulo — SP, CEP 04583-110**. A modelagem disponível representa os processos de seguros levantados na pesquisa; não representa a operação bancária completa da agência.
+
+Segundo as informações fornecidas pelo grupo, a operação tem fins lucrativos, funciona desde 2016, conta com seis funcionários, atende cerca de 50 a 100 clientes por mês e comercializa 50 a 60 seguros mensais. Foi informado faturamento aproximado de R$ 60.000,00 por mês. A seleção decorreu do acesso do grupo ao ambiente e à responsável, permitindo levantar cadastros, contratação, pagamentos, atendimentos, sinistros e renovações.
+
+### Complementação do escopo
+
+| Informação | Registro |
+|---|---|
+| Confirmação do recorte da operação de seguros para a Entrega 2 | conteudo pendente |
+| Processos adicionais e justificativas dos processos não incluídos | conteudo pendente |
+| Cadastro de pessoas jurídicas e dados utilizados | conteudo pendente |
+| Agenda de visitas e atribuição de responsáveis | conteudo pendente |
+| Vínculo entre apólice anterior e nova apólice na renovação | conteudo pendente |
+| Regras de juros, descontos e estornos | conteudo pendente |
+| Formas de pagamento, situações operacionais e antecedência dos alertas | conteudo pendente |
+| Definição do faturamento informado e dos valores de proposta | conteudo pendente |
+
+### Problemas de gestão de informações
+
+| Código | Problema | Dados que o atendem | Consulta |
+|---|---|---|---|
+| P1 | Histórico do cliente distribuído em controles diferentes | Cliente e cadeia comercial | G01 |
+| P2 | Acompanhamento manual de cotações e propostas | Cotação, Proposta, Apólice | G02 |
+| P3 | Consulta manual de parcelas vencidas e pagamentos | Parcela, Pagamento, Apólice | G03 |
+| P4 | Identificação manual de vencimentos e renovações concluídas | Apólice, Renovação | G04 |
+| P5 | Acompanhamento de sinistros em controle separado | Sinistro, Apólice | G05 |
+| P6 | Histórico de atendimentos e visitas disperso em papel e planilhas | Atendimento, Cliente | G06 |
+
+A centralização organiza registros e permite consultas integradas. A transferência de anotações de papel continua sendo uma atividade operacional: o banco não digitaliza anotações automaticamente. A agenda futura de visitas, a distribuição de tarefas, comissões, despesas, pessoas jurídicas e alterações contratuais não estão representadas no levantamento disponível. Os controles demonstrados não substituem um sistema bancário nem uma aplicação completa de gestão.
+
+### Evidências e relato da entrevista
+
+A pesquisa foi realizada nas instalações visitadas. O material identifica Patrícia dos Santos Souza como entrevistada e informa a função de sócia. O relato organizado está no [levantamento](levantamento/levantamento.md). As informações dos processos procedem do levantamento do grupo; as fotografias comprovam o ambiente físico.
+
+| Informação da pesquisa | Registro |
+|---|---|
+| Data da entrevista | conteudo pendente |
+| Integrantes que participaram da entrevista | conteudo pendente |
+| Confirmação da função da entrevistada e de seu vínculo com a organização | conteudo pendente |
+| Telefone autorizado da responsável | conteudo pendente |
+| Contato institucional | conteudo pendente |
+| Perfil da organização no Google Maps | conteudo pendente |
+| Vínculo profissional ou familiar de integrantes com a organização | conteudo pendente |
+| Foto da entrevista no local | conteudo pendente |
+
+![Ambiente interno](evidencias/foto-ambiente-interno.jpeg)
+
+![Identificação da unidade](evidencias/foto-identificacao.jpeg)
+
+![Fachada](evidencias/foto-fachada.jpeg)
+
+### Revisão da base da Entrega 1
+
+O grupo informou que o professor considerou o trabalho correto. As adequações abaixo atendem ao novo roteiro e às confirmações de entrevista já recebidas; não são atribuídas a uma correção escrita do professor.
+
+| Origem | Adequação | Justificativa |
+|---|---|---|
+| Roteiro E2: notação conceitual | Entidades, losangos, identificadores sublinhados e pares (mín, máx) | Distinguir o DER do modelo lógico. |
+| Roteiro E2: sem FKs no conceitual | Referências removidas das caixas conceituais e mantidas no modelo lógico | Relacionamentos conceituais não são colunas FK. |
+| Entrevista complementar | Cotação 1:N Proposta; Proposta 1:0..1 Apólice | Preservar as cardinalidades confirmadas. |
+| Entrevista complementar | Pagamento único por parcela; apólice admite zero parcelas no cadastro | Representar a ordem de cadastramento e a quitação informadas. |
+| Entrevista complementar | Somente renovações concluídas | Não armazenar tentativas como conclusões. |
+| Roteiro E2: detalhamento | RFs especificam dados e vínculos; RN01–RN20 preservados | Permitir rastrear os campos até a implementação. |
+
+**Apontamentos adicionais da correção da Entrega 1:** conteudo pendente
+
+### Processos de negócio e dados envolvidos
+
+![Integração dos processos](fluxogramas/00-visao-geral.png)
+
+- **Cliente:** Representa os clientes da corretora. Dados: `id_cliente`, `cpf`, `nome`, `data_nascimento`.
+- **Seguradora:** Representa as companhias utilizadas nas cotações. Dados: `id_seguradora`, `nome`, `prioridade`.
+- **TipoSeguro:** Representa as modalidades de seguros comercializadas. Dados: `id_tipo_seguro`, `nome`, `descricao`.
+- **Cotação:** Representa uma cotação realizada para determinado cliente. Dados: `id_cotacao`, `data_cotacao`, `valor_cotado`, `status`, `id_cliente`, `id_seguradora`, `id_tipo_seguro`.
+- **Proposta:** Representa uma cotação que avançou para uma etapa de contratação. Dados: `id_proposta`, `data_proposta`, `status`, `valor_proposta`, `id_cotacao`.
+- **Apólice:** Representa o seguro contratado. Dados: `id_apolice`, `numero_apolice`, `inicio_vigencia`, `fim_vigencia`, `status`, `id_proposta`.
+- **Parcela:** Representa os valores que devem ser pagos relacionados à apólice. Dados: `id_parcela`, `numero_parcela`, `valor`, `data_vencimento`, `status`, `id_apolice`.
+- **Pagamento:** Representa o pagamento de uma parcela. Dados: `id_pagamento`, `data_pagamento`, `valor_pago`, `forma_pagamento`, `id_parcela`.
+- **Atendimento:** Representa o contato ou atendimento realizado pela corretora ao cliente. Dados: `id_atendimento`, `data_atendimento`, `tipo_atendimento`, `descricao`, `id_cliente`.
+- **Sinistro:** Representa uma ocorrência relacionada a uma apólice. Dados: `id_sinistro`, `numero_sinistro`, `data_sinistro`, `descricao`, `status`, `id_apolice`.
+- **Renovação:** Representa uma renovação concluída, vinculada à apólice de origem. Dados: `id_renovacao`, `data_renovacao`, `id_apolice`.
+
+O encadeamento é Cliente → Cotação → Proposta → Apólice. Apólice se relaciona a parcelas, sinistros e renovações. O pagamento depende de parcela; o atendimento depende de cliente. Os [fluxogramas detalhados](fluxogramas/) descrevem os oito processos operacionais e sua integração.
+
+### Requisitos funcionais
+
+| Código | Requisito |
+|---|---|
+| RF01 | Cadastrar cliente com identificador interno, CPF, nome e data de nascimento. |
+| RF02 | Consultar clientes por identificador, nome ou CPF, exibindo os dados cadastrais e os vínculos com operações. |
+| RF03 | Atualizar nome, CPF e nascimento, preservando o identificador e a unicidade do CPF. |
+| RF04 | Cadastrar tipo de seguro com identificador, nome e descrição opcional. |
+| RF05 | Cadastrar seguradora com identificador, nome e indicador de prioridade comercial. |
+| RF06 | Registrar cotação com identificador, data, valor cotado, status, cliente, seguradora e tipo de seguro. |
+| RF07 | Associar cada cotação a exatamente um cliente cadastrado por id_cliente. |
+| RF08 | Associar cada cotação a uma seguradora e a um tipo de seguro existentes. |
+| RF09 | Registrar proposta com identificador, data, status, valor e cotação de origem; admitir várias propostas para a mesma cotação. |
+| RF10 | Consultar e atualizar a situação das propostas, mantendo seu identificador e sua cotação de origem. |
+| RF11 | Registrar apólice com identificador, número, início e fim da vigência, status e proposta de origem. |
+| RF12 | Consultar número e vigência de cada apólice, verificando início anterior ao fim. |
+| RF13 | Cadastrar parcela com identificador, número, valor, vencimento, status e apólice; permitir apólice ainda sem parcelas. |
+| RF14 | Registrar um único pagamento por parcela com identificador, data, valor e forma de pagamento; atualizar a parcela na mesma transação. |
+| RF15 | Consultar parcelas pagas, pendentes e vencidas a partir do vencimento, do valor e do pagamento associado. |
+| RF16 | Registrar atendimento com identificador, data, tipo (atendimento ou visita), descrição opcional e cliente. |
+| RF17 | Registrar sinistro com identificador, número quando disponível, data da ocorrência, descrição, status e apólice. |
+| RF18 | Consultar e atualizar a situação dos sinistros por identificador ou apólice. |
+| RF19 | Listar apólices por fim de vigência e situação, com janela de consulta configurável. |
+| RF20 | Registrar somente renovação concluída, com identificador, data de conclusão e apólice de origem. |
+| RF21 | Consultar o histórico do cliente pela cadeia Cliente–Cotação–Proposta–Apólice e pelos atendimentos, parcelas, pagamentos, sinistros e renovações associados. |
+| RF22 | Pesquisar registros por cliente, apólice, seguradora ou situação, preservando a vinculação entre suas chaves. |
+
+### Requisitos não funcionais
+
+| Código | Requisito e verificação |
+|---|---|
+| RNF01 | Consultas e saídas devem usar nomes compreensíveis; interface de aplicação não faz parte do script. |
+| RNF02 | Acesso operacional deve exigir autenticação na instalação MySQL e na futura aplicação. |
+| RNF03 | Permissões devem seguir o papel de cada usuário; o script não cria contas nem define credenciais. |
+| RNF04 | Consultas usam PKs, índices das FKs e índices de datas; desempenho deve ser medido com EXPLAIN na instalação utilizada. |
+| RNF05 | Integridade referencial por InnoDB, PK, FK, NOT NULL, UNIQUE e CHECK; regras entre tabelas também têm auditorias. |
+| RNF06 | Operação deve prever backup e restauração; política e execução pertencem à administração do ambiente. |
+| RNF07 | CPF único; cadastro não aceita repetição do mesmo CPF. |
+| RNF08 | Novos tipos de seguro são incluídos como registros, sem mudança de estrutura. |
+| RNF09 | Novas seguradoras são incluídas como registros, sem mudança de estrutura. |
+| RNF10 | Demonstração exclusivamente com dados fictícios, sem exportação de dados reais de clientes. |
+
+### Regras de negócio
 
 | Código | Regra |
-| ----------- | --------------------------------------------------------------------------------------------- |
-| RN01        | Cada cliente deve possuir CPF, nome e data de nascimento cadastrados.                         |
-| RN02        | O CPF deve identificar unicamente um cliente.                                                 |
-| RN03        | A corretora trabalha com diferentes tipos de seguros.                                         |
-| RN04        | Uma cotação deve estar associada a um cliente.                                                |
-| RN05        | Uma cotação deve estar associada a uma seguradora.                                            |
-| RN06        | A Bradesco Seguros é priorizada nas cotações, conforme informação fornecida pela organização. |
-| RN07        | Outras seguradoras podem ser consultadas quando necessário.                                   |
-| RN08        | Cada proposta tem uma cotação de origem; uma cotação pode gerar várias propostas ou nenhuma.                                      |
-| RN09        | Nem toda cotação necessariamente resulta em uma proposta.                                     |
-| RN10        | Uma apólice deve possuir número e período de vigência.                                        |
-| RN11        | A data inicial da vigência deve ser anterior à data final.                                    |
-| RN12        | Uma apólice pode ser cadastrada antes das parcelas e posteriormente possuir várias parcelas.                                                     |
-| RN13        | Uma parcela deve estar vinculada a uma apólice.                                               |
-| RN14        | Cada pagamento pertence a uma parcela; cada parcela recebe no máximo um pagamento, sem pagamentos parciais.                                            |
-| RN15        | Cada sinistro pertence a uma apólice; uma apólice pode ter vários sinistros durante sua vigência.                                             |
-| RN16        | Os sinistros possuem acompanhamento específico dentro da organização.                         |
-| RN17        | Os atendimentos devem estar relacionados aos clientes.                                        |
-| RN18        | As apólices devem ser acompanhadas quanto ao vencimento.                                      |
-| RN19        | Somente renovações concluídas devem ser registradas; tentativas sem renovação não são armazenadas.                                             |
-| RN20        | As informações dos clientes devem ser protegidas contra acesso não autorizado.                |
-
----
-
-## 4.2 Restrições organizacionais e impacto no modelo
-
-| Código | Restrição / origem | Efeito no modelo e motivo |
-|---|---|---|
-| RO01 | Preferência pela Bradesco Seguros, informada na entrevista. | Seguradora possui o indicador prioridade; outras companhias continuam cadastráveis (RN06/RN07). |
-| RO02 | Controles distribuídos entre planilhas, papel e quadro de visitas. | Cliente centraliza os vínculos; Atendimento registra data, tipo e descrição para conservar o histórico (RF16/RF21). O calendário completo de visitas está fora do escopo do modelo. |
-| RO03 | Vigência e renovação exigem acompanhamento. | Apólice possui início/fim de vigência; Renovação registra a conclusão e a apólice relacionada. Esses dados permitem consultar os vencimentos (RF19/RF20). |
-| RO04 | Sinistros são acompanhados por uma funcionária específica. | Sinistro é uma entidade própria, vinculada à apólice, com data, descrição e status. |
-| RO05 | Confidencialidade e controle de acesso previstos nos requisitos do projeto. | CPF não deve ser repetido em entidades dependentes. Autenticação, perfis e backup são requisitos de implementação futura (RNF02/RNF03/RNF06/RNF10). |
-| RO06 | Cadastro informado contém CPF, nome e nascimento. | O escopo atual representa pessoa física. O cadastro de pessoas jurídicas não está contemplado nesta proposta. |
-
-
----
-
-# 5. Dicionário de Dados Conceitual (Preliminar)
-
-O arquivo [dicionario_de_dados.html](dicionario-dados/dicionario_de_dados.html) contém as mesmas definições abaixo no formato HTML solicitado. Para visualizar a formatação, baixe-o e abra no navegador.
-
-As entidades, atributos e referências estão padronizados entre README, HTML e DER. Os domínios e as cardinalidades apresentados constituem decisões de modelagem propostas. ID indica identificador; REF indica referência de relacionamento, não um atributo descritivo adicional. Não se trata de um esquema físico ou de uma implementação SQL.
-
-## Cliente
-
-| Atributo / referência | Descrição | Regra de negócio associada |
-|---|---|---|
-| `id_cliente` (ID) | Identificador interno do cliente | Único e obrigatório; identificador interno proposto. |
-| `cpf` | CPF do cliente | Obrigatório e único |
-| `nome` | Nome do cliente | Obrigatório |
-| `data_nascimento` | Data de nascimento | Obrigatória |
-
-## Seguradora
-
-| Atributo / referência | Descrição | Regra de negócio associada |
-|---|---|---|
-| `id_seguradora` (ID) | Identificador da seguradora | Único e obrigatório; identificador interno proposto. |
-| `nome` | Nome da seguradora | Obrigatório |
-| `prioridade` | Indica prioridade comercial | Indicador proposto (Sim/Não). Representa a preferência comercial informada em RN06; não impede consultar outras seguradoras. |
-
-## TipoSeguro
-
-| Atributo / referência | Descrição | Regra de negócio associada |
-|---|---|---|
-| `id_tipo_seguro` (ID) | Identificador do tipo | Único e obrigatório; identificador interno proposto. |
-| `nome` | Nome do seguro | Obrigatório |
-| `descricao` | Descrição do produto | Opcional |
-
-## Cotação
-
-| Atributo / referência | Descrição | Regra de negócio associada |
-|---|---|---|
-| `id_cotacao` (ID) | Identificador da cotação | Único e obrigatório; identificador interno proposto. |
-| `data_cotacao` | Data da cotação | Obrigatória |
-| `valor_cotado` | Valor apresentado | Valor não negativo |
-| `status` | Situação da cotação | Obrigatório. Domínio proposto: Em análise; apresentada; escolhida; não prosseguiu. |
-| `id_cliente` (REF) | Cliente relacionado | Obrigatório; referencia exatamente uma ocorrência existente da entidade relacionada. |
-| `id_seguradora` (REF) | Seguradora consultada | Obrigatório; referencia exatamente uma ocorrência existente da entidade relacionada. |
-| `id_tipo_seguro` (REF) | Tipo de seguro | Obrigatório; referencia exatamente uma ocorrência existente da entidade relacionada. |
-
-## Proposta
-
-| Atributo / referência | Descrição | Regra de negócio associada |
-|---|---|---|
-| `id_proposta` (ID) | Identificador da proposta | Único e obrigatório; identificador interno proposto. |
-| `data_proposta` | Data da proposta | Obrigatória |
-| `status` | Situação da proposta | Obrigatório. Domínio proposto: Em análise; aceita; recusada; cancelada. |
-| `valor_proposta` | Valor da proposta | Não negativo |
-| `id_cotacao` (REF) | Cotação de origem | Obrigatório; referencia uma cotação existente. Pode se repetir entre propostas, pois uma cotação pode gerar várias propostas. |
-
-## Apólice
-
-| Atributo / referência | Descrição | Regra de negócio associada |
-|---|---|---|
-| `id_apolice` (ID) | Identificador interno | Único e obrigatório; identificador interno proposto. |
-| `numero_apolice` | Número da apólice | Obrigatório |
-| `inicio_vigencia` | Início da vigência | Obrigatório |
-| `fim_vigencia` | Fim da vigência | Obrigatório e posterior a inicio_vigencia (RN11). |
-| `status` | Situação da apólice | Obrigatório. Domínio proposto: Vigente; encerrada; cancelada. |
-| `id_proposta` (REF) | Proposta de origem | Obrigatório; referencia exatamente uma ocorrência existente da entidade relacionada. Único nesta entidade no modelo proposto. |
-
-## Parcela
-
-| Atributo / referência | Descrição | Regra de negócio associada |
-|---|---|---|
-| `id_parcela` (ID) | Identificador da parcela | Único e obrigatório; identificador interno proposto. |
-| `numero_parcela` | Número da parcela | Inteiro positivo; combinação de apólice e número da parcela deve ser única (decisão técnica). |
-| `valor` | Valor da parcela | Maior que zero |
-| `data_vencimento` | Data de vencimento | Obrigatória |
-| `status` | Situação da parcela | Obrigatório. Domínio proposto: Pendente; paga. |
-| `id_apolice` (REF) | Apólice relacionada | Obrigatório; referencia exatamente uma ocorrência existente da entidade relacionada. |
-
-## Pagamento
-
-| Atributo / referência | Descrição | Regra de negócio associada |
-|---|---|---|
-| `id_pagamento` (ID) | Identificador do pagamento | Único e obrigatório; identificador interno proposto. |
-| `data_pagamento` | Data do pagamento | Obrigatória em todo registro de pagamento; parcela não paga não gera registro nesta entidade. |
-| `valor_pago` | Valor pago | Maior que zero |
-| `forma_pagamento` | Forma utilizada | Obrigatória. Registra a modalidade utilizada para quitar a parcela. |
-| `id_parcela` (REF) | Parcela relacionada | Obrigatório; referencia exatamente uma ocorrência existente da entidade relacionada. Único nesta entidade no modelo proposto. |
-
-## Atendimento
-
-| Atributo / referência | Descrição | Regra de negócio associada |
-|---|---|---|
-| `id_atendimento` (ID) | Identificador | Único e obrigatório; identificador interno proposto. |
-| `data_atendimento` | Data do atendimento | Obrigatória |
-| `tipo_atendimento` | Tipo do atendimento | Obrigatório. Valores propostos: Atendimento; Visita. |
-| `descricao` | Informações do atendimento | Opcional |
-| `id_cliente` (REF) | Cliente atendido | Obrigatório; referencia exatamente uma ocorrência existente da entidade relacionada. |
-
-## Sinistro
-
-| Atributo / referência | Descrição | Regra de negócio associada |
-|---|---|---|
-| `id_sinistro` (ID) | Identificador | Único e obrigatório; identificador interno proposto. |
-| `numero_sinistro` | Número do sinistro | Quando fornecido, deve ser registrado |
-| `data_sinistro` | Data da ocorrência | Obrigatória |
-| `descricao` | Descrição da ocorrência | Obrigatória |
-| `status` | Situação do sinistro | Obrigatório. Domínio proposto: Registrado; em acompanhamento; encerrado. |
-| `id_apolice` (REF) | Apólice relacionada | Obrigatório; referencia exatamente uma ocorrência existente da entidade relacionada. |
-
-## Renovação
-
-| Atributo / referência | Descrição | Regra de negócio associada |
-|---|---|---|
-| `id_renovacao` (ID) | Identificador | Único e obrigatório; identificador interno proposto. |
-| `data_renovacao` | Data da renovação | Obrigatória; registra a data da renovação concluída |
-| `id_apolice` (REF) | Apólice renovada | Obrigatório; referencia exatamente uma ocorrência existente da entidade relacionada. |
-
----
-
-# 6. Modelagem Conceitual (Entidades, Atributos, Relacionamentos)
-
-## 6.1 Entidades reconhecidas
-
-| Entidade | Papel e justificativa |
 |---|---|
-| Cliente | Identifica a pessoa física que solicita cotações e recebe atendimentos; evita cadastros repetidos. |
-| Seguradora | Identifica a companhia consultada, separando companhia de modalidade de seguro. |
-| TipoSeguro | Mantém o catálogo de modalidades e permite cadastrar novos produtos sem criar novas entidades. |
-| Cotação | Registra uma consulta para um cliente, em uma companhia e modalidade, mesmo sem contratação. |
-| Proposta | Representa a etapa comercial que avança a partir de uma cotação. |
-| Apólice | Registra o contrato efetivado e sua vigência. |
-| Parcela | Separa cada obrigação de pagamento, com número, valor e vencimento. |
-| Pagamento | Registra a ocorrência de pagamento; sua ausência permite representar uma parcela ainda não paga. |
-| Atendimento | Conserva o histórico de contatos/visitas relacionado ao cliente. |
-| Sinistro | Permite acompanhamento específico de ocorrências vinculadas a uma apólice. |
-| Renovação | Registra somente a renovação concluída de uma apólice de origem. |
+| RN01 | Cada cliente deve possuir CPF, nome e data de nascimento cadastrados. |
+| RN02 | O CPF deve identificar unicamente um cliente. |
+| RN03 | A corretora trabalha com diferentes tipos de seguros. |
+| RN04 | Uma cotação deve estar associada a um cliente. |
+| RN05 | Uma cotação deve estar associada a uma seguradora. |
+| RN06 | A Bradesco Seguros é priorizada nas cotações, conforme informação fornecida pela organização. |
+| RN07 | Outras seguradoras podem ser consultadas quando necessário. |
+| RN08 | Cada proposta tem uma cotação de origem; uma cotação pode gerar várias propostas ou nenhuma. |
+| RN09 | Nem toda cotação necessariamente resulta em uma proposta. |
+| RN10 | Uma apólice deve possuir número e período de vigência. |
+| RN11 | A data inicial da vigência deve ser anterior à data final. |
+| RN12 | Uma apólice pode ser cadastrada antes das parcelas e posteriormente possuir várias parcelas. |
+| RN13 | Uma parcela deve estar vinculada a uma apólice. |
+| RN14 | Cada pagamento pertence a uma parcela; cada parcela recebe no máximo um pagamento, sem pagamentos parciais. |
+| RN15 | Cada sinistro pertence a uma apólice; uma apólice pode ter vários sinistros durante sua vigência. |
+| RN16 | Os sinistros possuem acompanhamento específico dentro da organização. |
+| RN17 | Os atendimentos devem estar relacionados aos clientes. |
+| RN18 | As apólices devem ser acompanhadas quanto ao vencimento. |
+| RN19 | Somente renovações concluídas devem ser registradas; tentativas sem renovação não são armazenadas. |
+| RN20 | As informações dos clientes devem ser protegidas contra acesso não autorizado. |
+| RN21 | Cada proposta pode gerar no máximo uma apólice (confirmação da entrevista complementar). |
+| RN22 | A combinação de apólice e número de parcela é única; número e valor da parcela são positivos (decisão técnica). |
+| RN23 | Parcela paga possui pagamento correspondente; parcela pendente não possui pagamento. A gravação conjunta deve ser transacional (decisão técnica). |
 
-## 6.2 Atributos e classificações
+RN21 explicita a confirmação já recebida sobre proposta e apólice. RN22 e RN23 formalizam decisões de integridade da implementação. Domínios de status e tamanhos são parâmetros técnicos da proposta, documentados no dicionário.
 
-Os atributos de cada entidade estão enumerados na seção 5 e no HTML. Todos são tratados como simples e monovalorados nesta abstração; nome e descrição são armazenados como uma unidade textual, sem decomposição adicional. Não há atributo multivalorado no escopo atual.
+### DER revisado
 
-- **Identificadores:** `id_*` próprio de cada entidade, único e obrigatório. O CPF é um identificador de negócio alternativo para Cliente (RN02).
-- **Descritivos:** nome, descrição, número de apólice/sinistro, tipo de atendimento e forma de pagamento.
-- **Temporais:** nascimento, datas de cotação/proposta, vigência, vencimento, pagamento, atendimento, sinistro e renovação.
-- **Quantitativos:** valores cotado/proposto, valor da parcela, valor pago e número da parcela.
-- **Categóricos:** status e prioridade. Os domínios sugeridos são decisões técnicas, não respostas atribuídas à entrevistada.
-- **Referências (REF):** os 10 campos de ligação `id_*` em outras entidades expressam os 10 relacionamentos abaixo. Cotação contém três referências; as demais entidades dependentes contêm uma. Eles antecipam o mapeamento dos vínculos sem definir tipos SQL, índices ou armazenamento físico.
-- **Informações derivadas:** cliente de uma apólice, de um sinistro ou de uma renovação é obtido pela cadeia Apólice → Proposta → Cotação → Cliente. Proximidade do vencimento e atraso são calculados pelas datas; não são atributos adicionais.
+![DER conceitual](der/der-conceitual.png)
 
-O número da apólice não foi declarado único globalmente: o levantamento não confirmou se diferentes seguradoras podem reutilizar a mesma numeração.
+Criado com **Python/Pillow e SVG**, seguindo os elementos conceituais indicados no roteiro: retângulos, losangos, identificadores sublinhados e cardinalidades mínimas e máximas. Não foi gerado no aplicativo brModelo. Os atributos estão dentro das entidades, alternativa aceita no roteiro. O par junto à entidade indica sua participação no relacionamento.
 
-## 6.3 Relacionamentos e cardinalidades
+## 1.2 Conversão do Modelo Conceitual para o Modelo Lógico
 
-Na tabela, **Destinos por origem** informa quantas ocorrências do destino uma ocorrência da origem pode possuir. **Origens por destino** informa o sentido inverso. `0..N` significa zero ou muitas; `0..1`, zero ou uma; `1`, exatamente uma.
+Cada uma das 11 entidades origina uma tabela; seus atributos simples originam colunas. No lado dependente dos relacionamentos 1:N, acrescenta-se uma FK obrigatória. O mínimo zero no lado principal permite cadastrar clientes, cotações e apólices antes de seus dependentes. Não existem relacionamentos N:N nem generalização/especialização na base levantada; por isso não foram criadas tabelas associativas ou hierarquias artificiais.
 
-| Origem | Relação | Destino | Destinos por origem | Origens por destino | Interpretação |
-|---|---|---|---|---|---|
-| Cliente | realiza | Cotação | 0..N | 1 | Cada cotação pertence a um cliente; um cliente pode ainda não ter cotações. |
-| Seguradora | recebe | Cotação | 0..N | 1 | Cada cotação consulta uma seguradora; o cadastro pode existir antes de uma consulta. |
-| TipoSeguro | classifica | Cotação | 0..N | 1 | Cada cotação corresponde a uma modalidade; um tipo pode ainda não ter cotações. |
-| Cotação | origina | Proposta | 0..N | 1 | Uma cotação pode originar várias propostas; cada proposta tem uma cotação de origem. |
-| Proposta | origina | Apólice | 0..1 | 1 | uma proposta origina no máximo uma apólice; cada apólice tem uma proposta. |
-| Apólice | possui | Parcela | 0..N | 1 | uma apólice pode ser cadastrada antes das parcelas; cada parcela tem uma apólice. |
-| Parcela | recebe | Pagamento | 0..1 | 1 | uma parcela recebe no máximo um pagamento; cada pagamento pertence a uma parcela. |
-| Cliente | possui | Atendimento | 0..N | 1 | Cada atendimento pertence a um cliente; o cliente pode ainda não ter atendimentos registrados. |
-| Apólice | possui | Sinistro | 0..N | 1 | uma apólice pode não ter sinistros ou ter vários; cada sinistro pertence a uma apólice. |
-| Apólice | possui | Renovação | 0..N | 1 | Cada registro representa uma renovação concluída de uma apólice de origem. |
+Proposta–Apólice e Parcela–Pagamento usam FK NOT NULL com UNIQUE na tabela dependente, garantindo no máximo um dependente por origem. Cotação–Proposta usa FK sem UNIQUE, permitindo várias propostas. A opção RESTRICT preserva os vínculos ao excluir ou alterar chaves.
 
-## 6.4 Restrições e políticas aplicadas
+## 1.3 Definição de Chaves Primárias e Estrangeiras
 
-RN02 impede duplicidade de CPF; RN11 exige início da vigência anterior ao fim; RN13/RN14/RN15/RN17 exigem vínculos válidos. A combinação apólice + número da parcela identifica a parcela dentro do contrato. Os vínculos em Apólice e Pagamento são únicos para respeitar o máximo de uma apólice por proposta e um pagamento por parcela. Em Proposta, id_cotacao pode se repetir, permitindo diferentes propostas para a mesma cotação.
+| Tabela | PK | FKs | Outras unicidades |
+|---|---|---|---|
+| cliente | id_cliente | — | cpf: UNIQUE |
+| seguradora | id_seguradora | — | — |
+| tipo_seguro | id_tipo_seguro | — | — |
+| cotacao | id_cotacao | id_cliente → cliente; id_seguradora → seguradora; id_tipo_seguro → tipo_seguro | — |
+| proposta | id_proposta | id_cotacao → cotacao | — |
+| apolice | id_apolice | id_proposta → proposta | id_proposta: UNIQUE |
+| parcela | id_parcela | id_apolice → apolice | numero_parcela: UNIQUE (id_apolice, numero_parcela) |
+| pagamento | id_pagamento | id_parcela → parcela | id_parcela: UNIQUE |
+| atendimento | id_atendimento | id_cliente → cliente | — |
+| sinistro | id_sinistro | id_apolice → apolice | — |
+| renovacao | id_renovacao | id_apolice → apolice | — |
 
-Uma cotação de outra companhia ou modalidade constitui outro registro. Seguradora e TipoSeguro se relacionam por intermédio de Cotação: o levantamento não sustenta limitar uma seguradora a um único tipo de seguro.
+## 1.4 Processo de Normalização (1FN, 2FN e 3FN)
 
-No modelo proposto, pagamento representa a liquidação da parcela: não há linha de pagamento vazia para representar pendência. A atualização da parcela para paga deve acompanhar o registro do pagamento. Estornos, juros, descontos e pagamentos parciais estão fora do escopo desta proposta.
+**1FN:** o modelo guarda um valor por coluna e uma ocorrência por linha. Não existem colunas parcela1/parcela2 nem listas de propostas, sinistros ou pagamentos dentro da apólice. As parcelas e propostas são linhas próprias, não grupos repetitivos.
 
-Renovação registra exclusivamente a conclusão da renovação vinculada à apólice de origem. Tentativas de contato sem renovação não geram registros nessa entidade. O modelo não estabelece um vínculo entre apólices sucessivas.
+**2FN:** cada PK escolhida é simples, eliminando dependências parciais dessa PK. As chaves candidatas CPF, id_proposta na apólice e id_parcela no pagamento também são simples. A chave candidata composta (id_apolice, numero_parcela) determina valor, vencimento e situação da parcela; esses dados não dependem apenas de um dos componentes.
 
----
+**3FN:** nomes de cliente, seguradora e modalidade permanecem em seus cadastros; não são repetidos em propostas, apólices ou parcelas. Em Cotação, id_cotacao determina id_cliente, id_seguradora e id_tipo_seguro; os nomes determinados por essas referências são obtidos por JOIN. O cliente de uma apólice é encontrado por Proposta → Cotação, sem duplicar id_cliente na apólice.
 
-# 7. Diagrama Entidade-Relacionamento (DER)
+| Relação | Dependência funcional principal |
+|---|---|
+| cliente | id_cliente → cpf, nome, data_nascimento |
+| seguradora | id_seguradora → nome, prioridade |
+| tipo_seguro | id_tipo_seguro → nome, descricao |
+| cotacao | id_cotacao → data_cotacao, valor_cotado, status, id_cliente, id_seguradora, id_tipo_seguro |
+| proposta | id_proposta → data_proposta, status, valor_proposta, id_cotacao |
+| apolice | id_apolice → numero_apolice, inicio_vigencia, fim_vigencia, status, id_proposta |
+| parcela | id_parcela → numero_parcela, valor, data_vencimento, status, id_apolice |
+| pagamento | id_pagamento → data_pagamento, valor_pago, forma_pagamento, id_parcela |
+| atendimento | id_atendimento → data_atendimento, tipo_atendimento, descricao, id_cliente |
+| sinistro | id_sinistro → numero_sinistro, data_sinistro, descricao, status, id_apolice |
+| renovacao | id_renovacao → data_renovacao, id_apolice |
 
-![DER revisado — Corretora de Seguros](der/DER-corretora.jpeg)
+A normalização preserva as entidades da base já separada. Não se inventou uma tabela desnormalizada anterior como se tivesse sido fornecida pela organização. O status da parcela é informação redundante em relação à existência do pagamento; mantê-lo exige atualização transacional e A04. A 3FN não elimina automaticamente inconsistências entre tabelas nem resolve regras temporais.
 
-[Abrir imagem em tamanho original](der/DER-corretora.jpeg).
+## 1.5 Justificativas Técnicas das Decisões
 
-O diagrama usa entidades em caixas, atributos internos, relacionamentos nomeados e cardinalidades nas extremidades. ID identifica a entidade; REF identifica os vínculos descritos na seção 6. A quantidade junto a uma caixa indica quantas ocorrências **daquela entidade** podem se relacionar a uma ocorrência da entidade na outra ponta (convenção de multiplicidade UML). Não se usa aqui a posição das cardinalidades de participação da notação Chen.
+Identificadores inteiros internos permanecem estáveis mesmo se nome, CPF ou número comercial forem corrigidos. CPF é chave candidata única (RN02), mas não é usado como FK para evitar sua repetição. Datas usam DATE; valores monetários usam DECIMAL(12,2), sem ponto flutuante. Números de apólice e sinistro usam texto para preservar zeros, letras e separadores.
 
-O DER contém 11 entidades, 43 atributos próprios e 10 referências, em correspondência com o dicionário de dados. TipoSeguro está relacionado a Cotação, identificando a modalidade de cada cotação.
+| Restrição / decisão | Aplicação | Fundamento |
+|---|---|---|
+| NOT NULL | Identificadores, vínculos obrigatórios e dados essenciais | RN01, RN04, RN05, RN10, RN13, RN14, RN17, RN19 |
+| UNIQUE | CPF; proposta na apólice; parcela no pagamento; número de parcela por apólice | RN02, RN21, RN14, RN22 |
+| CHECK | Vigência ordenada, valores, números positivos e domínios de situação | RN11, RN22 e domínios técnicos documentados |
+| FK + RESTRICT | Todas as referências | RN04, RN05, RN08, RN13, RN14, RN15, RN17, RN19 |
+| DEFAULT 0 | Prioridade comercial da seguradora | Escolha técnica: a prioridade deve ser marcada explicitamente (RN06/RN07). |
+| Índices de datas | Fim de vigência, vencimento e atendimento | Apoiar RF15, RF16 e RF19. |
+| Auditorias A04/A05 | Consistência de pagamento e ocorrência na vigência | RN14/RN23 e RN15; verificações não equivalem a bloqueios automáticos. |
 
----
+O formato de CPF é conferido por 11 dígitos e unicidade; os dígitos verificadores não são calculados pelo script. Não foi imposta unicidade global a numero_apolice sem conhecer sua abrangência entre seguradoras. Uma data de renovação registra conclusão, sem inventar contatos ou supor um novo contrato associado.
 
-# 8. Justificativa Técnica
+A documentação técnica foi conferida com o [manual oficial do MySQL sobre FKs](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html) e [CHECKs](https://docs.oracle.com/cd/E17952_01/mysql-8.4-en/create-table-check-constraints.html).
 
-## 8.1 Separação das etapas comerciais
+## 1.6 Proposta de Arquitetura Analítica para BI e IA
 
-Cotação, Proposta e Apólice possuem datas, situações e finalidades diferentes. Reuni-las em uma única entidade exigiria preencher dados contratuais mesmo quando o cliente não prossegue. O modelo preserva cotações sem proposta e propostas sem apólice. Conforme as respostas da entrevista complementar trazidas pelo grupo, uma cotação pode originar várias propostas, enquanto cada proposta pode gerar no máximo uma apólice.
+A proposta utiliza o banco transacional como fonte para extrações somente de leitura. Uma camada analítica pode reunir fatos de contratação (uma apólice), vencimento (uma parcela), pagamento (um pagamento), atendimento (um registro) e renovação (uma conclusão), com dimensões de data, seguradora e modalidade. Cada fato mantém sua granularidade para evitar multiplicar valores ao combinar várias parcelas e vários sinistros da mesma apólice.
 
-## 8.2 Identificação e escolha dos atributos
+| KPI | Fórmula | Período / recorte | Consulta |
+|---|---|---|---|
+| KPI1 — Atendimentos e visitas | COUNT dos registros por tipo | Mês do atendimento | G06 |
+| KPI2 — Conversão de cotações | 100 × cotações com ao menos uma apólice / cotações do período | Coorte mensal; contratação até a data de referência | G07 |
+| KPI3 — Valor vencido em aberto | 100 × valor vencido sem pagamento até a referência / valor vencido | Posição na data de referência | G08 |
+| KPI4 — Contratações | COUNT das apólices | Mês do início de vigência | G09 |
+| KPI5 — Valor médio contratado | AVG do valor da proposta ligada à apólice | Mês do início de vigência | G09 |
+| KPI6 — Renovações concluídas | COUNT das renovações | Mês da conclusão | G10 |
 
-Cliente mantém CPF, nome e nascimento porque são os dados efetivamente informados. Identificadores internos dão identidade estável aos registros; CPF continua único por regra de negócio. Datas permitem acompanhar o ciclo operacional, valores descrevem as obrigações e status registram as etapas.
+Não foram estabelecidas metas comerciais pela organização. Valor de proposta, prêmio, comissão e faturamento não são tratados como sinônimos. KPI4 inclui contratos posteriormente cancelados e mede contratações brutas; não mede carteira ativa. Não se calcula taxa de renovação sem conhecer os contratos elegíveis e os vínculos entre ciclos. Não se promete análise histórica de cancelamentos porque o modelo contém status atual, sem data de cada mudança.
 
-Seguradora e TipoSeguro são catálogos distintos: uma companhia não é uma modalidade. Cada cotação aponta para uma de cada. A prioridade comercial é representada em Seguradora, sem impedir o uso de outras companhias.
+### Rastreabilidade
 
-## 8.3 Relações, opcionalidade e integridade
+| Problema ou KPI | Tabelas | Consulta |
+|---|---|---|
+| P1 — Histórico do cliente distribuído em controles diferentes | Cliente e cadeia comercial | G01 |
+| P2 — Acompanhamento manual de cotações e propostas | Cotação, Proposta, Apólice | G02 |
+| P3 — Consulta manual de parcelas vencidas e pagamentos | Parcela, Pagamento, Apólice | G03 |
+| P4 — Identificação manual de vencimentos e renovações concluídas | Apólice, Renovação | G04 |
+| P5 — Acompanhamento de sinistros em controle separado | Sinistro, Apólice | G05 |
+| P6 — Histórico de atendimentos e visitas disperso em papel e planilhas | Atendimento, Cliente | G06 |
+| KPI1 | atendimento | G06 |
+| KPI2 | cotacao, proposta, apolice | G07 |
+| KPI3 | parcela, pagamento | G08 |
+| KPI4 | apolice, proposta | G09 |
+| KPI5 | apolice, proposta | G09 |
+| KPI6 | renovacao | G10 |
 
-Uma entidade de cadastro pode existir antes de uma operação, justificando `0..N` para cotações e atendimentos. Cada operação depende exatamente de um cadastro correspondente. A apólice pode existir sem sinistros ou renovações; exigir uma dessas ocorrências criaria registros artificiais. O mínimo zero de parcelas permite registrar uma apólice antes de cadastrar suas obrigações financeiras.
+**Validação dos indicadores e metas pela organização:** conteudo pendente
 
-O cliente da apólice é recuperado pela proposta e cotação de origem. Repetir esse vínculo na apólice permitiria indicar clientes conflitantes. Pelo mesmo motivo, Sinistro e Renovação chegam ao cliente pela apólice, atendendo ao histórico sem repetição de CPF.
+### Potencial de BI e IA
 
-## 8.4 Parcelas, pagamentos e renovação
+Dashboards podem exibir contratação por período e modalidade, parcelas em aberto, vencimentos próximos e volume de atendimento. A consulta de coortes usa EXISTS para contar cada cotação uma única vez, mesmo quando ela gera várias propostas. As consultas de renovação também evitam repetir uma apólice por múltiplas conclusões.
 
-Parcela representa a obrigação; Pagamento representa a ocorrência financeira. Separá-los permite manter vencimentos pendentes sem inventar pagamentos. A entrevista confirmou que cada parcela recebe um único pagamento, sem liquidações parciais.
+Em uma evolução com histórico suficiente, séries mensais podem apoiar previsão de demanda de atendimento e detecção de alterações nos volumes. A avaliação deve comparar o modelo com uma referência simples e separar treino e teste por tempo. Os dados fictícios desta entrega servem para demonstração, não para validar previsões reais. Não se propõe decisão automática de aceitação de seguro, preço ou perfil individual; faltam dados e validação para esses usos. Identificadores pessoais não são necessários nos painéis agregados.
 
-Renovação conserva a data de conclusão e a referência à apólice de origem. Como somente renovações concluídas são registradas, não são necessários atributos para data de tentativa ou status de andamento. Isso evita armazenar estados que não fazem parte do processo informado.
+# 2. Modelo Lógico Relacional
 
-## 8.5 Escalabilidade e limites
+![Modelo lógico](modelo-logico/modelo-logico.png)
 
-Novas seguradoras, modalidades e ocorrências podem ser cadastradas sem criar uma entidade para cada produto. O modelo concentra o domínio da corretora; autenticação, perfis, backup, agenda completa de visitas e distribuição de tarefas exigem detalhamento posterior. Assim, os requisitos de segurança são registrados sem alegar que já estejam implementados neste DER.
+Criado com **Python/Pillow e SVG**. Cada tabela apresenta nome, uma coluna por linha, tipo à direita e marcas PK/FK, com pares de cardinalidade nas ligações. Restrições completas, tamanhos, obrigatoriedade e valores padrão estão no [dicionário HTML](dicionario-dados/dicionario_de_dados.html). O diagrama é uma representação visual; não é um arquivo nativo do brModelo.
 
----
+**Adequação ao arquivo de exemplo obrigatório do dicionário:** conteudo pendente
 
-# 9. Uso de Inteligência Artificial
+# 3. Script SQL Completo
 
-## Ferramenta utilizada
+O arquivo [docs/script.sql](docs/script.sql) contém CREATE DATABASE, CREATE TABLE com restrições, INSERT, SELECT com JOIN, UPDATE, DELETE, consultas gerenciais G01–G10 e auditorias A01–A08. O destino é **MySQL 8.0.16 ou superior**, com InnoDB.
 
-**ChatGPT/Codex — OpenAI**
+Executar o arquivo completo em uma instalação de testes onde o banco `corretora_seguros_e2` ainda não exista. O script não contém DROP DATABASE. Os exemplos UPDATE e DELETE usam transação com ROLLBACK para preservar a massa de demonstração. As consultas usam data de referência fixa em 31/10/2026, com período de setembro a outubro de 2026; as variáveis podem ser alteradas para outro recorte.
 
-## Etapas e finalidade do uso
+O script foi executado do zero no **MySQL Community Server 8.4.13**, com 11 tabelas e 1.266 registros fictícios. Foram conferidas as dez consultas gerenciais, as oito auditorias e 28 casos de rejeição de dados inválidos. Os exemplos UPDATE e DELETE preservaram os dados após ROLLBACK. A massa foi corrigida para que a divisão em parcelas não produza diferenças de centavos. O [registro dos testes](docs/validacao-mysql.md) detalha os resultados e seus limites. Antes da apresentação, o grupo deve repetir a execução no ambiente que utilizará.
 
-O grupo realizou a visita, coletou as informações, registrou as fotografias e obteve os esclarecimentos com a responsável pela operação. A IA foi utilizada como apoio à organização da documentação, à elaboração e revisão de requisitos e regras, à estruturação do dicionário de dados e à revisão dos relacionamentos e cardinalidades. Também auxiliou na redação, na produção dos fluxogramas e no redesenho do DER a partir dos materiais fornecidos.
+| Código | Pergunta | Atende / verifica |
+|---|---|---|
+| G01 | Qual é o histórico integrado do cliente selecionado? | P1; RF21 |
+| G02 | Quais cotações estão sem proposta e quais propostas ainda não geraram apólice? | P2; RF06, RF09 |
+| G03 | Quais parcelas vencidas continuam sem pagamento? | P3; RF15 |
+| G04 | Quais apólices vencem nos próximos 30 dias e já possuem renovação registrada? | P4; RF19, RF20 |
+| G05 | Quais sinistros estão em acompanhamento? | P5; RF18 |
+| G06 | Quantos atendimentos e visitas foram registrados por mês? | P6; KPI1; RF16 |
+| G07 | Qual a taxa de conversão das cotações de cada mês em contratação até a data de referência? | KPI2 |
+| G08 | Qual percentual do valor vencido permanece sem pagamento na data de referência? | KPI3 |
+| G09 | Quantas apólices iniciaram vigência e qual o valor médio de suas propostas por mês? | KPI4; KPI5 |
+| G10 | Quantas renovações concluídas foram registradas por mês? | KPI6 |
+| A01 | Existem CPFs duplicados? | RN02 |
+| A02 | Existe proposta vinculada a mais de uma apólice? | RN21 |
+| A03 | Existe parcela com mais de um pagamento? | RN14 |
+| A04 | Existem parcelas cujo status contradiz a existência de pagamento? | RN14; RN23 |
+| A05 | Existe sinistro fora da vigência informada? | RN15 |
+| A06 | Existem renovações sem data de conclusão ou sem apólice válida? | RN19 |
+| A07 | Existem números de parcela repetidos na mesma apólice? | RN22 |
+| A08 | Existem períodos de vigência inválidos? | RN11 |
 
-O objetivo foi organizar os resultados da pesquisa e verificar a consistência entre a documentação e os diagramas.
+# 4. Massa de Dados
 
-## Síntese dos prompts utilizados
+A massa é **inteiramente fictícia**, incluída no script. Nomes “Cliente Fictício”, números de documentos e identificadores de contratos foram gerados para teste, sem consulta a cadastros reais. CPFs são sequências de teste que atendem ao formato do esquema, não documentos validados.
 
-As solicitações foram feitas em diferentes mensagens. A síntese abaixo reúne os principais pedidos, sem constituir a transcrição literal de um único prompt.
+| Tabela | Quantidade | Critério |
+|---|---|---|
+| cliente | 90 | 90 cadastros; 75 com movimentação mensal e 15 sem movimentação. |
+| seguradora | 3 | Uma companhia priorizada e duas companhias explicitamente fictícias. |
+| tipo_seguro | 7 | Modalidades informadas no levantamento. |
+| cotacao | 190 | 90 por mês em dois meses, mais 10 da carteira histórica; quantidade de propostas e cotações é cenário de teste. |
+| proposta | 150 | 70 por mês, mais 10 históricas; contempla várias propostas por cotação e propostas não contratadas. |
+| apolice | 120 | 55 por mês em dois meses, dentro do volume informado; 10 históricas para vencimentos. |
+| parcela | 357 | Três parcelas por apólice no cenário fictício, exceto uma ainda sem parcelas; não é regra da organização. |
+| pagamento | 156 | Parte das parcelas vencidas quitada, preservando casos em aberto e formas variadas. |
+| atendimento | 180 | 90 por mês, para 75 clientes distintos, dentro da faixa de clientes atendidos informada. |
+| sinistro | 8 | Cenário de teste com oito ocorrências, incluindo duas para a mesma apólice; volume não medido em campo. |
+| renovacao | 5 | Cinco conclusões na carteira histórica; volume não medido em campo. |
 
-> Com base nas informações da entrevista com a operação de seguros vinculada ao Bradesco, organize a documentação conforme o roteiro da Entrega 1. Utilize o levantamento, o dicionário de dados, o DER e as fotografias fornecidos pelo grupo. Revise os processos, requisitos, regras de negócio, entidades, atributos e relacionamentos, verificando a consistência entre os materiais. Incorpore as respostas complementares da entrevistada e represente os processos em fluxogramas. Identifique as informações que precisam de esclarecimento, sem tratá-las como fatos confirmados.
+A diversidade inclui clientes sem contratação, cotações sem proposta, propostas recusadas, contratos cancelados, apólice sem parcela, parcelas pagas e pendentes, sinistros abertos e encerrados e renovações concluídas. As auditorias de integridade devem retornar zero inconsistências na massa válida; demonstrar violação requer um teste controlado, seguido de reversão.
 
-## Respostas recebidas e utilização
+# 5. Repositório GitHub
 
-Foram obtidas sugestões de organização das nove seções, requisitos, regras de negócio, tabelas do dicionário, relacionamentos e justificativas técnicas. A ferramenta também produziu versões dos diagramas e apontou divergências entre a imagem inicial do DER e o dicionário. Esses resultados foram confrontados com os dados fornecidos na pesquisa.
+```text
+README.md
+der/                 DER conceitual em PNG e SVG
+modelo-logico/       Diagrama lógico em PNG e SVG
+dicionario-dados/    Dicionário único em HTML
+levantamento/        Relato organizado da pesquisa
+evidencias/          Fotografias em JPG
+fluxogramas/         Integração e processos operacionais
+docs/                Script SQL e massa fictícia
+```
 
-## Fontes consultadas e verificadas
+O relatório técnico ocupa o README da raiz. Os artefatos ficam em arquivos próprios e são acessados pelos links deste relatório. O histórico registra as alterações efetivamente realizadas. Contribuições dos integrantes devem corresponder ao trabalho feito por cada um e à sua própria conta.
 
-- Pesquisa de campo, fotografias e respostas da entrevista realizadas pelo grupo.
-- Respostas complementares sobre propostas, apólices, parcelas, pagamentos, sinistros e renovações.
-- Roteiro de entrega fornecido pelo professor.
-- Documentação, dicionário HTML e DER inicialmente reunidos pelo grupo.
-- Repositórios de outros projetos, utilizados como referência de organização.
+# 6. Uso de Inteligência Artificial
 
-## Correções realizadas e sugestões rejeitadas
+**Ferramenta: ChatGPT/Codex — OpenAI.** A pesquisa de campo, fotografias e respostas da responsável foram fornecidas pelo grupo. A ferramenta apoiou a organização e a revisão da documentação e, nesta etapa, a preparação dos modelos, tipos SQL, massa fictícia e consultas. A participação da ferramenta não substitui o levantamento nem a defesa individual.
 
-Foram retirados do DER atributos adicionais que não estavam sustentados pelo levantamento e pelo dicionário. A modalidade de seguro foi vinculada à cotação, e os nomes dos atributos foram padronizados entre os arquivos.
+| Etapa | Motivação e pedido | Resultado e revisão |
+|---|---|---|
+| Organização da E1 | Organizar os materiais da visita e adequar ao roteiro. | Estrutura documental, dicionário e diagramas; respostas complementares corrigiram cardinalidades. |
+| Adequação à E2 | Pedido: “le esse pdf revise tudo que tem ja pronto e oq for para adicoonar me fala q te mando”. | Comparação com o novo roteiro; separação do DER conceitual e do modelo lógico. |
+| Implementação e dados de teste | Pedido complementar: “tudo q estiver na entrega 2 pode altera”. | Preparação de SQL, dados fictícios, normalização e consultas rastreáveis. |
 
-A entrevista complementar corrigiu a limitação inicial de uma proposta por cotação: uma cotação pode gerar várias propostas. Também confirmou um pagamento por parcela, sem divisão em pagamentos parciais, e o registro exclusivo de renovações concluídas. Por esse motivo, Renovação não contém campos de tentativa de contato ou de andamento.
+### Fontes e escolhas
 
-## Justificativa da escolha final
+Foram usados o roteiro da Entrega 2, o conteúdo já publicado na Entrega 1, o dicionário fornecido, as fotografias e as respostas complementares da entrevista. A sintaxe e as limitações gerais de FKs/CHECKs foram consultadas na documentação oficial do MySQL indicada na seção 1.5. A proposta não acrescenta processos bancários, comissões ou dados de pessoas jurídicas como se tivessem sido levantados.
 
-O modelo utiliza as informações da organização como referência para os processos e regras. As decisões técnicas, como identificadores internos e separação das entidades, buscam preservar o histórico e evitar duplicidade de dados. As respostas da entrevistada prevaleceram sobre as sugestões iniciais da ferramenta.
+### Correções e reflexão crítica
 
-## Reflexão crítica
+As referências de relacionamento foram retiradas das entidades conceituais, mantendo as FKs somente no lógico. A conversão de cotações usa contagem por cotação, evitando duplicação por várias propostas. Os valores de proposta não foram denominados faturamento. Os volumes sem medição de campo são identificados como cenários de teste. A revisão técnica não foi atribuída a uma nova entrevista e não se declara que todos os integrantes já a validaram.
 
-A IA contribuiu para a organização e a revisão, mas suas sugestões podem incluir atributos ou relações que não correspondem à operação pesquisada. A coerência entre documentos não substitui a pesquisa de campo. Por isso, o trabalho distingue informações levantadas de decisões técnicas propostas e utiliza a entrevista como base para as regras do negócio.
+A IA pode propor tipos, consultas e regras incompatíveis com o processo real. A massa fictícia não comprova desempenho ou qualidade preditiva em produção. O uso de consultas de auditoria não equivale ao bloqueio automático de todas as inconsistências. A validação funcional depende das regras da organização e da execução real no SGBD.
+
+# 7. Apresentação Corporativa Final
+
+**Slides da apresentação:** conteudo pendente
+
+**Ambiente e versão do MySQL para a apresentação:** conteudo pendente
+
+O pitch de oito minutos segue: contexto e problema (50 s), solução (50 s), modelo lógico (90 s), implementação SQL (90 s), consultas gerenciais e auditorias (100 s), potencial de BI/IA (50 s) e benefícios para decisão (50 s). Total: 480 segundos.
+
+A demonstração deve usar o mesmo script, com G03 para parcelas em aberto, G04 para vencimentos, G07 para conversão e A04/A05 para consistência. A apresentação não deve se limitar a ler o relatório: o modelo e os resultados das consultas são os elementos centrais. Após o pitch, todos os integrantes participam da defesa individual conforme as perguntas dirigidas pelo professor.
