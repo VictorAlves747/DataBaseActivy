@@ -150,6 +150,87 @@ CREATE INDEX ix_apolice_fim ON apolice (fim_vigencia);
 CREATE INDEX ix_parcela_vencimento ON parcela (data_vencimento);
 CREATE INDEX ix_atendimento_data ON atendimento (data_atendimento);
 
+-- Regras entre tabelas: RN15 e operação atômica de pagamento (RN14/RN23).
+-- DELIMITER é interpretado pelo cliente mysql e pelo MySQL Workbench.
+DELIMITER $$
+CREATE TRIGGER trg_sinistro_insert_vigencia
+BEFORE INSERT ON sinistro FOR EACH ROW
+BEGIN
+  DECLARE v_inicio DATE;
+  DECLARE v_fim DATE;
+  DECLARE CONTINUE HANDLER FOR NOT FOUND SET v_inicio = NULL;
+  SELECT inicio_vigencia, fim_vigencia INTO v_inicio, v_fim
+    FROM apolice WHERE id_apolice = NEW.id_apolice FOR SHARE;
+  -- Ausência da apólice é tratada pela FK, preservando seu erro específico.
+  IF v_inicio IS NOT NULL AND NEW.data_sinistro NOT BETWEEN v_inicio AND v_fim THEN
+    SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Data do sinistro fora da vigencia da apolice.';
+  END IF;
+END$$
+
+CREATE TRIGGER trg_sinistro_update_vigencia
+BEFORE UPDATE ON sinistro FOR EACH ROW
+BEGIN
+  DECLARE v_inicio DATE;
+  DECLARE v_fim DATE;
+  DECLARE CONTINUE HANDLER FOR NOT FOUND SET v_inicio = NULL;
+  SELECT inicio_vigencia, fim_vigencia INTO v_inicio, v_fim
+    FROM apolice WHERE id_apolice = NEW.id_apolice FOR SHARE;
+  -- Ausência da apólice é tratada pela FK, preservando seu erro específico.
+  IF v_inicio IS NOT NULL AND NEW.data_sinistro NOT BETWEEN v_inicio AND v_fim THEN
+    SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Data do sinistro fora da vigencia da apolice.';
+  END IF;
+END$$
+
+CREATE TRIGGER trg_apolice_update_vigencia
+BEFORE UPDATE ON apolice FOR EACH ROW
+BEGIN
+  DECLARE v_incompativel INT UNSIGNED DEFAULT NULL;
+  DECLARE CONTINUE HANDLER FOR NOT FOUND SET v_incompativel = NULL;
+  IF NEW.inicio_vigencia <> OLD.inicio_vigencia OR NEW.fim_vigencia <> OLD.fim_vigencia THEN
+    SELECT id_sinistro INTO v_incompativel FROM sinistro
+      WHERE id_apolice = OLD.id_apolice
+        AND data_sinistro NOT BETWEEN NEW.inicio_vigencia AND NEW.fim_vigencia
+      LIMIT 1 FOR SHARE;
+    IF v_incompativel IS NOT NULL THEN
+      SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Nova vigencia exclui sinistro ja registrado.';
+    END IF;
+  END IF;
+END$$
+
+-- Chamar isoladamente, sem transação anterior aberta: a rotina controla COMMIT/ROLLBACK.
+-- Não define juros, descontos ou estornos. O valor efetivamente pago é informado.
+CREATE PROCEDURE registrar_pagamento(
+  IN p_id_parcela INT UNSIGNED,
+  IN p_data DATE,
+  IN p_valor DECIMAL(12,2),
+  IN p_forma VARCHAR(30)
+)
+SQL SECURITY INVOKER
+BEGIN
+  DECLARE v_status VARCHAR(30) DEFAULT NULL;
+  DECLARE v_pagamento INT UNSIGNED DEFAULT NULL;
+  DECLARE CONTINUE HANDLER FOR NOT FOUND SET v_pagamento = NULL;
+  DECLARE EXIT HANDLER FOR SQLEXCEPTION
+  BEGIN
+    ROLLBACK;
+    RESIGNAL;
+  END;
+  START TRANSACTION;
+  SELECT status INTO v_status FROM parcela WHERE id_parcela = p_id_parcela FOR UPDATE;
+  IF v_status IS NULL THEN
+    SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Parcela inexistente.';
+  END IF;
+  SELECT id_pagamento INTO v_pagamento FROM pagamento WHERE id_parcela = p_id_parcela FOR UPDATE;
+  IF v_status <> 'Pendente' OR v_pagamento IS NOT NULL THEN
+    SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Parcela ja paga ou com estado inconsistente.';
+  END IF;
+  INSERT INTO pagamento(data_pagamento, valor_pago, forma_pagamento, id_parcela)
+    VALUES(p_data, p_valor, p_forma, p_id_parcela);
+  UPDATE parcela SET status = 'Paga' WHERE id_parcela = p_id_parcela;
+  COMMIT;
+END$$
+DELIMITER ;
+
 -- 4. Carga de dados fictícios
 START TRANSACTION;
 INSERT INTO cliente (id_cliente, cpf, nome, data_nascimento) VALUES

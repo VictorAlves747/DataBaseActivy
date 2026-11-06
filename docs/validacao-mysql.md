@@ -1,6 +1,6 @@
 # Validação do script no MySQL
 
-Data: 02/11/2026. MySQL Community Server 8.4.13. Instância local isolada, sem conexão TCP e com dados exclusivamente fictícios.
+Data: 06/11/2026. MySQL Community Server 8.4.13. Instância local isolada, sem conexão TCP e com dados exclusivamente fictícios.
 
 ## Resultado
 
@@ -26,6 +26,9 @@ Data: 02/11/2026. MySQL Community Server 8.4.13. Instância local isolada, sem c
 - A07: 0 linhas; Existem números de parcela repetidos na mesma apólice?
 - A08: 0 linhas; Existem períodos de vigência inválidos?
 - Indicadores G06–G10 e parcelas de G03 comparados com resultados esperados calculados independentemente.
+- REJEIÇÃO OK: Sinistro fora da vigência na atualização (erro MySQL 1644).
+- REJEIÇÃO OK: Sinistro fora da vigência na inclusão (erro MySQL 1644).
+- REJEIÇÃO OK: Vigência excluindo sinistro existente (erro MySQL 1644).
 - REJEIÇÃO OK: PK duplicada (erro MySQL 1062).
 - REJEIÇÃO OK: CPF duplicado (erro MySQL 1062).
 - REJEIÇÃO OK: CPF com letras (erro MySQL 3819).
@@ -55,7 +58,6 @@ Data: 02/11/2026. MySQL Community Server 8.4.13. Instância local isolada, sem c
 - REJEIÇÃO OK: Exclusão de cliente referenciado (erro MySQL 1451).
 - REJEIÇÃO OK: Exclusão de apólice com parcelas (erro MySQL 1451).
 - A04: anomalia inserida em transação foi detectada e revertida; auditoria voltou a zero.
-- A05: anomalia inserida em transação foi detectada e revertida; auditoria voltou a zero.
 - Cenários válidos preservados: várias propostas por cotação, apólice sem parcelas e vários sinistros por apólice.
 
 ## Correção realizada
@@ -64,6 +66,15 @@ A divisão de algumas propostas em três parcelas produzia uma diferença de R$ 
 
 ## Limites
 
-A04 e A05 detectam inconsistências entre tabelas, mas não as bloqueiam automaticamente. Não foram implementadas regras de juros, descontos ou estornos que ainda dependem de informação da organização. Estes testes foram realizados na versão indicada; outra instalação deve executar o mesmo arquivo antes da apresentação.
+A04 continua detectando divergências causadas por alterações manuais. A rotina registrar_pagamento grava pagamento e status atomicamente. A05 é complementada por três triggers que bloqueiam sinistros fora da vigência e alterações da vigência incompatíveis com sinistros existentes. Não foram implementadas regras de juros, descontos ou estornos que ainda dependem de informação da organização. Estes testes foram realizados na versão indicada; outra instalação deve executar o mesmo arquivo antes da apresentação.
 
-SHA-256 do texto SQL validado (UTF-8, quebras de linha LF): `112fd5e638570eeeb33e417bee1ddfcbe712f373a0b25a9f9b20b933dd045dd0`.
+SHA-256 do script validado: `80d4f645b04df7029e50374b1ee3bd0e3bdd5beffc688dd35081e7dca967c080`.
+
+## Testes adicionais de transação e vigência
+
+- Falhas de valor, forma e data não deixaram pagamento nem alteraram a parcela.
+- Parcela inexistente recusada com mensagem explícita.
+- Falha controlada na atualização da parcela desfez também o pagamento inserido.
+- Duas conexões disputando a mesma parcela: um único pagamento gravado, outra chamada recusada e status consistente.
+- Sinistros no primeiro e último dia de vigência aceitos.
+- Troca para apólice de período incompatível e redução da vigência com sinistro recusadas.
