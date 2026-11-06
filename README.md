@@ -51,24 +51,34 @@ A centralização organiza registros e permite consultas integradas. A transfer�
 
 ### Evidências e relato da entrevista
 
-A pesquisa foi realizada nas instalações visitadas. O material identifica Patrícia dos Santos Souza como entrevistada e informa a função de sócia. O relato organizado está no [levantamento](levantamento/levantamento.md). As informações dos processos procedem do levantamento do grupo; as fotografias comprovam o ambiente físico.
+A pesquisa foi realizada nas instalações visitadas. O material identifica Patrícia dos Santos Souza como entrevistada. A confirmação de seu cargo e vínculo permanece pendente. O relato organizado está no [levantamento](levantamento/levantamento.md). As informações dos processos procedem do levantamento do grupo; as fotografias registram o ambiente físico e momentos da entrevista.
 
 | Informação da pesquisa | Registro |
 |---|---|
-| Data da entrevista | conteudo pendente |
+| Data da entrevista | 02/11/2026 |
 | Integrantes que participaram da entrevista | conteudo pendente |
 | Confirmação da função da entrevistada e de seu vínculo com a organização | conteudo pendente |
 | Telefone autorizado da responsável | conteudo pendente |
 | Contato institucional | conteudo pendente |
 | Perfil da organização no Google Maps | conteudo pendente |
 | Vínculo profissional ou familiar de integrantes com a organização | conteudo pendente |
-| Foto da entrevista no local | conteudo pendente |
+| Foto da entrevista no local | [Registro da entrevista](evidencias/foto-entrevista-conversa.jpeg) e [registro junto à identificação da unidade](evidencias/foto-visita-participantes.jpeg) |
 
 ![Ambiente interno](evidencias/foto-ambiente-interno.jpeg)
 
 ![Identificação da unidade](evidencias/foto-identificacao.jpeg)
 
 ![Fachada](evidencias/foto-fachada.jpeg)
+
+#### Registros da entrevista
+
+Fotografias fornecidas pelo grupo como registros da entrevista e da visita à organização.
+
+![Entrevista com registro de anotações](evidencias/foto-entrevista-anotacoes.jpeg)
+
+![Conversa durante a entrevista](evidencias/foto-entrevista-conversa.jpeg)
+
+![Participantes junto à identificação Bradesco Empresas e Negócios](evidencias/foto-visita-participantes.jpeg)
 
 ### Revisão da base da Entrega 1
 
@@ -225,7 +235,7 @@ Proposta–Apólice e Parcela–Pagamento usam FK NOT NULL com UNIQUE na tabela 
 | sinistro | id_sinistro → numero_sinistro, data_sinistro, descricao, status, id_apolice |
 | renovacao | id_renovacao → data_renovacao, id_apolice |
 
-A normalização preserva as entidades da base já separada. Não se inventou uma tabela desnormalizada anterior como se tivesse sido fornecida pela organização. O status da parcela é informação redundante em relação à existência do pagamento; mantê-lo exige atualização transacional e A04. A 3FN não elimina automaticamente inconsistências entre tabelas nem resolve regras temporais.
+A normalização preserva as entidades da base já separada. Não se inventou uma tabela desnormalizada anterior como se tivesse sido fornecida pela organização. O status da parcela é informação redundante em relação à existência do pagamento; mantê-lo exige atualização transacional. A rotina `registrar_pagamento` faz a gravação conjunta; A04 detecta divergências introduzidas por alterações manuais. A 3FN não elimina automaticamente inconsistências entre tabelas nem resolve regras temporais.
 
 ## 1.5 Justificativas Técnicas das Decisões
 
@@ -239,11 +249,12 @@ Identificadores inteiros internos permanecem estáveis mesmo se nome, CPF ou nú
 | FK + RESTRICT | Todas as referências | RN04, RN05, RN08, RN13, RN14, RN15, RN17, RN19 |
 | DEFAULT 0 | Prioridade comercial da seguradora | Escolha técnica: a prioridade deve ser marcada explicitamente (RN06/RN07). |
 | Índices de datas | Fim de vigência, vencimento e atendimento | Apoiar RF15, RF16 e RF19. |
-| Auditorias A04/A05 | Consistência de pagamento e ocorrência na vigência | RN14/RN23 e RN15; verificações não equivalem a bloqueios automáticos. |
+| Rotina registrar_pagamento e auditoria A04 | Pagamento e status gravados na mesma transação, com bloqueio da parcela | RN14/RN23; alterações manuais ainda exigem auditoria. |
+| Triggers de Sinistro e Apólice e auditoria A05 | Bloqueio de ocorrência fora da vigência, inclusive ao alterar a apólice | RN15; primeiro e último dia incluídos. |
 
 O formato de CPF é conferido por 11 dígitos e unicidade; os dígitos verificadores não são calculados pelo script. Não foi imposta unicidade global a numero_apolice sem conhecer sua abrangência entre seguradoras. Uma data de renovação registra conclusão, sem inventar contatos ou supor um novo contrato associado.
 
-A documentação técnica foi conferida com o [manual oficial do MySQL sobre FKs](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html) e [CHECKs](https://docs.oracle.com/cd/E17952_01/mysql-8.4-en/create-table-check-constraints.html).
+A documentação técnica foi conferida com o [manual oficial do MySQL sobre FKs](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html) e [CHECKs](https://docs.oracle.com/cd/E17952_01/mysql-8.4-en/create-table-check-constraints.html). Os reforços seguem a documentação de [triggers e rotinas](https://dev.mysql.com/doc/refman/8.4/en/stored-program-restrictions.html).
 
 ## 1.6 Proposta de Arquitetura Analítica para BI e IA
 
@@ -295,11 +306,13 @@ Criado com **Python/Pillow e SVG**. Cada tabela apresenta nome, uma coluna por l
 
 # 3. Script SQL Completo
 
-O arquivo [docs/script.sql](docs/script.sql) contém CREATE DATABASE, CREATE TABLE com restrições, INSERT, SELECT com JOIN, UPDATE, DELETE, consultas gerenciais G01–G10 e auditorias A01–A08. O destino é **MySQL 8.0.16 ou superior**, com InnoDB.
+O arquivo [docs/script.sql](docs/script.sql) contém CREATE DATABASE, CREATE TABLE com restrições, INSERT, SELECT com JOIN, UPDATE, DELETE, consultas gerenciais G01–G10, auditorias A01–A08, três triggers de vigência e a rotina `registrar_pagamento`. O destino é **MySQL 8.0.16 ou superior**, com InnoDB.
 
 Executar o arquivo completo em uma instalação de testes onde o banco `corretora_seguros_e2` ainda não exista. O script não contém DROP DATABASE. Os exemplos UPDATE e DELETE usam transação com ROLLBACK para preservar a massa de demonstração. As consultas usam data de referência fixa em 31/10/2026, com período de setembro a outubro de 2026; as variáveis podem ser alteradas para outro recorte.
 
-O script foi executado do zero no **MySQL Community Server 8.4.13**, com 11 tabelas e 1.266 registros fictícios. Foram conferidas as dez consultas gerenciais, as oito auditorias e 28 casos de rejeição de dados inválidos. Os exemplos UPDATE e DELETE preservaram os dados após ROLLBACK. A massa foi corrigida para que a divisão em parcelas não produza diferenças de centavos. O [registro dos testes](docs/validacao-mysql.md) detalha os resultados e seus limites. Antes da apresentação, o grupo deve repetir a execução no ambiente que utilizará.
+O script foi executado do zero no **MySQL Community Server 8.4.13**, com 11 tabelas e 1.266 registros fictícios. Foram conferidas as dez consultas gerenciais, as oito auditorias e 31 casos de rejeição de dados inválidos. Os exemplos UPDATE e DELETE preservaram os dados após ROLLBACK. A massa foi corrigida para que a divisão em parcelas não produza diferenças de centavos. O [registro dos testes](docs/validacao-mysql.md) detalha os resultados e seus limites. Os testes adicionais verificaram pagamento concorrente, reversão integral em caso de falha e os limites da vigência. Antes da apresentação, o grupo deve repetir a execução no ambiente que utilizará.
+
+O [guia de execução e demonstração](docs/guia-execucao.md) apresenta a importação e o uso da rotina. `registrar_pagamento` controla sua própria transação e deve ser chamada isoladamente, sem transação anterior aberta. Não foram configurados usuários ou permissões de uma aplicação: alterações diretas nas tabelas ainda podem produzir divergência entre pagamento e status, detectada por A04. Não se impõe igualdade entre valor pago e valor da parcela até confirmar juros e descontos.
 
 | Código | Pergunta | Atende / verifica |
 |---|---|---|
