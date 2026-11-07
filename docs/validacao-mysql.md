@@ -1,6 +1,6 @@
 # Validação do script no MySQL
 
-Data: 06/11/2026. MySQL Community Server 8.4.13. Instância local isolada, sem conexão TCP e com dados exclusivamente fictícios.
+Data: 07/11/2026. MySQL Community Server 8.4.13. Instância local isolada, sem conexão TCP e com dados exclusivamente fictícios.
 
 ## Resultado
 
@@ -10,10 +10,10 @@ Data: 06/11/2026. MySQL Community Server 8.4.13. Instância local isolada, sem c
 - G01: 35 linhas; Qual é o histórico integrado do cliente selecionado?
 - G02: 90 linhas; Quais cotações estão sem proposta e quais propostas ainda não geraram apólice?
 - G03: 38 linhas; Quais parcelas vencidas continuam sem pagamento?
-- G04: 10 linhas; Quais apólices vencem nos próximos 30 dias e já possuem renovação registrada?
-- G05: 5 linhas; Quais sinistros estão em acompanhamento?
+- G04: 10 linhas; Quais apólices vencem nos próximos 30 dias e quais já têm renovação registrada?
+- G05: 5 linhas; Quais sinistros ainda não foram encerrados?
 - G06: 4 linhas; Quantos atendimentos e visitas foram registrados por mês?
-- G07: 2 linhas; Qual a taxa de conversão das cotações de cada mês em contratação até a data de referência?
+- G07: 2 linhas; Qual percentual de cotações possui apólice com vigência iniciada até a referência?
 - G08: 1 linhas; Qual percentual do valor vencido permanece sem pagamento na data de referência?
 - G09: 2 linhas; Quantas apólices iniciaram vigência e qual o valor médio de suas propostas por mês?
 - G10: 1 linhas; Quantas renovações concluídas foram registradas por mês?
@@ -68,7 +68,7 @@ A divisão de algumas propostas em três parcelas produzia uma diferença de R$ 
 
 A04 continua detectando divergências causadas por alterações manuais. A rotina registrar_pagamento grava pagamento e status atomicamente. A05 é complementada por três triggers que bloqueiam sinistros fora da vigência e alterações da vigência incompatíveis com sinistros existentes. Não foram implementadas regras de juros, descontos ou estornos que ainda dependem de informação da organização. Estes testes foram realizados na versão indicada; outra instalação deve executar o mesmo arquivo antes da apresentação.
 
-SHA-256 do script validado: `80d4f645b04df7029e50374b1ee3bd0e3bdd5beffc688dd35081e7dca967c080`.
+SHA-256 do script validado (UTF-8, finais de linha LF): `df2577936d9551136b4b1afc96aabe1e82e017ea400d723fa20d1ec8bb03c951`.
 
 ## Testes adicionais de transação e vigência
 
