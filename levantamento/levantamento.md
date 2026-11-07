@@ -47,3 +47,12 @@ Os identificadores internos, tamanhos SQL, índices, valores padronizados de sta
 | Processos complementares e validação do escopo | conteudo pendente |
 | Vínculos entre ciclos de renovação | conteudo pendente |
 | Regras de pagamentos, status e visitas futuras | conteudo pendente |
+
+
+## Cronologia a confirmar
+
+A data de entrevista informada pelo grupo é 02/11/2026. O histórico do repositório já continha materiais da pesquisa em outubro. Isso não permite inferir datas: confirmar se houve visita inicial, entrevista e complementações em momentos distintos. Data e participantes da visita inicial: conteudo pendente. Datas das confirmações complementares: conteudo pendente.
+
+## Origem dos registros
+
+As fotos registram ambiente, conversa e anotações. Cargo, volume mensal, regras comerciais e datas provêm do relato do grupo e das respostas atribuídas à entrevistada; não são deduzidos das imagens. Os seis esclarecimentos complementares tratam de propostas por cotação, apólices por proposta, pagamentos por parcela, cadastro de apólice antes das parcelas, sinistros e renovações concluídas.
