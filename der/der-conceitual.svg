@@ -5,73 +5,73 @@
 <polyline points="720,390 1000,390 1000,980 1290,980" fill="none" stroke="#617d92" stroke-width="4"/>
 <polygon points="880,620 1000,564 1120,620 1000,676 880,620" fill="#e8f0f6" stroke="#617d92" stroke-width="3"/>
 <text x="1000" y="620" font-family="Arial,sans-serif" font-size="25" font-weight="normal" text-anchor="middle" dominant-baseline="central" fill="#24354b" text-decoration="none">realiza</text>
-<rect x="748" y="327" width="80.0" height="46" fill="#f6f8fb" stroke="#f6f8fb" stroke-width="3"/>
-<text x="755" y="350" font-family="Arial,sans-serif" font-size="27" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">(0, n)</text>
-<rect x="1153" y="922" width="78.0" height="46" fill="#f6f8fb" stroke="#f6f8fb" stroke-width="3"/>
-<text x="1160" y="945" font-family="Arial,sans-serif" font-size="27" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">(1, 1)</text>
+<rect x="748" y="327" width="78.0" height="46" fill="#f6f8fb" stroke="#f6f8fb" stroke-width="3"/>
+<text x="755" y="350" font-family="Arial,sans-serif" font-size="27" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">(1, 1)</text>
+<rect x="1153" y="922" width="80.0" height="46" fill="#f6f8fb" stroke="#f6f8fb" stroke-width="3"/>
+<text x="1160" y="945" font-family="Arial,sans-serif" font-size="27" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">(0, n)</text>
 <polyline points="410,518 410,900" fill="none" stroke="#617d92" stroke-width="4"/>
 <polygon points="290,750 410,694 530,750 410,806 290,750" fill="#e8f0f6" stroke="#617d92" stroke-width="3"/>
 <text x="410" y="750" font-family="Arial,sans-serif" font-size="25" font-weight="normal" text-anchor="middle" dominant-baseline="central" fill="#24354b" text-decoration="none">recebe</text>
-<rect x="433" y="535" width="80.0" height="46" fill="#f6f8fb" stroke="#f6f8fb" stroke-width="3"/>
-<text x="440" y="558" font-family="Arial,sans-serif" font-size="27" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">(0, n)</text>
-<rect x="433" y="827" width="78.0" height="46" fill="#f6f8fb" stroke="#f6f8fb" stroke-width="3"/>
-<text x="440" y="850" font-family="Arial,sans-serif" font-size="27" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">(1, 1)</text>
+<rect x="433" y="535" width="78.0" height="46" fill="#f6f8fb" stroke="#f6f8fb" stroke-width="3"/>
+<text x="440" y="558" font-family="Arial,sans-serif" font-size="27" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">(1, 1)</text>
+<rect x="433" y="827" width="80.0" height="46" fill="#f6f8fb" stroke="#f6f8fb" stroke-width="3"/>
+<text x="440" y="850" font-family="Arial,sans-serif" font-size="27" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">(0, n)</text>
 <polyline points="1600,436 1600,850" fill="none" stroke="#617d92" stroke-width="4"/>
 <polygon points="1480,660 1600,604 1720,660 1600,716 1480,660" fill="#e8f0f6" stroke="#617d92" stroke-width="3"/>
 <text x="1600" y="660" font-family="Arial,sans-serif" font-size="25" font-weight="normal" text-anchor="middle" dominant-baseline="central" fill="#24354b" text-decoration="none">cota</text>
-<rect x="1623" y="453" width="80.0" height="46" fill="#f6f8fb" stroke="#f6f8fb" stroke-width="3"/>
-<text x="1630" y="476" font-family="Arial,sans-serif" font-size="27" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">(0, n)</text>
-<rect x="1623" y="787" width="78.0" height="46" fill="#f6f8fb" stroke="#f6f8fb" stroke-width="3"/>
-<text x="1630" y="810" font-family="Arial,sans-serif" font-size="27" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">(1, 1)</text>
+<rect x="1623" y="453" width="78.0" height="46" fill="#f6f8fb" stroke="#f6f8fb" stroke-width="3"/>
+<text x="1630" y="476" font-family="Arial,sans-serif" font-size="27" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">(1, 1)</text>
+<rect x="1623" y="787" width="80.0" height="46" fill="#f6f8fb" stroke="#f6f8fb" stroke-width="3"/>
+<text x="1630" y="810" font-family="Arial,sans-serif" font-size="27" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">(0, n)</text>
 <polyline points="2790,476 2790,1020 1910,1020" fill="none" stroke="#617d92" stroke-width="4"/>
 <polygon points="2260,1020 2380,964 2500,1020 2380,1076 2260,1020" fill="#e8f0f6" stroke="#617d92" stroke-width="3"/>
 <text x="2380" y="1020" font-family="Arial,sans-serif" font-size="25" font-weight="normal" text-anchor="middle" dominant-baseline="central" fill="#24354b" text-decoration="none">classifica</text>
-<rect x="2813" y="493" width="80.0" height="46" fill="#f6f8fb" stroke="#f6f8fb" stroke-width="3"/>
-<text x="2820" y="516" font-family="Arial,sans-serif" font-size="27" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">(0, n)</text>
-<rect x="1938" y="952" width="78.0" height="46" fill="#f6f8fb" stroke="#f6f8fb" stroke-width="3"/>
-<text x="1945" y="975" font-family="Arial,sans-serif" font-size="27" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">(1, 1)</text>
+<rect x="2813" y="493" width="78.0" height="46" fill="#f6f8fb" stroke="#f6f8fb" stroke-width="3"/>
+<text x="2820" y="516" font-family="Arial,sans-serif" font-size="27" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">(1, 1)</text>
+<rect x="1938" y="952" width="80.0" height="46" fill="#f6f8fb" stroke="#f6f8fb" stroke-width="3"/>
+<text x="1945" y="975" font-family="Arial,sans-serif" font-size="27" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">(0, n)</text>
 <polyline points="1600,1098 1600,1410" fill="none" stroke="#617d92" stroke-width="4"/>
 <polygon points="1480,1305 1600,1249 1720,1305 1600,1361 1480,1305" fill="#e8f0f6" stroke="#617d92" stroke-width="3"/>
 <text x="1600" y="1305" font-family="Arial,sans-serif" font-size="25" font-weight="normal" text-anchor="middle" dominant-baseline="central" fill="#24354b" text-decoration="none">origina</text>
-<rect x="1623" y="1107" width="80.0" height="46" fill="#f6f8fb" stroke="#f6f8fb" stroke-width="3"/>
-<text x="1630" y="1130" font-family="Arial,sans-serif" font-size="27" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">(0, n)</text>
-<rect x="1623" y="1352" width="78.0" height="46" fill="#f6f8fb" stroke="#f6f8fb" stroke-width="3"/>
-<text x="1630" y="1375" font-family="Arial,sans-serif" font-size="27" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">(1, 1)</text>
+<rect x="1623" y="1107" width="78.0" height="46" fill="#f6f8fb" stroke="#f6f8fb" stroke-width="3"/>
+<text x="1630" y="1130" font-family="Arial,sans-serif" font-size="27" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">(1, 1)</text>
+<rect x="1623" y="1352" width="80.0" height="46" fill="#f6f8fb" stroke="#f6f8fb" stroke-width="3"/>
+<text x="1630" y="1375" font-family="Arial,sans-serif" font-size="27" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">(0, n)</text>
 <polyline points="1600,1658 1600,1990" fill="none" stroke="#617d92" stroke-width="4"/>
 <polygon points="1480,1850 1600,1794 1720,1850 1600,1906 1480,1850" fill="#e8f0f6" stroke="#617d92" stroke-width="3"/>
 <text x="1600" y="1850" font-family="Arial,sans-serif" font-size="25" font-weight="normal" text-anchor="middle" dominant-baseline="central" fill="#24354b" text-decoration="none">gera</text>
 <rect x="1623" y="1670" width="78.0" height="46" fill="#f6f8fb" stroke="#f6f8fb" stroke-width="3"/>
-<text x="1630" y="1693" font-family="Arial,sans-serif" font-size="27" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">(0, 1)</text>
+<text x="1630" y="1693" font-family="Arial,sans-serif" font-size="27" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">(1, 1)</text>
 <rect x="1623" y="1917" width="78.0" height="46" fill="#f6f8fb" stroke="#f6f8fb" stroke-width="3"/>
-<text x="1630" y="1940" font-family="Arial,sans-serif" font-size="27" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">(1, 1)</text>
+<text x="1630" y="1940" font-family="Arial,sans-serif" font-size="27" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">(0, 1)</text>
 <polyline points="1910,2125 2480,2125" fill="none" stroke="#617d92" stroke-width="4"/>
 <polygon points="2075,2125 2195,2069 2315,2125 2195,2181 2075,2125" fill="#e8f0f6" stroke="#617d92" stroke-width="3"/>
 <text x="2195" y="2125" font-family="Arial,sans-serif" font-size="25" font-weight="normal" text-anchor="middle" dominant-baseline="central" fill="#24354b" text-decoration="none">possui</text>
-<rect x="1933" y="2057" width="80.0" height="46" fill="#f6f8fb" stroke="#f6f8fb" stroke-width="3"/>
-<text x="1940" y="2080" font-family="Arial,sans-serif" font-size="27" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">(0, n)</text>
-<rect x="2333" y="2057" width="78.0" height="46" fill="#f6f8fb" stroke="#f6f8fb" stroke-width="3"/>
-<text x="2340" y="2080" font-family="Arial,sans-serif" font-size="27" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">(1, 1)</text>
+<rect x="1933" y="2057" width="78.0" height="46" fill="#f6f8fb" stroke="#f6f8fb" stroke-width="3"/>
+<text x="1940" y="2080" font-family="Arial,sans-serif" font-size="27" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">(1, 1)</text>
+<rect x="2333" y="2057" width="80.0" height="46" fill="#f6f8fb" stroke="#f6f8fb" stroke-width="3"/>
+<text x="2340" y="2080" font-family="Arial,sans-serif" font-size="27" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">(0, n)</text>
 <polyline points="2790,1990 2790,1658" fill="none" stroke="#617d92" stroke-width="4"/>
 <polygon points="2670,1840 2790,1784 2910,1840 2790,1896 2670,1840" fill="#e8f0f6" stroke="#617d92" stroke-width="3"/>
 <text x="2790" y="1840" font-family="Arial,sans-serif" font-size="25" font-weight="normal" text-anchor="middle" dominant-baseline="central" fill="#24354b" text-decoration="none">recebe</text>
 <rect x="2813" y="1917" width="78.0" height="46" fill="#f6f8fb" stroke="#f6f8fb" stroke-width="3"/>
-<text x="2820" y="1940" font-family="Arial,sans-serif" font-size="27" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">(0, 1)</text>
+<text x="2820" y="1940" font-family="Arial,sans-serif" font-size="27" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">(1, 1)</text>
 <rect x="2813" y="1670" width="78.0" height="46" fill="#f6f8fb" stroke="#f6f8fb" stroke-width="3"/>
-<text x="2820" y="1693" font-family="Arial,sans-serif" font-size="27" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">(1, 1)</text>
+<text x="2820" y="1693" font-family="Arial,sans-serif" font-size="27" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">(0, 1)</text>
 <polyline points="1290,2140 720,2140" fill="none" stroke="#617d92" stroke-width="4"/>
 <polygon points="885,2140 1005,2084 1125,2140 1005,2196 885,2140" fill="#e8f0f6" stroke="#617d92" stroke-width="3"/>
 <text x="1005" y="2140" font-family="Arial,sans-serif" font-size="25" font-weight="normal" text-anchor="middle" dominant-baseline="central" fill="#24354b" text-decoration="none">possui</text>
-<rect x="1143" y="2072" width="80.0" height="46" fill="#f6f8fb" stroke="#f6f8fb" stroke-width="3"/>
-<text x="1150" y="2095" font-family="Arial,sans-serif" font-size="27" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">(0, n)</text>
-<rect x="743" y="2072" width="78.0" height="46" fill="#f6f8fb" stroke="#f6f8fb" stroke-width="3"/>
-<text x="750" y="2095" font-family="Arial,sans-serif" font-size="27" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">(1, 1)</text>
+<rect x="1143" y="2072" width="78.0" height="46" fill="#f6f8fb" stroke="#f6f8fb" stroke-width="3"/>
+<text x="1150" y="2095" font-family="Arial,sans-serif" font-size="27" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">(1, 1)</text>
+<rect x="743" y="2072" width="80.0" height="46" fill="#f6f8fb" stroke="#f6f8fb" stroke-width="3"/>
+<text x="750" y="2095" font-family="Arial,sans-serif" font-size="27" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">(0, n)</text>
 <polyline points="1290,2040 1000,2040 1000,1510 720,1510" fill="none" stroke="#617d92" stroke-width="4"/>
 <polygon points="880,1795 1000,1739 1120,1795 1000,1851 880,1795" fill="#e8f0f6" stroke="#617d92" stroke-width="3"/>
 <text x="1000" y="1795" font-family="Arial,sans-serif" font-size="25" font-weight="normal" text-anchor="middle" dominant-baseline="central" fill="#24354b" text-decoration="none">registra</text>
-<rect x="1143" y="1972" width="80.0" height="46" fill="#f6f8fb" stroke="#f6f8fb" stroke-width="3"/>
-<text x="1150" y="1995" font-family="Arial,sans-serif" font-size="27" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">(0, n)</text>
-<rect x="743" y="1442" width="78.0" height="46" fill="#f6f8fb" stroke="#f6f8fb" stroke-width="3"/>
-<text x="750" y="1465" font-family="Arial,sans-serif" font-size="27" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">(1, 1)</text>
+<rect x="1143" y="1972" width="78.0" height="46" fill="#f6f8fb" stroke="#f6f8fb" stroke-width="3"/>
+<text x="1150" y="1995" font-family="Arial,sans-serif" font-size="27" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">(1, 1)</text>
+<rect x="743" y="1442" width="80.0" height="46" fill="#f6f8fb" stroke="#f6f8fb" stroke-width="3"/>
+<text x="750" y="1465" font-family="Arial,sans-serif" font-size="27" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">(0, n)</text>
 <rect x="100" y="270" width="620" height="248" fill="white" stroke="#657f94" stroke-width="3"/>
 <rect x="100" y="270" width="620" height="62" fill="#184d77" stroke="#657f94" stroke-width="3"/>
 <text x="125" y="301" font-family="Arial,sans-serif" font-size="30" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="white" text-decoration="none">CLIENTE</text>
@@ -149,5 +149,5 @@
 <text x="120" y="1499" font-family="Arial,sans-serif" font-size="25" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="underline">id_renovacao</text>
 <text x="120" y="1541" font-family="Arial,sans-serif" font-size="25" font-weight="normal" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">data_renovacao</text>
 <text x="70" y="2390" font-family="Arial,sans-serif" font-size="27" font-weight="bold" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">Identificadores sublinhados. Os vínculos são relacionamentos; não há chaves estrangeiras nas entidades.</text>
-<text x="70" y="2440" font-family="Arial,sans-serif" font-size="25" font-weight="normal" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">Par junto à entidade: quantas ocorrências do relacionamento cada instância dessa entidade pode ter.</text>
+<text x="70" y="2440" font-family="Arial,sans-serif" font-size="25" font-weight="normal" text-anchor="start" dominant-baseline="central" fill="#24354b" text-decoration="none">Par junto à entidade: quantas ocorrências dela correspondem a uma ocorrência da entidade na outra ponta.</text>
 </svg>
