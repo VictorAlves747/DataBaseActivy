@@ -45,7 +45,7 @@ Segundo as informações fornecidas pelo grupo, a operação tem fins lucrativos
 | P3 | Consulta manual de parcelas vencidas e pagamentos | Parcela, Pagamento, Apólice | G03 |
 | P4 | Identificação manual de vencimentos e renovações concluídas | Apólice, Renovação | G04 |
 | P5 | Acompanhamento de sinistros em controle separado | Sinistro, Apólice | G05 |
-| P6 | Histórico de atendimentos e visitas disperso em papel e planilhas | Atendimento, Cliente | G06 |
+| P6 | Histórico de atendimentos e visitas disperso em papel e planilhas | Atendimento, Cliente | G01 |
 
 A centralização organiza registros e permite consultas integradas. A transferência de anotações de papel continua sendo uma atividade operacional: o banco não digitaliza anotações automaticamente. A agenda futura de visitas, a distribuição de tarefas, comissões, despesas, pessoas jurídicas e alterações contratuais não estão representadas no levantamento disponível. Os controles demonstrados não substituem um sistema bancário nem uma aplicação completa de gestão.
 
@@ -93,7 +93,7 @@ O grupo informou que o professor considerou o trabalho correto. As adequações 
 | Entrevista complementar | Somente renovações concluídas | Não armazenar tentativas como conclusões. |
 | Roteiro E2: detalhamento | RFs especificam dados e vínculos; RN01–RN20 preservados | Permitir rastrear os campos até a implementação. |
 
-**Apontamentos adicionais da correção da Entrega 1:** conteudo pendente
+**Apontamentos adicionais da correção da Entrega 1:** o grupo relatou aprovação do professor e a necessidade de adequação à E2; outros comentários mencionados ainda não foram enviados: conteudo pendente.
 
 ### Processos de negócio e dados envolvidos
 
@@ -112,6 +112,22 @@ O grupo informou que o professor considerou o trabalho correto. As adequações 
 - **Renovação:** Representa uma renovação concluída, vinculada à apólice de origem. Dados: `id_renovacao`, `data_renovacao`, `id_apolice`.
 
 O encadeamento é Cliente → Cotação → Proposta → Apólice. Apólice se relaciona a parcelas, sinistros e renovações. O pagamento depende de parcela; o atendimento depende de cliente. Os [fluxogramas detalhados](fluxogramas/) descrevem os oito processos operacionais e sua integração.
+
+### Execução dos processos
+
+A descrição abaixo combina o fluxo relatado com a gravação proposta. A identidade do executor de cada operação e regras adicionais não confirmadas permanecem como conteudo pendente.
+
+| Processo | Início, entradas e execução | Decisão, exceção e saída |
+|---|---|---|
+| Cadastro | Cliente entra em contato; a equipe consulta CPF e registra nome e nascimento. | CPF já existente deve levar à consulta/atualização do cadastro, sem duplicação. O cliente fica disponível para cotações e atendimentos. |
+| Cotação | A equipe levanta a necessidade e consulta seguradora e modalidade; registra data, valor e situação. | Bradesco Seguros é priorizada; outras companhias podem ser consultadas. Cada opção registrada pode permanecer sem proposta. |
+| Proposta | Interesse do cliente em prosseguir com uma cotação; registrar data, valor, situação e origem. | Podem existir várias propostas por cotação. Proposta sem contratação permanece registrada; cada proposta gera no máximo uma apólice. |
+| Contratação | Efetivação informada gera número, vigência e situação da apólice vinculada à proposta. | Fim deve ser posterior ao início. É permitido registrar a apólice antes das parcelas. Data comercial de emissão/contratação: conteudo pendente. |
+| Parcelas | Após a apólice, registrar número, valor e vencimento de cada obrigação. | Número não se repete dentro da apólice. Quantidade e periodicidade reais: conteudo pendente. |
+| Pagamento | Recebida informação de quitação, registrar data, valor e forma para uma parcela. | Um pagamento por parcela; a rotina bloqueia duplicidade e grava pagamento/status atomicamente. Falha desfaz a operação. Juros, descontos e estornos: conteudo pendente. |
+| Atendimento/visita | Contato com o cliente gera data, tipo e descrição; anotações em papel alimentam o controle. | O registro integra o histórico. Agenda futura e responsável nominal: conteudo pendente. |
+| Sinistro | Cliente comunica ocorrência; funcionária responsável acompanha o caso; registrar apólice, data, descrição e situação. | Várias ocorrências por apólice; data fora da vigência é recusada. Acompanhamento atualiza situação; número é registrado quando disponível. |
+| Renovação | Proximidade do vencimento motiva contato com cliente. | Somente conclusão gera Renovação com data e apólice de origem. Tentativa sem conclusão não gera esse registro. Vínculo com novo contrato: conteudo pendente. |
 
 ### Requisitos funcionais
 
@@ -150,7 +166,7 @@ O encadeamento é Cliente → Cotação → Proposta → Apólice. Apólice se r
 | RNF04 | Consultas usam PKs, índices das FKs e índices de datas; desempenho deve ser medido com EXPLAIN na instalação utilizada. |
 | RNF05 | Integridade referencial por InnoDB, PK, FK, NOT NULL, UNIQUE e CHECK; regras entre tabelas também têm auditorias. |
 | RNF06 | Operação deve prever backup e restauração; política e execução pertencem à administração do ambiente. |
-| RNF07 | CPF único; cadastro não aceita repetição do mesmo CPF. |
+| RNF07 | Integridade de identificação verificada pelo teste de duplicidade de CPF; implementa RN02. |
 | RNF08 | Novos tipos de seguro são incluídos como registros, sem mudança de estrutura. |
 | RNF09 | Novas seguradoras são incluídas como registros, sem mudança de estrutura. |
 | RNF10 | Demonstração exclusivamente com dados fictícios, sem exportação de dados reais de clientes. |
@@ -189,13 +205,31 @@ RN21 explicita a confirmação já recebida sobre proposta e apólice. RN22 e RN
 
 ![DER conceitual](der/der-conceitual.png)
 
-Criado com **Python/Pillow e SVG**, seguindo os elementos conceituais indicados no roteiro: retângulos, losangos, identificadores sublinhados e cardinalidades mínimas e máximas. Não foi gerado no aplicativo brModelo. Os atributos estão dentro das entidades, alternativa aceita no roteiro. O par junto à entidade indica sua participação no relacionamento.
+Criado com **Python/Pillow e SVG**, seguindo os elementos conceituais indicados no roteiro: retângulos, losangos, identificadores sublinhados e cardinalidades mínimas e máximas. Não foi gerado no aplicativo brModelo. Os atributos estão dentro das entidades, alternativa aceita no roteiro. O par junto à entidade conta quantas ocorrências dela podem corresponder a uma ocorrência da entidade na outra ponta. Em Cliente–Cotação, (1,1) fica junto de Cliente e (0,n) junto de Cotação.
 
 ## 1.2 Conversão do Modelo Conceitual para o Modelo Lógico
 
-Cada uma das 11 entidades origina uma tabela; seus atributos simples originam colunas. No lado dependente dos relacionamentos 1:N, acrescenta-se uma FK obrigatória. O mínimo zero no lado principal permite cadastrar clientes, cotações e apólices antes de seus dependentes. Não existem relacionamentos N:N nem generalização/especialização na base levantada; por isso não foram criadas tabelas associativas ou hierarquias artificiais.
+Cada uma das 11 entidades origina uma tabela; seus atributos simples originam colunas. No lado dependente dos relacionamentos 1:N, acrescenta-se uma FK obrigatória. A ausência de dependentes é permitida, possibilitando cadastrar clientes, cotações e apólices antes deles. Não existem relacionamentos N:N nem generalização/especialização na base levantada; por isso não foram criadas tabelas associativas ou hierarquias artificiais.
 
 Proposta–Apólice e Parcela–Pagamento usam FK NOT NULL com UNIQUE na tabela dependente, garantindo no máximo um dependente por origem. Cotação–Proposta usa FK sem UNIQUE, permitindo várias propostas. A opção RESTRICT preserva os vínculos ao excluir ou alterar chaves.
+
+
+### Conversão por relacionamento
+
+| Tabela dependente | Referência obrigatória | Dependentes por origem | Implementação e justificativa |
+|---|---|---|---|
+| cotacao | id_cliente → cliente.id_cliente | 0..N | NOT NULL + FK; FK pode repetir, permitindo vários dependentes. |
+| cotacao | id_seguradora → seguradora.id_seguradora | 0..N | NOT NULL + FK; FK pode repetir, permitindo vários dependentes. |
+| cotacao | id_tipo_seguro → tipo_seguro.id_tipo_seguro | 0..N | NOT NULL + FK; FK pode repetir, permitindo vários dependentes. |
+| proposta | id_cotacao → cotacao.id_cotacao | 0..N | NOT NULL + FK; FK pode repetir, permitindo vários dependentes. |
+| apolice | id_proposta → proposta.id_proposta | 0..1 | NOT NULL + FK + UNIQUE; máximo de um dependente. |
+| parcela | id_apolice → apolice.id_apolice | 0..N | NOT NULL + FK; FK pode repetir, permitindo vários dependentes. |
+| pagamento | id_parcela → parcela.id_parcela | 0..1 | NOT NULL + FK + UNIQUE; máximo de um dependente. |
+| atendimento | id_cliente → cliente.id_cliente | 0..N | NOT NULL + FK; FK pode repetir, permitindo vários dependentes. |
+| sinistro | id_apolice → apolice.id_apolice | 0..N | NOT NULL + FK; FK pode repetir, permitindo vários dependentes. |
+| renovacao | id_apolice → apolice.id_apolice | 0..N | NOT NULL + FK; FK pode repetir, permitindo vários dependentes. |
+
+Nos vínculos 1:0..1, manter tabelas separadas evita campos de apólice em propostas não contratadas e campos de pagamento em parcelas pendentes. Colocar a FK obrigatória e única no dependente permite que a origem exista sem ele. Uma tabela única seria alternativa com campos opcionais e restrições adicionais, mas misturaria eventos de ciclos distintos.
 
 ## 1.3 Definição de Chaves Primárias e Estrangeiras
 
@@ -205,13 +239,13 @@ Proposta–Apólice e Parcela–Pagamento usam FK NOT NULL com UNIQUE na tabela 
 | seguradora | id_seguradora | — | — |
 | tipo_seguro | id_tipo_seguro | — | — |
 | cotacao | id_cotacao | id_cliente → cliente; id_seguradora → seguradora; id_tipo_seguro → tipo_seguro | — |
-| proposta | id_proposta | id_cotacao → cotacao | — |
-| apolice | id_apolice | id_proposta → proposta | id_proposta: UNIQUE |
-| parcela | id_parcela | id_apolice → apolice | numero_parcela: UNIQUE (id_apolice, numero_parcela) |
-| pagamento | id_pagamento | id_parcela → parcela | id_parcela: UNIQUE |
-| atendimento | id_atendimento | id_cliente → cliente | — |
-| sinistro | id_sinistro | id_apolice → apolice | — |
-| renovacao | id_renovacao | id_apolice → apolice | — |
+| proposta | id_proposta | id_cotacao → cotacao.id_cotacao | — |
+| apolice | id_apolice | id_proposta → proposta.id_proposta | id_proposta: UNIQUE |
+| parcela | id_parcela | id_apolice → apolice.id_apolice | numero_parcela: UNIQUE (id_apolice, numero_parcela) |
+| pagamento | id_pagamento | id_parcela → parcela.id_parcela | id_parcela: UNIQUE |
+| atendimento | id_atendimento | id_cliente → cliente.id_cliente | — |
+| sinistro | id_sinistro | id_apolice → apolice.id_apolice | — |
+| renovacao | id_renovacao | id_apolice → apolice.id_apolice | — |
 
 ## 1.4 Processo de Normalização (1FN, 2FN e 3FN)
 
@@ -237,6 +271,12 @@ Proposta–Apólice e Parcela–Pagamento usam FK NOT NULL com UNIQUE na tabela 
 
 A normalização preserva as entidades da base já separada. Não se inventou uma tabela desnormalizada anterior como se tivesse sido fornecida pela organização. O status da parcela é informação redundante em relação à existência do pagamento; mantê-lo exige atualização transacional. A rotina `registrar_pagamento` faz a gravação conjunta; A04 detecta divergências introduzidas por alterações manuais. A 3FN não elimina automaticamente inconsistências entre tabelas nem resolve regras temporais.
 
+### Exemplos didáticos de normalização
+
+Armazenar o nome da seguradora em cada cotação exigiria atualizar diversas linhas quando o nome mudasse; mantê-lo em Seguradora evita essa anomalia. Separar Cliente de Cotação permite cadastrar um cliente antes de haver cotação e evita perder seu cadastro ao excluir uma cotação. São exemplos didáticos, não descrições de uma tabela antiga observada.
+
+A chave candidata (id_apolice, numero_parcela) identifica uma parcela dentro de um contrato: valor e vencimento dependem da combinação, não apenas do contrato nem do número isolado. As demais chaves candidatas identificadas são as PKs, CPF de Cliente, id_proposta de Apólice e id_parcela de Pagamento. A conclusão sobre 2FN considera essas chaves, não somente a existência de PKs simples. A redundância entre status da parcela e presença do pagamento é uma regra entre tabelas, tratada pela rotina transacional e pela auditoria A04.
+
 ## 1.5 Justificativas Técnicas das Decisões
 
 Identificadores inteiros internos permanecem estáveis mesmo se nome, CPF ou número comercial forem corrigidos. CPF é chave candidata única (RN02), mas não é usado como FK para evitar sua repetição. Datas usam DATE; valores monetários usam DECIMAL(12,2), sem ponto flutuante. Números de apólice e sinistro usam texto para preservar zeros, letras e separadores.
@@ -258,18 +298,18 @@ A documentação técnica foi conferida com o [manual oficial do MySQL sobre FKs
 
 ## 1.6 Proposta de Arquitetura Analítica para BI e IA
 
-A proposta utiliza o banco transacional como fonte para extrações somente de leitura. Uma camada analítica pode reunir fatos de contratação (uma apólice), vencimento (uma parcela), pagamento (um pagamento), atendimento (um registro) e renovação (uma conclusão), com dimensões de data, seguradora e modalidade. Cada fato mantém sua granularidade para evitar multiplicar valores ao combinar várias parcelas e vários sinistros da mesma apólice.
+A proposta utiliza o banco transacional como fonte para extrações somente de leitura. Uma camada analítica pode reunir fatos de início de vigência (uma apólice), vencimento (uma parcela), pagamento (um pagamento), atendimento (um registro) e renovação (uma conclusão), com dimensões de data, seguradora e modalidade. Cada fato mantém sua granularidade para evitar multiplicar valores ao combinar várias parcelas e vários sinistros da mesma apólice.
 
 | KPI | Fórmula | Período / recorte | Consulta |
 |---|---|---|---|
 | KPI1 — Atendimentos e visitas | COUNT dos registros por tipo | Mês do atendimento | G06 |
-| KPI2 — Conversão de cotações | 100 × cotações com ao menos uma apólice / cotações do período | Coorte mensal; contratação até a data de referência | G07 |
-| KPI3 — Valor vencido em aberto | 100 × valor vencido sem pagamento até a referência / valor vencido | Posição na data de referência | G08 |
-| KPI4 — Contratações | COUNT das apólices | Mês do início de vigência | G09 |
-| KPI5 — Valor médio contratado | AVG do valor da proposta ligada à apólice | Mês do início de vigência | G09 |
+| KPI2 — Cotações com vigência iniciada | 100 × cotações com ao menos uma apólice cuja vigência iniciou até a referência / cotações do período | Coorte mensal; início da vigência até a referência | G07 |
+| KPI3 — Percentual vencido em aberto | 100 × valor vencido sem pagamento até a referência / valor vencido | Posição na data de referência | G08 |
+| KPI4 — Inícios de vigência | COUNT das apólices | Mês do início de vigência | G09 |
+| KPI5 — Valor médio das propostas vinculadas | AVG do valor da proposta ligada à apólice | Mês do início de vigência | G09 |
 | KPI6 — Renovações concluídas | COUNT das renovações | Mês da conclusão | G10 |
 
-Não foram estabelecidas metas comerciais pela organização. Valor de proposta, prêmio, comissão e faturamento não são tratados como sinônimos. KPI4 inclui contratos posteriormente cancelados e mede contratações brutas; não mede carteira ativa. Não se calcula taxa de renovação sem conhecer os contratos elegíveis e os vínculos entre ciclos. Não se promete análise histórica de cancelamentos porque o modelo contém status atual, sem data de cada mudança.
+Não foram estabelecidas metas comerciais pela organização. Valor de proposta, prêmio, comissão e faturamento não são tratados como sinônimos. KPI4 conta inícios de vigência e inclui contratos posteriormente cancelados; não representa data de emissão, contratação ou carteira ativa. Não se calcula taxa de renovação sem conhecer os contratos elegíveis e os vínculos entre ciclos. Não se promete análise histórica de cancelamentos porque o modelo contém status atual, sem data de cada mudança.
 
 ### Rastreabilidade
 
@@ -280,7 +320,7 @@ Não foram estabelecidas metas comerciais pela organização. Valor de proposta,
 | P3 — Consulta manual de parcelas vencidas e pagamentos | Parcela, Pagamento, Apólice | G03 |
 | P4 — Identificação manual de vencimentos e renovações concluídas | Apólice, Renovação | G04 |
 | P5 — Acompanhamento de sinistros em controle separado | Sinistro, Apólice | G05 |
-| P6 — Histórico de atendimentos e visitas disperso em papel e planilhas | Atendimento, Cliente | G06 |
+| P6 — Histórico de atendimentos e visitas disperso em papel e planilhas | Atendimento, Cliente | G01 |
 | KPI1 | atendimento | G06 |
 | KPI2 | cotacao, proposta, apolice | G07 |
 | KPI3 | parcela, pagamento | G08 |
@@ -292,9 +332,15 @@ Não foram estabelecidas metas comerciais pela organização. Valor de proposta,
 
 ### Potencial de BI e IA
 
-Dashboards podem exibir contratação por período e modalidade, parcelas em aberto, vencimentos próximos e volume de atendimento. A consulta de coortes usa EXISTS para contar cada cotação uma única vez, mesmo quando ela gera várias propostas. As consultas de renovação também evitam repetir uma apólice por múltiplas conclusões.
+Dashboards podem exibir inícios de vigência por período e modalidade, parcelas em aberto, vencimentos próximos e volume de atendimento. A consulta de coortes usa EXISTS para contar cada cotação uma única vez, mesmo quando ela gera várias propostas. As consultas de renovação também evitam repetir uma apólice por múltiplas conclusões.
 
 Em uma evolução com histórico suficiente, séries mensais podem apoiar previsão de demanda de atendimento e detecção de alterações nos volumes. A avaliação deve comparar o modelo com uma referência simples e separar treino e teste por tempo. Os dados fictícios desta entrega servem para demonstração, não para validar previsões reais. Não se propõe decisão automática de aceitação de seguro, preço ou perfil individual; faltam dados e validação para esses usos. Identificadores pessoais não são necessários nos painéis agregados.
+
+### Critérios de leitura dos indicadores
+
+G01 retorna uma linha por evento e inclui descrição/status/valor conforme sua natureza; identificadores de entidades diferentes não são comparáveis. Essa consulta atende P1 e P6. G06 mede volume mensal, não substitui o histórico detalhado. G04 inclui apólices com e sem renovação até a referência; a massa possui cinco de cada. G05 inclui situações Registrado e Em acompanhamento.
+
+G07 mede a existência de apólice com vigência iniciada, não uma data de contratação ainda não levantada. G08 apresenta valor vencido e valor em aberto em reais, além do percentual em aberto. G09 agrupa pelo início da vigência. As consultas não excluem automaticamente parcelas de apólices canceladas: o levantamento não confirmou que cancelamento extingue a dívida. Esses resultados representam pendências registradas, não autorização de cobrança. A06 testa integridade estrutural, não comprova a conclusão comercial de uma renovação.
 
 # 2. Modelo Lógico Relacional
 
@@ -302,7 +348,7 @@ Em uma evolução com histórico suficiente, séries mensais podem apoiar previs
 
 Criado com **Python/Pillow e SVG**. Cada tabela apresenta nome, uma coluna por linha, tipo à direita e marcas PK/FK, com pares de cardinalidade nas ligações. Restrições completas, tamanhos, obrigatoriedade e valores padrão estão no [dicionário HTML](dicionario-dados/dicionario_de_dados.html). O diagrama é uma representação visual; não é um arquivo nativo do brModelo.
 
-**Adequação ao arquivo de exemplo obrigatório do dicionário:** conteudo pendente
+**Referência do dicionário:** exemplo 02-03g consultado; convenções, definições formais, fluxo, índices e metadados adaptados ao projeto.
 
 # 3. Script SQL Completo
 
@@ -316,13 +362,13 @@ O [guia de execução e demonstração](docs/guia-execucao.md) apresenta a impor
 
 | Código | Pergunta | Atende / verifica |
 |---|---|---|
-| G01 | Qual é o histórico integrado do cliente selecionado? | P1; RF21 |
+| G01 | Qual é o histórico integrado do cliente selecionado? | P1; P6; RF21 |
 | G02 | Quais cotações estão sem proposta e quais propostas ainda não geraram apólice? | P2; RF06, RF09 |
 | G03 | Quais parcelas vencidas continuam sem pagamento? | P3; RF15 |
-| G04 | Quais apólices vencem nos próximos 30 dias e já possuem renovação registrada? | P4; RF19, RF20 |
-| G05 | Quais sinistros estão em acompanhamento? | P5; RF18 |
-| G06 | Quantos atendimentos e visitas foram registrados por mês? | P6; KPI1; RF16 |
-| G07 | Qual a taxa de conversão das cotações de cada mês em contratação até a data de referência? | KPI2 |
+| G04 | Quais apólices vencem nos próximos 30 dias e quais já têm renovação registrada? | P4; RF19, RF20 |
+| G05 | Quais sinistros ainda não foram encerrados? | P5; RF18 |
+| G06 | Quantos atendimentos e visitas foram registrados por mês? | KPI1; RF16 |
+| G07 | Qual percentual de cotações possui apólice com vigência iniciada até a referência? | KPI2 |
 | G08 | Qual percentual do valor vencido permanece sem pagamento na data de referência? | KPI3 |
 | G09 | Quantas apólices iniciaram vigência e qual o valor médio de suas propostas por mês? | KPI4; KPI5 |
 | G10 | Quantas renovações concluídas foram registradas por mês? | KPI6 |
@@ -349,9 +395,11 @@ A massa é **inteiramente fictícia**, incluída no script. Nomes “Cliente Fic
 | apolice | 120 | 55 por mês em dois meses, dentro do volume informado; 10 históricas para vencimentos. |
 | parcela | 357 | Três parcelas por apólice no cenário fictício, exceto uma ainda sem parcelas; não é regra da organização. |
 | pagamento | 156 | Parte das parcelas vencidas quitada, preservando casos em aberto e formas variadas. |
-| atendimento | 180 | 90 por mês, para 75 clientes distintos, dentro da faixa de clientes atendidos informada. |
+| atendimento | 180 | 80 em setembro e 100 em outubro, para 75 clientes distintos, dentro da faixa de clientes atendidos informada. |
 | sinistro | 8 | Cenário de teste com oito ocorrências, incluindo duas para a mesma apólice; volume não medido em campo. |
 | renovacao | 5 | Cinco conclusões na carteira histórica; volume não medido em campo. |
+
+Os valores propostos em outubro são 10% maiores que o cenário de setembro; a média das propostas das apólices passa de R$ 1.700,00 para R$ 1.870,00. Essa variação é fictícia e não representa tendência da organização.
 
 A diversidade inclui clientes sem contratação, cotações sem proposta, propostas recusadas, contratos cancelados, apólice sem parcela, parcelas pagas e pendentes, sinistros abertos e encerrados e renovações concluídas. As auditorias de integridade devem retornar zero inconsistências na massa válida; demonstrar violação requer um teste controlado, seguido de reversão.
 
@@ -365,7 +413,8 @@ dicionario-dados/    Dicionário único em HTML
 levantamento/        Relato organizado da pesquisa
 evidencias/          Fotografias em JPG
 fluxogramas/         Integração e processos operacionais
-docs/                Script SQL e massa fictícia
+docs/                Script SQL, validação e guia de execução
+apresentacao/        Slides PDF e roteiro da defesa
 ```
 
 O relatório técnico ocupa o README da raiz. Os artefatos ficam em arquivos próprios e são acessados pelos links deste relatório. O histórico registra as alterações efetivamente realizadas. Contribuições dos integrantes devem corresponder ao trabalho feito por cada um e à sua própria conta.
@@ -382,6 +431,8 @@ O relatório técnico ocupa o README da raiz. Os artefatos ficam em arquivos pr�
 
 ### Fontes e escolhas
 
+A revisão do dicionário utilizou a estrutura do [exemplo 02-03g](https://drive.google.com/file/d/1GyUEndR5ma5oBbZ2_y6IE_z8C9mOLDqE/view): convenções, definições formais, relacionamentos, atributos, restrições e metadados administrativos, adaptados ao domínio de seguros.
+
 Foram usados o roteiro da Entrega 2, o conteúdo já publicado na Entrega 1, o dicionário fornecido, as fotografias e as respostas complementares da entrevista. A sintaxe e as limitações gerais de FKs/CHECKs foram consultadas na documentação oficial do MySQL indicada na seção 1.5. A proposta não acrescenta processos bancários, comissões ou dados de pessoas jurídicas como se tivessem sido levantados.
 
 ### Correções e reflexão crítica
@@ -390,12 +441,16 @@ As referências de relacionamento foram retiradas das entidades conceituais, man
 
 A IA pode propor tipos, consultas e regras incompatíveis com o processo real. A massa fictícia não comprova desempenho ou qualidade preditiva em produção. O uso de consultas de auditoria não equivale ao bloqueio automático de todas as inconsistências. A validação funcional depende das regras da organização e da execução real no SGBD.
 
+### Registro do uso de IA nesta revisão
+
+Em 07/11/2026, o grupo forneceu um plano de correção e pediu: “oq for da minha responsabilidade do grupo so me fale porem oq der para fazer faça”. A revisão utilizou o roteiro, o exemplo 02-03g e o recurso de cardinalidade do professor. Foram corrigidos os pares do conceitual, ampliados processos/conversão/normalização e revistos os nomes dos indicadores. Regras de renovação, cobrança após cancelamento e organização não foram inventadas. A revisão também gerou slides em PDF e um roteiro de defesa com apoio da IA, a partir do relatório e dos resultados executados. A massa fictícia ganhou variação mensal, mantendo os vínculos e a conferência independente das consultas. Os testes automatizados verificam a implementação, não comprovam validação coletiva ou entrevista adicional.
+
 # 7. Apresentação Corporativa Final
 
-**Slides da apresentação:** conteudo pendente
+**Slides da apresentação:** [PDF — oito slides](apresentacao/apresentacao-entrega-2.pdf). [Roteiro de oito minutos e preparação para a defesa](apresentacao/roteiro-e-defesa.md).
 
 **Ambiente e versão do MySQL para a apresentação:** conteudo pendente
 
-O pitch de oito minutos segue: contexto e problema (50 s), solução (50 s), modelo lógico (90 s), implementação SQL (90 s), consultas gerenciais e auditorias (100 s), potencial de BI/IA (50 s) e benefícios para decisão (50 s). Total: 480 segundos.
+O pitch de oito minutos segue: contexto e problema (50 s), solução (50 s), conceitual e modelo lógico (90 s), implementação SQL (90 s), consultas gerenciais e auditorias (100 s), potencial de BI/IA (50 s) e benefícios para decisão (50 s). Total: 480 segundos.
 
 A demonstração deve usar o mesmo script, com G03 para parcelas em aberto, G04 para vencimentos, G07 para conversão e A04/A05 para consistência. A apresentação não deve se limitar a ler o relatório: o modelo e os resultados das consultas são os elementos centrais. Após o pitch, todos os integrantes participam da defesa individual conforme as perguntas dirigidas pelo professor.
