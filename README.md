@@ -23,18 +23,20 @@ O projeto mantém a organização pesquisada na Entrega 1. O levantamento descre
 
 Segundo as informações fornecidas pelo grupo, a operação tem fins lucrativos, funciona desde 2016, conta com seis funcionários, atende cerca de 50 a 100 clientes por mês e comercializa 50 a 60 seguros mensais. Foi informado faturamento aproximado de R$ 60.000,00 por mês. A seleção decorreu do acesso do grupo ao ambiente e à responsável, permitindo levantar cadastros, contratação, pagamentos, atendimentos, sinistros e renovações.
 
-### Complementação do escopo
+### Delimitação do escopo e decisões técnicas
 
-| Informação | Registro |
+As definições abaixo combinam as informações fornecidas pelo grupo com decisões técnicas adotadas nesta versão acadêmica. As limitações de escopo descrevem o que o modelo implementa; não constituem novas respostas da entrevistada nem confirmação de aprovação desse recorte pelo professor.
+
+| Informação | Definição adotada no projeto |
 |---|---|
-| Confirmação do recorte da operação de seguros para a Entrega 2 | conteudo pendente |
-| Processos adicionais e justificativas dos processos não incluídos | conteudo pendente |
-| Cadastro de pessoas jurídicas e dados utilizados | conteudo pendente |
-| Agenda de visitas e atribuição de responsáveis | conteudo pendente |
-| Vínculo entre apólice anterior e nova apólice na renovação | conteudo pendente |
-| Regras de juros, descontos e estornos | conteudo pendente |
-| Formas de pagamento, situações operacionais e antecedência dos alertas | conteudo pendente |
-| Definição do faturamento informado e dos valores de proposta | conteudo pendente |
+| Recorte da operação de seguros para a Entrega 2 | O objeto modelado é a operação de seguros pesquisada na agência 1363: clientes, seguradoras, tipos de seguro, cotações, propostas, apólices, parcelas, pagamentos, atendimentos, sinistros e renovações. Essa delimitação mantém continuidade com a pesquisa da Entrega 1. A versão não representa toda a atividade bancária da agência. |
+| Processos adicionais e justificativas dos processos não incluídos | O modelo cobre cadastro, cotação, proposta, contratação, controle financeiro das parcelas, histórico de atendimentos e visitas, sinistros e registro de renovações concluídas. Contas bancárias, crédito, investimentos, folha de pagamento, comissões e despesas ficam fora desta versão por não terem sido detalhados no levantamento. Essa exclusão delimita o projeto e não significa que tais processos não existam na organização. |
+| Cadastro de pessoas jurídicas e dados utilizados | O cadastro implementado representa pessoas físicas, com CPF único, nome e data de nascimento, conforme os dados informados na pesquisa. A oferta de seguro empresarial, isoladamente, não confirma como a organização cadastra pessoas jurídicas. Um cadastro próprio com CNPJ e razão social é uma possibilidade de evolução, não implementada nesta entrega; CNPJ não deve ser armazenado no campo CPF. |
+| Agenda de visitas e atribuição de responsáveis | O levantamento registra planejamento semanal em quadro de vidro e uso de papel e planilhas. Nesta versão, Atendimento mantém data, tipo, descrição e vínculo com o cliente, permitindo consultar o histórico de contatos e visitas. Agendamento futuro e atribuição de funcionários não foram implementados; sua inclusão exigiria cadastro de responsáveis e regras de disponibilidade. |
+| Vínculo entre apólice anterior e nova apólice na renovação | Conforme a confirmação enviada pelo grupo, somente renovações concluídas são registradas. Renovação guarda a data de conclusão e a referência à apólice relacionada, preservando o registro original. O modelo não identifica uma apólice sucessora e não considera que a renovação altere automaticamente a vigência. Um vínculo explícito entre apólice anterior e nova apólice dependerá da confirmação de como esse processo ocorre na operação. |
+| Regras de juros, descontos e estornos | Cada parcela admite no máximo um pagamento, sem pagamentos parciais, conforme confirmado pelo grupo. O pagamento registra valor positivo, data e forma utilizada. Como não foram informadas regras de encargos ou descontos, a implementação não calcula juros ou multas nem impõe igualdade automática entre valor da parcela e valor pago. Diferenças devem ser conferidas; essa flexibilidade não autoriza pagamento parcial. Estornos não estão implementados, e cancelar uma apólice não elimina automaticamente suas parcelas. |
+| Formas de pagamento, situações operacionais e antecedência dos alertas | A forma de pagamento é um texto obrigatório e não vazio; os exemplos da massa de testes são fictícios e não constituem lista confirmada da organização. Os estados de cotação, proposta, apólice, parcela e sinistro seguem os domínios definidos no dicionário e no SQL. A consulta G04 adota janela de 30 dias para próximos vencimentos como parâmetro técnico da demonstração, ajustável no SQL, e permite consultar a existência de renovações registradas. Não há envio automático de notificações. |
+| Definição do faturamento informado e dos valores de proposta | Os R$ 60.000,00 mensais são uma estimativa relatada pelo grupo, sem confirmação de composição em prêmios, comissões ou receita líquida. Por isso, esse valor caracteriza o levantamento e não é usado como resultado calculado pelo banco. Cotação e proposta armazenam os valores de suas respectivas etapas comerciais, e Pagamento registra o valor efetivamente pago. Somar propostas ou pagamentos não comprova faturamento da operação; os indicadores apresentados devem ser lidos conforme suas definições e usam dados fictícios. |
 
 ### Problemas de gestão de informações
 
