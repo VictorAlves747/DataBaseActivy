@@ -8,9 +8,9 @@
 
 | Integrante | RGM | Usuário GitHub |
 |---|---|---|
-| Mateus Martins Gonçalves | 47812222 | conteudo pendente |
-| Raul Borges Sim | 48247634 | conteudo pendente |
-| João Gustavo Bento de Souza | 42283671 | conteudo pendente |
+| Mateus Martins Gonçalves | 47812222 | [mateuzzxx](https://github.com/mateuzzxx) |
+| Raul Borges Sim | 48247634 | [raulzin085-debug](https://github.com/raulzin085-debug) |
+| João Gustavo Bento de Souza | 42283671 | [jogus2007-dot](https://github.com/jogus2007-dot) |
 | Victor Alves Rodrigues Braulino | 48216305 | [VictorAlves747](https://github.com/VictorAlves747) |
 
 # 1. Relatório Técnico Final
