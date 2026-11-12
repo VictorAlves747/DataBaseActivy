@@ -1,4 +1,4 @@
-# Entrega 2 — Modelo Lógico, Implementação SQL e Apresentação Final
+# Entrega 2 — Modelo Lógico, Implementação SQL e Vídeo Explicativo
 
 ## Gestão da operação de seguros — Bradesco
 
@@ -358,7 +358,7 @@ O arquivo [docs/script.sql](docs/script.sql) contém CREATE DATABASE, CREATE TAB
 
 Executar o arquivo completo em uma instalação de testes onde o banco `corretora_seguros_e2` ainda não exista. O script não contém DROP DATABASE. Os exemplos UPDATE e DELETE usam transação com ROLLBACK para preservar a massa de demonstração. As consultas usam data de referência fixa em 31/10/2026, com período de setembro a outubro de 2026; as variáveis podem ser alteradas para outro recorte.
 
-O script foi executado do zero no **MySQL Community Server 8.4.13**, com 11 tabelas e 1.266 registros fictícios. Foram conferidas as dez consultas gerenciais, as oito auditorias e 31 casos de rejeição de dados inválidos. Os exemplos UPDATE e DELETE preservaram os dados após ROLLBACK. A massa foi corrigida para que a divisão em parcelas não produza diferenças de centavos. O [registro dos testes](docs/validacao-mysql.md) detalha os resultados e seus limites. Os testes adicionais verificaram pagamento concorrente, reversão integral em caso de falha e os limites da vigência. Antes da apresentação, o grupo deve repetir a execução no ambiente que utilizará.
+O script foi executado do zero no **MySQL Community Server 8.4.13**, com 11 tabelas e 1.266 registros fictícios. Foram conferidas as dez consultas gerenciais, as oito auditorias e 31 casos de rejeição de dados inválidos. Os exemplos UPDATE e DELETE preservaram os dados após ROLLBACK. A massa foi corrigida para que a divisão em parcelas não produza diferenças de centavos. O [registro dos testes](docs/validacao-mysql.md) detalha os resultados e seus limites. Os testes adicionais verificaram pagamento concorrente, reversão integral em caso de falha e os limites da vigência. Antes da gravação do vídeo, o grupo deve repetir a execução no ambiente que utilizará.
 
 O [guia de execução e demonstração](docs/guia-execucao.md) apresenta a importação e o uso da rotina. `registrar_pagamento` controla sua própria transação e deve ser chamada isoladamente, sem transação anterior aberta. Não foram configurados usuários ou permissões de uma aplicação: alterações diretas nas tabelas ainda podem produzir divergência entre pagamento e status, detectada por A04. Não se impõe igualdade entre valor pago e valor da parcela até confirmar juros e descontos.
 
@@ -416,14 +416,14 @@ levantamento/        Relato organizado da pesquisa
 evidencias/          Fotografias em JPG
 fluxogramas/         Integração e processos operacionais
 docs/                Script SQL, validação e guia de execução
-apresentacao/        Slides PDF e roteiro da defesa
+roteiro-video.md     Roteiro do vídeo com divisão entre os quatro integrantes
 ```
 
 O relatório técnico ocupa o README da raiz. Os artefatos ficam em arquivos próprios e são acessados pelos links deste relatório. O histórico registra as alterações efetivamente realizadas. Contribuições dos integrantes devem corresponder ao trabalho feito por cada um e à sua própria conta.
 
 # 6. Uso de Inteligência Artificial
 
-**Ferramenta: ChatGPT/Codex — OpenAI.** A pesquisa de campo, fotografias e respostas da responsável foram fornecidas pelo grupo. A ferramenta apoiou a organização e a revisão da documentação e, nesta etapa, a preparação dos modelos, tipos SQL, massa fictícia e consultas. A participação da ferramenta não substitui o levantamento nem a defesa individual.
+**Ferramenta: ChatGPT/Codex — OpenAI.** A pesquisa de campo, fotografias e respostas da responsável foram fornecidas pelo grupo. A ferramenta apoiou a organização e a revisão da documentação e, nesta etapa, a preparação dos modelos, tipos SQL, massa fictícia e consultas. A participação da ferramenta não substitui o levantamento nem a compreensão do trabalho pelos integrantes.
 
 | Etapa | Motivação e pedido | Resultado e revisão |
 |---|---|---|
@@ -445,14 +445,21 @@ A IA pode propor tipos, consultas e regras incompatíveis com o processo real. A
 
 ### Registro do uso de IA nesta revisão
 
-Em 07/11/2026, o grupo forneceu um plano de correção e pediu: “oq for da minha responsabilidade do grupo so me fale porem oq der para fazer faça”. A revisão utilizou o roteiro, o exemplo 02-03g e o recurso de cardinalidade do professor. Foram corrigidos os pares do conceitual, ampliados processos/conversão/normalização e revistos os nomes dos indicadores. Regras de renovação, cobrança após cancelamento e organização não foram inventadas. A revisão também gerou slides em PDF e um roteiro de defesa com apoio da IA, a partir do relatório e dos resultados executados. A massa fictícia ganhou variação mensal, mantendo os vínculos e a conferência independente das consultas. Os testes automatizados verificam a implementação, não comprovam validação coletiva ou entrevista adicional.
+Em 07/11/2026, o grupo forneceu um plano de correção e pediu: “oq for da minha responsabilidade do grupo so me fale porem oq der para fazer faça”. A revisão utilizou o roteiro, o exemplo 02-03g e o recurso de cardinalidade do professor. Foram corrigidos os pares do conceitual, ampliados processos/conversão/normalização e revistos os nomes dos indicadores. Regras de renovação, cobrança após cancelamento e organização não foram inventadas. O roteiro do vídeo foi preparado com apoio da IA, a partir do relatório e dos resultados executados. A massa fictícia ganhou variação mensal, mantendo os vínculos e a conferência independente das consultas. Os testes automatizados verificam a implementação, não comprovam validação coletiva ou entrevista adicional.
 
-# 7. Apresentação Corporativa Final
+# 7. Vídeo Explicativo da Entrega
 
-**Slides da apresentação:** [PDF — oito slides](apresentacao/apresentacao-entrega-2.pdf). [Roteiro de oito minutos e preparação para a defesa](apresentacao/roteiro-e-defesa.md).
+A entrega será explicada em vídeo, com duração máxima de **8 minutos**. O [roteiro de gravação](roteiro-video.md) distribui cerca de **1min30 por integrante**, totalizando aproximadamente **6 minutos**, com margem para transições e demonstração na tela.
 
-**Ambiente e versão do MySQL para a apresentação:** conteudo pendente
+| Ordem | Integrante | Conteúdo | Tempo previsto |
+|---|---|---|---|
+| 1 | João Gustavo Bento de Souza | Organização, entrevista e problema identificado | 1min30 |
+| 2 | Mateus Martins Gonçalves | Processos e DER conceitual | 1min30 |
+| 3 | Raul Borges Sim | Modelo lógico, dicionário e integridade no SQL | 1min30 |
+| 4 | Victor Alves Rodrigues Braulino | Consultas, validação e conclusão | 1min30 |
 
-O pitch de oito minutos segue: contexto e problema (50 s), solução (50 s), conceitual e modelo lógico (90 s), implementação SQL (90 s), consultas gerenciais e auditorias (100 s), potencial de BI/IA (50 s) e benefícios para decisão (50 s). Total: 480 segundos.
+O vídeo deve mostrar os arquivos e exemplos explicados, com texto legível e resultados identificados como provenientes de dados fictícios. O roteiro indica as telas de cada trecho e os cuidados para reproduzir as consultas. A divisão é uma proposta de gravação e não atribui autoria exclusiva das etapas.
 
-A demonstração deve usar o mesmo script, com G03 para parcelas em aberto, G04 para vencimentos, G07 para conversão e A04/A05 para consistência. A apresentação não deve se limitar a ler o relatório: o modelo e os resultados das consultas são os elementos centrais. Após o pitch, todos os integrantes participam da defesa individual conforme as perguntas dirigidas pelo professor.
+**Link do vídeo final:** conteudo pendente
+
+**Ambiente e versão do MySQL utilizados na gravação:** conteudo pendente
