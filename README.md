@@ -53,15 +53,15 @@ A centralização organiza registros e permite consultas integradas. A transfer�
 
 ### Evidências e relato da entrevista
 
-A pesquisa foi realizada nas instalações visitadas. O material identifica Patrícia dos Santos Souza como entrevistada. A confirmação de seu cargo e vínculo permanece pendente. O relato organizado está no [levantamento](levantamento/levantamento.md). As informações dos processos procedem do levantamento do grupo; as fotografias registram o ambiente físico e momentos da entrevista.
+A pesquisa foi realizada nas instalações visitadas. O material identifica Patrícia dos Santos Souza como entrevistada. O cargo informado pelo grupo é sócia. João Gustavo Bento de Souza participou da entrevista e aparece nos registros fotográficos. O relato organizado está no [levantamento](levantamento/levantamento.md). As informações dos processos procedem do levantamento do grupo; as fotografias registram o ambiente físico e momentos da entrevista.
 
 | Informação da pesquisa | Registro |
 |---|---|
 | Data da entrevista | 02/11/2026 |
-| Integrantes que participaram da entrevista | conteudo pendente |
-| Confirmação da função da entrevistada e de seu vínculo com a organização | conteudo pendente |
-| Telefone autorizado da responsável | conteudo pendente |
-| Contato institucional | conteudo pendente |
+| Integrantes que participaram da entrevista | João Gustavo Bento de Souza |
+| Função informada da entrevistada | Sócia, conforme informação do grupo |
+| Telefone autorizado da responsável | (11) 96202-6435 |
+| Contato institucional | (11) 96202-6435 |
 | Perfil da organização no Google Maps | conteudo pendente |
 | Vínculo profissional ou familiar de integrantes com a organização | conteudo pendente |
 | Foto da entrevista no local | [Registro da entrevista](evidencias/foto-entrevista-conversa.jpeg) e [registro junto à identificação da unidade](evidencias/foto-visita-participantes.jpeg) |
