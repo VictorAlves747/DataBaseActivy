@@ -42,7 +42,7 @@ Os identificadores internos, tamanhos SQL, índices, valores padronizados de sta
 | Função informada da responsável | Sócia, conforme informação do grupo |
 | Telefone autorizado da responsável | (11) 96202-6435 |
 | Contato institucional | (11) 96202-6435 |
-| Perfil no Google Maps | conteudo pendente |
+| Perfil no Google Maps | [Banco Bradesco — Agência 1363](https://maps.app.goo.gl/jkXVU2vsqRxeW3BV7) |
 | Foto da entrevista no local | [Registro fotográfico](../evidencias/foto-entrevista-conversa.jpeg) |
 | Data e participantes de eventual nova visita | conteudo pendente |
 | Processos complementares e validação do escopo | conteudo pendente |
