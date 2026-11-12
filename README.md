@@ -63,7 +63,7 @@ A pesquisa foi realizada nas instalações visitadas. O material identifica Patr
 | Telefone autorizado da responsável | (11) 96202-6435 |
 | Contato institucional | (11) 96202-6435 |
 | Perfil da organização no Google Maps | [Banco Bradesco — Agência 1363](https://maps.app.goo.gl/jkXVU2vsqRxeW3BV7) |
-| Vínculo profissional ou familiar de integrantes com a organização | conteudo pendente |
+| Vínculo profissional ou familiar de integrantes com a organização | Patrícia dos Santos Souza, responsável entrevistada, é tia do integrante João Gustavo Bento de Souza. |
 | Foto da entrevista no local | [Registro da entrevista](evidencias/foto-entrevista-conversa.jpeg) e [registro junto à identificação da unidade](evidencias/foto-visita-participantes.jpeg) |
 
 ![Ambiente interno](evidencias/foto-ambiente-interno.jpeg)
