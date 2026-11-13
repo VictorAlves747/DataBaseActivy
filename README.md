@@ -449,7 +449,7 @@ Em 07/11/2026, o grupo forneceu um plano de correção e pediu: “oq for da min
 
 # 7. Vídeo Explicativo da Entrega
 
-A entrega será explicada em vídeo, com duração máxima de **8 minutos**. O [roteiro de gravação](roteiro-video.md) distribui cerca de **1min30 por integrante**, totalizando aproximadamente **6 minutos**, com margem para transições e demonstração na tela.
+A entrega será explicada em vídeos individuais, com os links de cada integrante disponibilizados abaixo, conforme orientação do professor. O planejamento das falas considera o limite total informado de **8 minutos**. O [roteiro de gravação](roteiro-video.md) distribui cerca de **1min30 por integrante**, totalizando aproximadamente **6 minutos**, com margem para transições e demonstração na tela.
 
 | Ordem | Integrante | Conteúdo | Tempo previsto |
 |---|---|---|---|
@@ -460,6 +460,13 @@ A entrega será explicada em vídeo, com duração máxima de **8 minutos**. O [
 
 O vídeo deve mostrar os arquivos e exemplos explicados, com texto legível e resultados identificados como provenientes de dados fictícios. O roteiro indica as telas de cada trecho e os cuidados para reproduzir as consultas. A divisão é uma proposta de gravação e não atribui autoria exclusiva das etapas.
 
-**Link do vídeo final:** conteudo pendente
+## Link vídeo — 2ª entrega
+
+| Integrante | Vídeo da apresentação |
+|---|---|
+| Mateus Martins Gonçalves | conteudo pendente |
+| Raul Borges Sim | conteudo pendente |
+| João Gustavo Bento de Souza | conteudo pendente |
+| Victor Alves Rodrigues Braulino | [Assistir ao vídeo de Victor Alves](https://youtube.com/shorts/_NJYGdvLfGw) |
 
 **Ambiente e versão do MySQL utilizados na gravação:** conteudo pendente
