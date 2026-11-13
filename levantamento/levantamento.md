@@ -2,7 +2,7 @@
 
 ## Organização e fonte das informações
 
-A visita foi realizada no Banco Bradesco — Agência 1363, Av. Dr. Chucri Zaidan, 80, Itaim Bibi, São Paulo — SP, CEP 04583-110. O levantamento fornecido pelo grupo descreve a operação de seguros vinculada ao local. A entrevistada foi identificada no levantamento como Patrícia dos Santos Souza. O cargo informado pelo grupo é sócia. João Gustavo Bento de Souza participou da entrevista e aparece nos registros fotográficos.
+A visita foi realizada no Banco Bradesco — Agência 2645, Av. Dr. Chucri Zaidan, 80, Itaim Bibi, São Paulo — SP, CEP 04583-110. O levantamento fornecido pelo grupo descreve a operação de seguros vinculada ao local. A entrevistada foi identificada no levantamento como Patrícia dos Santos Souza. O cargo informado pelo grupo é sócia. João Gustavo Bento de Souza participou da entrevista e aparece nos registros fotográficos.
 
 ## Evidências visuais
 
@@ -42,7 +42,7 @@ Os identificadores internos, tamanhos SQL, índices, valores padronizados de sta
 | Função informada da responsável | Sócia, conforme informação do grupo |
 | Telefone autorizado da responsável | (11) 96202-6435 |
 | Contato institucional | (11) 96202-6435 |
-| Perfil no Google Maps | [Banco Bradesco — Agência 1363](https://maps.app.goo.gl/jkXVU2vsqRxeW3BV7) |
+| Perfil no Google Maps | conteudo pendente |
 | Foto da entrevista no local | [Registro fotográfico](../evidencias/foto-entrevista-conversa.jpeg) |
 | Data e participantes de eventual nova visita | conteudo pendente |
 | Processos complementares e validação do escopo | conteudo pendente |

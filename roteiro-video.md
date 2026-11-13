@@ -21,7 +21,7 @@ As falas são sugestões para ensaio. O tempo depende do ritmo e das pausas para
 
 **Fala sugerida:**
 
-“Olá, professor. Nosso trabalho trata da modelagem de um banco de dados para a operação de seguros pesquisada junto ao Bradesco. O grupo é formado por João, Mateus, Raul e Victor. A visita ocorreu na agência 1363, em São Paulo, e a entrevista registrada foi realizada em 2 de novembro de 2026, com Patrícia dos Santos Souza.
+“Olá, professor. Nosso trabalho trata da modelagem de um banco de dados para a operação de seguros pesquisada junto ao Bradesco. O grupo é formado por João, Mateus, Raul e Victor. A visita ocorreu na agência 2645, em São Paulo, e a entrevista registrada foi realizada em 2 de novembro de 2026, com Patrícia dos Santos Souza.
 
 Na pesquisa, identificamos informações distribuídas entre Excel, Google Planilhas e anotações em papel. Também foi relatado o uso de um quadro de vidro para organizar visitas. Esse cenário exige atualizações manuais e dificulta reunir o histórico do cliente.
 

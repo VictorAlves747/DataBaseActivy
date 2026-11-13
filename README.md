@@ -19,7 +19,7 @@
 
 ### Caracterização da organização
 
-O projeto mantém a organização pesquisada na Entrega 1. O levantamento descreve a operação de seguros vinculada ao Bradesco, com visita ao **Banco Bradesco — Agência 1363**, na **Av. Dr. Chucri Zaidan, 80 — Itaim Bibi, São Paulo — SP, CEP 04583-110**. A modelagem disponível representa os processos de seguros levantados na pesquisa; não representa a operação bancária completa da agência.
+O projeto mantém a organização pesquisada na Entrega 1. O levantamento descreve a operação de seguros vinculada ao Bradesco, com visita ao **Banco Bradesco — Agência 2645**, na **Av. Dr. Chucri Zaidan, 80 — Itaim Bibi, São Paulo — SP, CEP 04583-110**. A modelagem disponível representa os processos de seguros levantados na pesquisa; não representa a operação bancária completa da agência.
 
 Segundo as informações fornecidas pelo grupo, a operação tem fins lucrativos, funciona desde 2016, conta com seis funcionários, atende cerca de 50 a 100 clientes por mês e comercializa 50 a 60 seguros mensais. Foi informado faturamento aproximado de R$ 60.000,00 por mês. A seleção decorreu do acesso do grupo ao ambiente e à responsável, permitindo levantar cadastros, contratação, pagamentos, atendimentos, sinistros e renovações.
 
@@ -29,7 +29,7 @@ As definições abaixo combinam as informações fornecidas pelo grupo com decis
 
 | Informação | Definição adotada no projeto |
 |---|---|
-| Recorte da operação de seguros para a Entrega 2 | O objeto modelado é a operação de seguros pesquisada na agência 1363: clientes, seguradoras, tipos de seguro, cotações, propostas, apólices, parcelas, pagamentos, atendimentos, sinistros e renovações. Essa delimitação mantém continuidade com a pesquisa da Entrega 1. A versão não representa toda a atividade bancária da agência. |
+| Recorte da operação de seguros para a Entrega 2 | O objeto modelado é a operação de seguros pesquisada na agência 2645: clientes, seguradoras, tipos de seguro, cotações, propostas, apólices, parcelas, pagamentos, atendimentos, sinistros e renovações. Essa delimitação mantém continuidade com a pesquisa da Entrega 1. A versão não representa toda a atividade bancária da agência. |
 | Processos adicionais e justificativas dos processos não incluídos | O modelo cobre cadastro, cotação, proposta, contratação, controle financeiro das parcelas, histórico de atendimentos e visitas, sinistros e registro de renovações concluídas. Contas bancárias, crédito, investimentos, folha de pagamento, comissões e despesas ficam fora desta versão por não terem sido detalhados no levantamento. Essa exclusão delimita o projeto e não significa que tais processos não existam na organização. |
 | Cadastro de pessoas jurídicas e dados utilizados | O cadastro implementado representa pessoas físicas, com CPF único, nome e data de nascimento, conforme os dados informados na pesquisa. A oferta de seguro empresarial, isoladamente, não confirma como a organização cadastra pessoas jurídicas. Um cadastro próprio com CNPJ e razão social é uma possibilidade de evolução, não implementada nesta entrega; CNPJ não deve ser armazenado no campo CPF. |
 | Agenda de visitas e atribuição de responsáveis | O levantamento registra planejamento semanal em quadro de vidro e uso de papel e planilhas. Nesta versão, Atendimento mantém data, tipo, descrição e vínculo com o cliente, permitindo consultar o histórico de contatos e visitas. Agendamento futuro e atribuição de funcionários não foram implementados; sua inclusão exigiria cadastro de responsáveis e regras de disponibilidade. |
@@ -62,7 +62,7 @@ A pesquisa foi realizada nas instalações visitadas. O material identifica Patr
 | Função informada da entrevistada | Sócia, conforme informação do grupo |
 | Telefone autorizado da responsável | (11) 96202-6435 |
 | Contato institucional | (11) 96202-6435 |
-| Perfil da organização no Google Maps | [Banco Bradesco — Agência 1363](https://maps.app.goo.gl/jkXVU2vsqRxeW3BV7) |
+| Perfil da organização no Google Maps | conteudo pendente |
 | Vínculo profissional ou familiar de integrantes com a organização | Patrícia dos Santos Souza, responsável entrevistada, é tia do integrante João Gustavo Bento de Souza. |
 | Foto da entrevista no local | [Registro da entrevista](evidencias/foto-entrevista-conversa.jpeg) e [registro junto à identificação da unidade](evidencias/foto-visita-participantes.jpeg) |
 
